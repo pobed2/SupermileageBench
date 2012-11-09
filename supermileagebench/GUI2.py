@@ -86,7 +86,7 @@ class MainFrame(wx.Frame):
         self.resetCanvas()
         
     def onStopAndDeleteClick(self, event):
-        self.database.stopDataAquisition(save = False)
+        self.database.stop_data_aquisition(save = False)
         self.resetCanvas()
         
     def resetCanvas(self):

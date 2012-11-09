@@ -1,5 +1,5 @@
 from __future__ import print_function
-from dropbox import client, session
+from dropbox import client, rest, session
 
 
 APP_KEY = 'b7vlkm7gkajqco7'

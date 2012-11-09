@@ -2,9 +2,9 @@ import wx
 import matplotlib       # Provides the graph figures
 matplotlib.use('WXAgg') # matplotlib needs a GUI (layout), we use wxPython
 
-from supermileagebench.GUI import MainFrame
+from supermileagebench.GUI2 import MainFrame
 from supermileagebench.DynoEncoder import DynoEncoder
-from supermileagebench.Data import AccelerationDatabase
+from supermileagebench.Data2 import AccelerationDatabase
 
 class MainClass(wx.App):
     def OnInit(self):

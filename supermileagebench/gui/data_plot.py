@@ -4,16 +4,24 @@ class DataPlot(object):
                  x_label = '', y_label = '', linewidth = 1, color = (1,1,1)):
 
         self.data_repository = data_repository
+        self.subplot_code = subplot_code
+        self.bg_color = bg_color
+        self.title = title
+        self.x_label = x_label
+        self.y_label = y_label
+        self.linewidth = linewidth
+        self.color = color
 
-        self.subplot = figure.add_subplot(subplot_code)
-        self.subplot.set_axis_bgcolor(bg_color)
-        self.subplot.set_title(title, size=12)
-        self.subplot.set_xlabel(x_label, size=10)
-        self.subplot.set_ylabel(y_label, size=10)
+    def initialize_figure(self, figure):
+        self.subplot = figure.add_subplot(self.subplot_code)
+        self.subplot.set_axis_bgcolor(self.bg_color)
+        self.subplot.set_title(self.title, size=12)
+        self.subplot.set_xlabel(self.x_label, size=10)
+        self.subplot.set_ylabel(self.y_label, size=10)
         self.data_plot = self.subplot.plot(
             [],
-            linewidth=linewidth,
-            color=color,
+            linewidth=self.linewidth,
+            color=self.color,
         )[0]
 
     def prepare_plot_for_draw(self):
