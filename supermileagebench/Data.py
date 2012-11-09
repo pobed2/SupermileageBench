@@ -1,9 +1,11 @@
 from __future__ import division
-from supermileagebench.DynoMath import derivate,  secondOrder, find_first_derivative_five_point, find_second_derivative_five_point
+from supermileagebench.DynoMath import derivate
+from supermileagebench.filters import savitzky_golay
 from supermileagebench.dropbox_saver import  DropboxSaver
 import math
 import os
 from datetime import datetime
+import numpy
 
 class PointDatabase(object):
     '''
@@ -92,11 +94,13 @@ class AccelerationDatabase(PointDatabase):
         self.positions = []
         self.velocities = []
         self.accelerations = []
+        self.torque = []
         self.time = []
         
         self.file_positions = []
         self.file_velocities = []
         self.file_accelerations = []
+        self.file_torque = []
         self.file_time = []
         
         self.derivativeInterval = derivativeInterval/1000
@@ -112,11 +116,13 @@ class AccelerationDatabase(PointDatabase):
             self._add_position_point(position)
             self._add_velocity_point()
             self._add_acceleration_point()
+            self._add_torque_point()
             
             if len(self.positions) > self.maximumArray:
                 self.positions.pop(0)
                 self.velocities.pop(0)
                 self.accelerations.pop(0)
+                self.torque.pop(0)
                 self.time.pop(0)
           
     def _add_time_point(self, timeAfterLastPoint):
@@ -138,7 +144,10 @@ class AccelerationDatabase(PointDatabase):
         acceleration = derivate(self.time, self.velocities, self.derivativeInterval)
         self.accelerations.append(acceleration)
         self.file_accelerations.append(acceleration)
-              
+
+    def _add_torque_point(self):
+        self.torque = savitzky_golay(numpy.array(self.accelerations), 111, 1, deriv=0)
+
     def _convert_pulses_to_radians(self, position):
         return (position/self.numberOfPulsesPerTurn)*(2*math.pi)
     

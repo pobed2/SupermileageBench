@@ -12,8 +12,10 @@ matplotlib.use('WXAgg') # matplotlib needs a GUI (layout), we use wxPython
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigCanvas
 
+from filters import savitzky_golay
+
 import numpy as np  # For efficient data array handling
-import pylab       
+import pylab
 
 class MainFrame(wx.Frame):
 
@@ -46,9 +48,12 @@ class MainFrame(wx.Frame):
         
         self.database = database
         self.time = database.time
-        self.plotPosition()
-        self.plotVelocity()
+
+        #self.plotPosition()
+        #self.plotVelocity()
+
         self.plotAcceleration()
+        self.plotTorque()
 
 
         # This times fires every 100 ms to redraw the graphs
@@ -59,11 +64,7 @@ class MainFrame(wx.Frame):
         # -------- GUI components
 
         self.graphBox = wx.BoxSizer(wx.VERTICAL)
-        self.graphBox.Add(self.canvas, 1, flag=wx.LEFT | wx.TOP | wx.GROW) 
-        
-        startButton = wx.Button(self.canvas, id=wx.ID_ANY, label="Start")
-        startButton.Bind(wx.EVT_BUTTON, self.onStartButtonClick)
-        startButton.SetPosition(wx.Point(700,400))
+        self.graphBox.Add(self.canvas, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
 
         self.panel.SetSizer(self.graphBox)
         self.panel.Show()
@@ -77,7 +78,7 @@ class MainFrame(wx.Frame):
     def onClose(self, event):
         self.Close()
         
-    def onStartButtonClick(self, event):
+    def onStartClick(self, event):
         self.database.startDataAquisition()
     
     def onStopAndSaveClick(self, event):
@@ -93,21 +94,21 @@ class MainFrame(wx.Frame):
 
     # ---------- Plot and canvas (graph) functionality
 
-    def plotPosition(self):
-        self.positions = self.database.positions
-        self.plotPositions = self.axes.plot(
-            self.positions, 
-            linewidth=1,
-            color=(1, 1, 1),
-            )[0]
-    
-    def plotVelocity(self):
-        self.velocities = self.database.velocities
-        self.plotVelocities = self.veloPlot.plot(
-            self.velocities, 
-            linewidth=1,
-            color=(1, 1, 0),
-            )[0]
+#    def plotPosition(self):
+#        self.positions = self.database.positions
+#        self.plotPositions = self.axes.plot(
+#            self.positions,
+#            linewidth=1,
+#            color=(1, 1, 1),
+#            )[0]
+#
+#    def plotVelocity(self):
+#        self.velocities = self.database.velocities
+#        self.plotVelocities = self.veloPlot.plot(
+#            self.velocities,
+#            linewidth=1,
+#            color=(1, 1, 0),
+#            )[0]
     
     def plotAcceleration(self):
         self.accelerations = self.database.accelerations
@@ -116,67 +117,87 @@ class MainFrame(wx.Frame):
             linewidth=1,
             color=(1, 0, 0),
             )[0]
-     
+
+    def plotTorque(self):
+        self.torques = self.database.torque
+        self.plotTorques = self.torquePlot.plot(
+            self.torques,
+            linewidth=1,
+            color=(0,1,0),
+        )[0]
     
     # Size, color, etc
     def initPlot(self):
         self.fig = Figure((self.width, (self.height)), dpi=self.dpi)
 
-        self.axes = self.fig.add_subplot(221)
-        self.axes.set_axis_bgcolor('black')
-        self.axes.set_title('Position', size=12)
-        self.axes.set_xlabel("Time (seconds)", size=10)
-        self.axes.set_ylabel("Position (radians)", size=10)
-
-        pylab.setp(self.axes.get_xticklabels(), fontsize=8)
-        pylab.setp(self.axes.get_yticklabels(), fontsize=8)
+#        self.axes = self.fig.add_subplot(221)
+#        self.axes.set_axis_bgcolor('black')
+#        self.axes.set_title('Position', size=12)
+#        self.axes.set_xlabel("Time (seconds)", size=10)
+#        self.axes.set_ylabel("Position (radians)", size=10)
+#
+#        pylab.setp(self.axes.get_xticklabels(), fontsize=8)
+#        pylab.setp(self.axes.get_yticklabels(), fontsize=8)
+#
+#        self.veloPlot = self.fig.add_subplot(222)
+#        self.veloPlot.set_axis_bgcolor('black')
+#        self.veloPlot.set_title('Velocity', size=12)
+#        self.veloPlot.set_xlabel("Time (seconds)", size=10)
+#        self.veloPlot.set_ylabel("Velocity (radians per seconds)", size=10)
         
-        self.veloPlot = self.fig.add_subplot(222)
-        self.veloPlot.set_axis_bgcolor('black')
-        self.veloPlot.set_title('Velocity', size=12)
-        self.veloPlot.set_xlabel("Time (seconds)", size=10)
-        self.veloPlot.set_ylabel("Velocity (radians per seconds)", size=10)
-        
-        self.accelPlot = self.fig.add_subplot(223)
+        self.accelPlot = self.fig.add_subplot(121)
         self.accelPlot.set_axis_bgcolor('black')
         self.accelPlot.set_title('Acceleration', size=12)
         self.accelPlot.set_xlabel("Time (seconds)", size=10)
-        self.accelPlot.set_ylabel("Velocity (radians per seconds^2)", size=10)
+        self.accelPlot.set_ylabel("Acceleration (radians per seconds^2)", size=10)
+
+        self.torquePlot = self.fig.add_subplot(122)
+        self.torquePlot.set_axis_bgcolor('black')
+        self.torquePlot.set_title('Torque', size=12)
+        self.torquePlot.set_xlabel("Time (seconds)", size=10)
+        self.torquePlot.set_ylabel("Torque", size=10)
 
     # What gets called each on each redraw timer fire event
     def drawPlot(self):
-        if(len(self.positions)!=0):
+        if(len(self.database.torque)!=0):
+
             gap = (self.time[-1] if self.time[-1] > self.timeToDisplay else self.timeToDisplay)
             xmax = gap + self.timeBeforeEnd
             xmin = gap - self.timeToDisplay    
                 
-            self.axes.set_xbound(lower=xmin, upper=xmax)
-            self.veloPlot.set_xbound(lower=xmin, upper=xmax)
+#            self.axes.set_xbound(lower=xmin, upper=xmax)
+#            self.veloPlot.set_xbound(lower=xmin, upper=xmax)
             self.accelPlot.set_xbound(lower=xmin, upper=xmax)
+            self.torquePlot.set_xbound(lower=xmin, upper=xmax)
             
-            yminPos = round(min(self.positions), 0) - (0.1 * abs(round(min(self.positions), 0)))
-            ymaxPos = round(max(self.positions), 0) + (0.1 * round(max(self.positions), 0))            
-            self.axes.set_ybound(lower=yminPos, upper=ymaxPos)
-            
-            yminVelo = round(min(self.velocities), 0) - (0.1 * abs(round(min(self.velocities), 0)))
-            ymaxVelo = round(max(self.velocities), 0) + (0.1 * round(max(self.velocities), 0))  
-            self.veloPlot.set_ybound(lower=yminVelo, upper=ymaxVelo)
+#            yminPos = round(min(self.positions), 0) - (0.1 * abs(round(min(self.positions), 0)))
+#            ymaxPos = round(max(self.positions), 0) + (0.1 * round(max(self.positions), 0))
+#            self.axes.set_ybound(lower=yminPos, upper=ymaxPos)
+#
+#            yminVelo = round(min(self.velocities), 0) - (0.1 * abs(round(min(self.velocities), 0)))
+#            ymaxVelo = round(max(self.velocities), 0) + (0.1 * round(max(self.velocities), 0))
+#            self.veloPlot.set_ybound(lower=yminVelo, upper=ymaxVelo)
             
             yminAccel = round(min(self.accelerations), 0) - (0.1 * abs(round(min(self.accelerations), 0)))
             ymaxAccel = round(max(self.accelerations), 0) + (0.1 * round(max(self.accelerations), 0))  
             self.accelPlot.set_ybound(lower=yminAccel, upper=ymaxAccel)
+
+            yminTorque = round(min(self.database.torque), 0) - (0.1 * abs(round(min(self.database.torque), 0)))
+            ymaxTorque = round(max(self.database.torque), 0) + (0.1 * round(max(self.database.torque), 0))
+            self.torquePlot.set_ybound(lower=yminTorque, upper=ymaxTorque)
+
             
-            self.axes.grid(True, color='gray')
-            pylab.setp(self.axes.get_xticklabels(), 
-                visible=True)
+#            self.axes.grid(True, color='gray')
+#            pylab.setp(self.axes.get_xticklabels(),
+#                visible=True)
     
             timeArray = np.array(self.time)            
-            self.plotPositions.set_data(timeArray, np.array(self.positions))
-
-    
-            self.plotVelocities.set_data(timeArray[len(self.velocities)-len(timeArray):], np.array(self.velocities))
+#            self.plotPositions.set_data(timeArray, np.array(self.positions))
+#
+#            self.plotVelocities.set_data(timeArray[len(self.velocities)-len(timeArray):], np.array(self.velocities))
             self.plotAccelerations.set_data(timeArray[len(self.accelerations)-len(timeArray):], np.array(self.accelerations))
-    
+            self.plotTorques.set_data(timeArray[len(self.database.torque)-len(timeArray):], np.array(self.database.torque))
+
             self.canvas.draw()
 
     def onRedrawTimer(self, event): 
@@ -193,7 +214,10 @@ class MainFrame(wx.Frame):
         self.menuBar = wx.MenuBar()
         
         self.menuFile = wx.Menu()
-        
+
+        menuStart = self.menuFile.Append(-1, "&Start Data Acquisition", "Start")
+        self.Bind(wx.EVT_MENU, self.onStartClick, menuStart)
+
         menuStopAndSave = self.menuFile.Append(-1, "&Stop and Save to Dropbox", "Stop accelerations aquisition and save")
         self.Bind(wx.EVT_MENU, self.onStopAndSaveClick, menuStopAndSave)
         
