@@ -85,9 +85,13 @@ class VelocityDatabase(PointDatabase):
         return 0, 0
     
 class AccelerationDatabase(PointDatabase):
-    
+
+
+
     def __init__(self, maximumSize, derivativeInterval):
-        
+
+        self.DISC_INERTIA = 60
+
         self.totalTime = 0
         self.maximumArray = maximumSize
         
@@ -147,6 +151,10 @@ class AccelerationDatabase(PointDatabase):
 
     def _add_torque_point(self):
         self.torque = savitzky_golay(numpy.array(self.accelerations), 111, 1, deriv=0)
+        self.torque *= self.DISC_INERTIA
+
+        self.file_torque = savitzky_golay(numpy.array(self.file_accelerations), 111, 1, deriv=0)
+        self.file_torque *= self.DISC_INERTIA
 
     def _convert_pulses_to_radians(self, position):
         return (position/self.numberOfPulsesPerTurn)*(2*math.pi)
@@ -178,14 +186,15 @@ class AccelerationDatabase(PointDatabase):
         self.file_time[:] = []
     
     def _save_to_csv(self):
-        filename = ("%s.csv" % str(datetime.now().replace(microsecond=0))) 
+        filename = ("%s.csv" % str(datetime.now().replace(microsecond=0)))
         with open(filename, 'w') as data_file:
-            data_file.write("Time, Positions, Velocities, Accelerations \n")
+            data_file.write("Time, Positions, Velocities, Accelerations, Torques \n")
             for i in range(len(self.time)):
                 data_file.write(str(self.file_time[i]) + ",")
                 data_file.write(str(self.file_positions[i]) + ",")
                 data_file.write(str(self.file_velocities[i]) + ",")
-                data_file.write(str(self.file_accelerations[i]) + "\n")
+                data_file.write(str(self.file_accelerations[i]) + ",")
+                data_file.write(str(self.file_torque[i]) + "\n")
         return filename
 
     

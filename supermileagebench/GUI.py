@@ -255,28 +255,28 @@ class MainFrame(wx.Frame):
             path = dlg.GetPath()
             self.canvas.print_figure(path, dpi=self.dpi)
 
-    # ----- Save as file 
+    # ----- Save as file
 
-    # Note this saves -all- accelerations from self.fileX variables
     def onSaveCSV(self, event):
         fileChoices = "CSV (*.csv)|*.csv"
-        
+
         dlg = wx.FileDialog(
-            self, 
-            message="Save accelerations as...",
+            self,
+            message="Save data as...",
             defaultDir=os.getcwd(),
             defaultFile="plot.csv",
             wildcard=fileChoices,
             style=wx.SAVE)
-        
+
         if dlg.ShowModal() == wx.ID_OK:
             path = dlg.GetPath()
             outFile = open(path, 'w')
 
-            outFile.write("Time, Positions, Velocities, Accelerations\n")
+            outFile.write("Time, Positions, Velocities, Accelerations, Torques\n")
             for i in range(len(self.time)):
-                outFile.write(str(self.time[i]) + ",")
-                outFile.write(str(self.positions[i]) + ",")
-                outFile.write(str(self.velocities[i]) + ",")
-                outFile.write(str(self.accelerations[i]) + "\n")
+                outFile.write(str(self.database.file_time[i]) + ",")
+                outFile.write(str(self.database.file_positions[i]) + ",")
+                outFile.write(str(self.database.file_velocities[i]) + ",")
+                outFile.write(str(self.database.file_accelerations[i]) + ",")
+                outFile.write(str(self.database.file_torque) + "\n")
             outFile.close()
