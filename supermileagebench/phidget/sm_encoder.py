@@ -56,7 +56,7 @@ class SMEncoder(object):
 
     def _notifyAttachDetachObserversForAttach(self):
         for observer in self.attachDetachObservers:
-            observer.startTimer()
+            observer.encoder_is_attached()
 
     def _notifyAttachDetachObserversForDetach(self):
         pass

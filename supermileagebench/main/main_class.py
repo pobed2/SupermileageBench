@@ -4,48 +4,46 @@ matplotlib.use('WXAgg') # matplotlib needs a GUI (layout), we use wxPython
 
 from supermileagebench.gui.main_frame import MainFrame
 from supermileagebench.gui.data_plot import DataPlot
-
+from supermileagebench.gui.repository import *
 from supermileagebench.phidget.sm_encoder import SMEncoder
 from supermileagebench.phidget.encoder_controller import EncoderController
-from supermileagebench.Data import AccelerationDatabase
+from supermileagebench.data.database import AccelerationDatabase
 from supermileagebench.controllers.real_time_controller import RealTimeController
 
 class MainClass(wx.App):
     def OnInit(self):
 
-        self.encoder_controller = EncoderController(self.database)
-        self._init_encoder()
-
         self.database = AccelerationDatabase(5000, 100)
+        subplots = self._init_subplots()
+        self.frame = MainFrame(subplots)
 
-        self.real_time_controller = RealTimeController(self.encoder_controller)
-        subplots = self.init_subplots()
+        self.encoder_controller = EncoderController(self.database)
+        self.real_time_controller = RealTimeController(self.frame, self.encoder_controller)
+        self.frame.set_controller(self.real_time_controller)
 
-        self.frame = MainFrame(self.real_time_controller, subplots)
-        self.real_time_controller.set_frame(self.frame)
-
+        self._init_encoder()
 
         self.frame.Show(True)
         self.frame.Centre()
-
-
 
         return True
 
     def _init_subplots(self):
         subplots = []
 
-        acceleration_repository = ''
-        torque_repository = ''
+        acceleration_repository = AccelerationRepository(self.database)
+        torque_repository = TorqueRepository(self.database)
 
         #Add subplots here
-        accelerationPlot = DataPlot(acceleration_repository, subplot_code=(121), title='Acceleration', x_label='Time (s)'
+        accelerationPlot = DataPlot(acceleration_repository, subplot_code=(211), title='Acceleration', x_label='Time (s)'
             , y_label= 'Acceleration (radians / seconds^2)')
-        torquePlot = DataPlot(torque_repository, subplot_code=(122), title='Torque', x_label='Time (s)'
+        torquePlot = DataPlot(torque_repository, subplot_code=(212), title='Torque', x_label='Time (s)'
             , y_label= 'Torque')
 
         subplots.append(accelerationPlot)
         subplots.append(torquePlot)
+
+        return subplots
 
     def _init_encoder(self):
         self.encoder = SMEncoder()

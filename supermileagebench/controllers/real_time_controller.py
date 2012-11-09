@@ -1,28 +1,31 @@
-from supermileagebench.dropbox.dropbox_saver import  DropboxSaver
+from supermileagebench.dropbox_actions.dropbox_saver import  DropboxSaver
 import os
 
 class RealTimeController(object):
 
-    def __init__(self, encoder_controller):
+    def __init__(self, frame, encoder_controller):
+        self.frame = frame
         self.encoder_controller = encoder_controller
 
-    def set_frame(self, frame):
-        self.frame = frame
+    def encoder_is_attached(self):
+        pass
 
-    def startTimer(self):
+    def start_plotting(self):
         self.frame.startTimer()
+        self.encoder_controller.start_data_acquisition()
 
-    def start_data_aquisition(self):
-        self.encoder_controller.start_data_aquisition()
-
-    def stop_data_aquisition(self, save):
-        self.encoder_controller.stop_data_aquisition()
+    def stop_plotting(self, save):
+        self.frame.stop_timer()
+        self.encoder_controller.stop_data_acquisition()
         if save:
             self._save_data_to_dropbox()
-        self.deleteData()
+        self.delete_data()
 
     def _save_data_to_dropbox(self):
         filename = self._save_to_csv()
         saver = DropboxSaver()
         saver.save_data_to_dropbox(filename)
         os.remove(filename)
+
+    def delete_data(self):
+        pass

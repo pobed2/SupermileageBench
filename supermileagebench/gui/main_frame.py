@@ -12,36 +12,22 @@ import pylab
 
 class MainFrame(wx.Frame):
 
-    def __init__(self, controller, subplots, periodic = True, parent = None, id = -1,title=None):
+    def __init__(self, subplots, periodic = True, parent = None, id = -1,title = ""):
 
         # Sizing information.  Pixels sizes for the Frame are dpi * length
         self.dpi = 100
         self.height = 7
         self.width = 12
-        wx.Frame.__init__(self, parent, id, title, wx.DefaultPosition,
-            ((self.width * self.dpi), (self.height * self.dpi)))
+        wx.Frame.__init__(self, parent, id, title, wx.DefaultPosition,((self.width * self.dpi),(self.height * self.dpi)))
 
-        # Maximum total time (seconds) to be displayed on x axis
-        self.timeToDisplay = 25
-        self.timeBeforeEnd = 5
-
-
-        # --------- GUI and graph initialization
         self.panel = wx.Panel(self, -1)
 
         self.subplots = subplots
         self.init_plots()
         self.createMenu()
 
-
-        self.controller = controller
-
-        # This times fires every 100 ms to redraw the graphs
         if periodic:
             self.init_timer()
-
-
-        # -------- GUI components
 
         self.graphBox = wx.BoxSizer(wx.VERTICAL)
         self.graphBox.Add(self.canvas, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
@@ -49,7 +35,8 @@ class MainFrame(wx.Frame):
         self.panel.SetSizer(self.graphBox)
         self.panel.Show()
 
-        # ---------- Plot and canvas (graph) functionality
+    def set_controller(self, controller):
+        self.controller = controller
 
     def init_plots(self):
         self.fig = Figure((self.width, (self.height)), dpi=self.dpi)
@@ -64,20 +51,22 @@ class MainFrame(wx.Frame):
         self.Bind(wx.EVT_TIMER, self.onRedrawTimer, self.redrawTimer)
 
     def drawPlot(self):
-
         for plot in self.subplots:
             plot.prepare_plot_for_draw()
 
         self.canvas.draw()
+
+    def startTimer(self):
+        self.redrawTimer.Start(self.redrawPeriod)
+
+    def stop_timer(self):
+        self.redrawTimer.Stop()
 
     def onRedrawTimer(self, event):
         try:
             self.drawPlot()
         except RuntimeError as e:
             print e
-
-
-
 
     # ------------------ Top Menu
 
@@ -108,17 +97,16 @@ class MainFrame(wx.Frame):
     # ------------------ Event Handler Functions
 
 
-    def startTimer(self):
-        self.redrawTimer.Start(self.redrawPeriod)
+
 
     def onClose(self, event):
         self.Close()
 
     def onStartClick(self, event):
-        self.controller.start_data_aquisition()
+        self.controller.start_plotting()
 
     def onStopAndSaveClick(self, event):
-        self.controller.stop_data_aquisition(save = True)
+        self.controller.stop_plotting(save = True)
 
     def onStopAndDeleteClick(self, event):
-        self.controller.stop_data_aquisition(save = False)
+        self.controller.stop_plotting(save = False)
