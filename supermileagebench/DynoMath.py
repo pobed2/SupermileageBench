@@ -5,8 +5,7 @@ from numpy import *
 def derivate(time, data, epsilon):
     index = _findIndexOfPointInTime(time, epsilon)
     timeDelta = _findTimeDifference(time, index, epsilon)
-    dataDelta = _findDataDifference(data, index)  
-    time = time if time != 0 else epsilon
+    dataDelta = _findDataDifference(data, index)
     return dataDelta / timeDelta
  
 def _findIndexOfPointInTime(time, epsilon): 

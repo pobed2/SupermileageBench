@@ -9,8 +9,6 @@ import numpy
 
 class AccelerationDatabase(object):
 
-
-
     def __init__(self, maximumSize, derivativeInterval):
 
         self.DISC_INERTIA = 60
