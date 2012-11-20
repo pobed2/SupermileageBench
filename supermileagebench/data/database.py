@@ -1,6 +1,6 @@
 from __future__ import division
-from supermileagebench.DynoMath import derivate
-from supermileagebench.filters import savitzky_golay
+from supermileagebench.data_math.DynoMath import derivate
+from supermileagebench.data_math.filters import savitzky_golay
 
 import math
 from datetime import datetime

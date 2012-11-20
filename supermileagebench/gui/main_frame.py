@@ -16,8 +16,6 @@ class MainFrame(wx.Frame):
         wx.Frame.__init__(self, parent, id, title, wx.DefaultPosition,((self.width * self.dpi),(self.height * self.dpi)))
         self._createMenu()
 
-
-
     def set_controller(self, controller):
         self.controller = controller
 

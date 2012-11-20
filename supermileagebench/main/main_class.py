@@ -3,13 +3,13 @@ import matplotlib       # Provides the graph figures
 matplotlib.use('WXAgg') # matplotlib needs a GUI (layout), we use wxPython
 
 from supermileagebench.gui.main_frame import MainFrame
-from supermileagebench.gui.data_plot import DataPlot
-from supermileagebench.gui.repository import *
+from supermileagebench.gui.data_plotting.data_plot import DataPlot
+from supermileagebench.gui.data_access.repositories import *
 from supermileagebench.phidget.sm_encoder import SMEncoder
 from supermileagebench.phidget.encoder_controller import EncoderController
 from supermileagebench.data.database import AccelerationDatabase
-from supermileagebench.controllers.real_time_controller import RealTimeController
-from supermileagebench.gui.real_time_panel import RealTimePanel
+from supermileagebench.gui.controllers.real_time_panel_controller import RealTimePanelController
+from supermileagebench.gui.panels.real_time_panel import RealTimePanel
 
 class MainClass(wx.App):
     def OnInit(self):
@@ -20,7 +20,7 @@ class MainClass(wx.App):
         self.real_time_panel = RealTimePanel(subplots, self.frame)
 
         self.encoder_controller = EncoderController(self.database)
-        self.real_time_controller = RealTimeController(self.real_time_panel, self.encoder_controller)
+        self.real_time_controller = RealTimePanelController(self.real_time_panel, self.encoder_controller)
         self.frame.set_controller(self.real_time_controller)
 
         self._init_encoder()

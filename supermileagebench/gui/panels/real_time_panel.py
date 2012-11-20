@@ -1,11 +1,11 @@
 import wx
 
-from supermileagebench.gui.bench_panel import BenchPanel
+from supermileagebench.gui.panels.bench_panel import BenchPanel
 
 class RealTimePanel(BenchPanel):
 
-    def __init__(self, subplots, parent):
-        super(RealTimePanel, self).__init__(subplots, parent)
+    def __init__(self, sub_data_plots, parent):
+        super(RealTimePanel, self).__init__(sub_data_plots, parent)
         self.parent = parent
         self._init_timer()
 
