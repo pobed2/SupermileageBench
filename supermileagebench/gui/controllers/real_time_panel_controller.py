@@ -3,7 +3,6 @@ from supermileagebench.dropbox_actions.dropbox_saver import  DropboxSaver
 
 
 class RealTimePanelController(object):
-
     def __init__(self, encoder_controller):
         self.encoder_controller = encoder_controller
 
@@ -20,7 +19,6 @@ class RealTimePanelController(object):
         self.encoder_controller.stop_data_acquisition()
         if save:
             self._save_data_to_dropbox()
-        self.delete_data()
 
     def _save_data_to_dropbox(self):
         filename = self._save_to_csv()
