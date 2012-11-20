@@ -5,10 +5,10 @@ class EncoderController(object):
         self.database = database
         self.started = False
 
-    def set_encoder_attached(self):
+    def encoder_is_attached(self):
         pass
 
-    def set_encoder_detached(self):
+    def encoder_is_detached(self):
         pass
 
     def start_data_acquisition(self):

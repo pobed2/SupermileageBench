@@ -4,9 +4,11 @@ from supermileagebench.dropbox_actions.dropbox_saver import  DropboxSaver
 
 class RealTimePanelController(object):
 
-    def __init__(self, panel, encoder_controller):
-        self.panel = panel
+    def __init__(self, encoder_controller):
         self.encoder_controller = encoder_controller
+
+    def set_panel(self, panel):
+        self.panel = panel
 
     def start_plotting(self):
         self.panel.startTimer()

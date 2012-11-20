@@ -1,6 +1,6 @@
 import wx
 
-from supermileagebench.gui.panels.bench_panel import BenchPanel
+from supermileagebench.gui.windows.bench_panel import BenchPanel
 
 class RealTimePanel(BenchPanel):
 
