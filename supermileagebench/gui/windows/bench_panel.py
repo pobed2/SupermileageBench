@@ -1,25 +1,22 @@
-import wx
-
+from __future__ import division
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigCanvas
 
+import wx
 
 class BenchPanel(object):
 
-    def __init__(self, sub_data_plots, parent):
-
-        self.dpi = 100
-        self.height = 7
-        self.width = 12
+    def __init__(self, sub_data_plots, parent, width = 1280, height = 720, dpi = 100):
 
         self.panel = wx.Panel(parent, -1)
+        self.panel.SetSize((1280,720))
 
         self.sub_data_plots = sub_data_plots
-        self.init_plots()
+        self._init_plots(width, height, dpi)
 
 
-    def init_plots(self):
-        self.fig = Figure((self.width, self.height), dpi=self.dpi)
+    def _init_plots(self, width, height, dpi):
+        self.fig = Figure((width/dpi, height/dpi), dpi=dpi)
         self.canvas = FigCanvas(self.panel, -1, self.fig)
 
         for plot in self.sub_data_plots:
@@ -35,4 +32,12 @@ class BenchPanel(object):
         for plot in self.sub_data_plots:
             plot.prepare_plot_for_draw()
 
+
+        print self.panel.GetSize()
         self.canvas.draw()
+
+    def hide(self):
+        self.panel.Hide()
+
+    def show(self):
+        self.panel.Show()
