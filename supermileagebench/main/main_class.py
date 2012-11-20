@@ -9,16 +9,18 @@ from supermileagebench.phidget.sm_encoder import SMEncoder
 from supermileagebench.phidget.encoder_controller import EncoderController
 from supermileagebench.data.database import AccelerationDatabase
 from supermileagebench.controllers.real_time_controller import RealTimeController
+from supermileagebench.gui.real_time_panel import RealTimePanel
 
 class MainClass(wx.App):
     def OnInit(self):
 
         self.database = AccelerationDatabase(5000, 100)
         subplots = self._init_subplots()
-        self.frame = MainFrame(subplots)
+        self.frame = MainFrame()
+        self.real_time_panel = RealTimePanel(subplots, self.frame)
 
         self.encoder_controller = EncoderController(self.database)
-        self.real_time_controller = RealTimeController(self.frame, self.encoder_controller)
+        self.real_time_controller = RealTimeController(self.real_time_panel, self.encoder_controller)
         self.frame.set_controller(self.real_time_controller)
 
         self._init_encoder()

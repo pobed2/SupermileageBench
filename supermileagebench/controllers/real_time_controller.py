@@ -16,6 +16,7 @@ class RealTimeController(object):
 
     def stop_plotting(self, save):
         self.frame.stop_timer()
+        self.frame.hide()
         self.encoder_controller.stop_data_acquisition()
         if save:
             self._save_data_to_dropbox()
