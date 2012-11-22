@@ -1,5 +1,5 @@
 from supermileagebench.gui.windows.top_frame import TopFrame
-from supermileagebench.gui.data_plotting.data_plot import DataPlot
+from supermileagebench.gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from supermileagebench.gui.data_access.repositories import *
 from supermileagebench.phidget.sm_encoder import SMEncoder
 from supermileagebench.phidget.encoder_controller import EncoderController
@@ -48,10 +48,10 @@ class AppController(object):
         torque_repository = TorqueRepository(self.database)
 
         #Add subplots here
-        accelerationPlot = DataPlot(acceleration_repository, subplot_code=(211), title='Acceleration',
+        accelerationPlot = RealTimeDataPlot(acceleration_repository, subplot_code=(211), title='Acceleration',
             x_label='Time (s)'
             , y_label='Acceleration (radians / seconds^2)')
-        torquePlot = DataPlot(torque_repository, subplot_code=(212), title='Torque', x_label='Time (s)'
+        torquePlot = RealTimeDataPlot(torque_repository, subplot_code=(212), title='Torque', x_label='Time (s)'
             , y_label='Torque')
 
         subplots.append(accelerationPlot)

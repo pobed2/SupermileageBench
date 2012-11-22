@@ -1,10 +1,13 @@
 class DataPlot(object):
-    def __init__(self, data_repository, subplot_code='111', time_to_display=25, time_before_end=5,
+    '''
+    Base class for every type of plots
+    Not to be used on its own
+    '''
+
+    def __init__(self, data_repository, subplot_code='111',
                  bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
         self.data_repository = data_repository
         self.subplot_code = subplot_code
-        self.time_to_display = time_to_display
-        self.time_before_end = time_before_end
         self.bg_color = bg_color
         self.title = title
         self.x_label = x_label
@@ -36,15 +39,6 @@ class DataPlot(object):
         y_min, y_max = self._calculate_y_axis_bounds()
         self.subplot.set_xbound(lower=x_min, upper=x_max)
         self.subplot.set_ybound(lower=y_min, upper=y_max)
-
-    def _calculate_x_axis_bounds(self):
-        time_max = self.data_repository.get_max_x_data()
-
-        gap = max(time_max, self.time_to_display)
-        x_max = gap + self.time_before_end
-        x_min = gap - self.time_to_display
-
-        return x_min, x_max
 
     def _calculate_y_axis_bounds(self):
         data_max = self.data_repository.get_max_y_data()
