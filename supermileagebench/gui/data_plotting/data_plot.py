@@ -1,8 +1,6 @@
 class DataPlot(object):
-
-    def __init__(self, data_repository, subplot_code = '111', time_to_display = 25, time_before_end = 5,
-                 bg_color = 'black', title = '', x_label = '', y_label = '', linewidth = 1, color = (1,1,1)):
-
+    def __init__(self, data_repository, subplot_code='111', time_to_display=25, time_before_end=5,
+                 bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
         self.data_repository = data_repository
         self.subplot_code = subplot_code
         self.time_to_display = time_to_display
@@ -31,7 +29,7 @@ class DataPlot(object):
         self._set_axis_bounds()
 
     def _set_data(self):
-        self.data_plot.set_data(self.data_repository.get_time_data(), self.data_repository.get_plotting_data())
+        self.data_plot.set_data(self.data_repository.get_x_data(), self.data_repository.get_y_data())
 
     def _set_axis_bounds(self):
         x_min, x_max = self._calculate_x_axis_bounds()
@@ -40,7 +38,7 @@ class DataPlot(object):
         self.subplot.set_ybound(lower=y_min, upper=y_max)
 
     def _calculate_x_axis_bounds(self):
-        time_max = self.data_repository.get_max_time()
+        time_max = self.data_repository.get_max_x_data()
 
         gap = max(time_max, self.time_to_display)
         x_max = gap + self.time_before_end
@@ -49,23 +47,10 @@ class DataPlot(object):
         return x_min, x_max
 
     def _calculate_y_axis_bounds(self):
-        data_max = self.data_repository.get_max_data()
-        data_min = self.data_repository.get_min_data()
+        data_max = self.data_repository.get_max_y_data()
+        data_min = self.data_repository.get_min_y_data()
 
         y_min = round(data_min, 0) - (0.1 * abs(round(data_min, 0)))
         y_max = round(data_max, 0) + (0.1 * round(data_max, 0))
 
         return y_min, y_max
-
-class position_plot(DataPlot):
-    pass
-
-class velocity_plot(DataPlot):
-    pass
-
-class acceleration_plot(DataPlot):
-    pass
-
-class torque_plot(DataPlot):
-    pass
-

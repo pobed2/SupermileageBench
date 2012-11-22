@@ -10,6 +10,8 @@ from supermileagebench.gui.controllers.top_frame_controller import TopFrameContr
 from supermileagebench.gui.controllers.post_treatment_panel_controller import PostTreatmentPanelController
 from datetime import datetime
 from supermileagebench.dropbox_actions.dropbox_saver import  DropboxSaver
+from supermileagebench.gui.data_access.post_processing_repositories import *
+from supermileagebench.gui.data_plotting.post_processing_data_plot import *
 
 class AppController(object):
     def __init__(self):
@@ -60,14 +62,14 @@ class AppController(object):
     def _init_post_treatment_subplots(self):
         subplots = []
 
-        acceleration_repository = AccelerationRepository(self.database)
+        torque_repository = TorquePostProcessingRepository(self.database)
 
         #Add subplots here
-        accelerationPlot = DataPlot(acceleration_repository, subplot_code=(111), title='Acceleration',
-            x_label='Time (s)'
-            , y_label='Acceleration (radians / seconds^2)')
+        torquePlot = PostProcessingDataPlot(torque_repository, subplot_code=(111), title='Torque',
+            x_label='RPM'
+            , y_label='Torque')
 
-        subplots.append(accelerationPlot)
+        subplots.append(torquePlot)
 
         return subplots
 
