@@ -3,13 +3,10 @@ from supermileagebench.data_math.DynoMath import derivate
 from supermileagebench.data_math.filters import savitzky_golay
 
 import math
-from datetime import datetime
 import numpy
 
 class AccelerationDatabase(object):
-
     def __init__(self, maximumSize, derivativeInterval):
-
         self.DISC_INERTIA = 60
 
         self.totalTime = 0
@@ -27,7 +24,7 @@ class AccelerationDatabase(object):
         self.file_torque = []
         self.file_time = []
 
-        self.derivativeInterval = derivativeInterval/1000
+        self.derivativeInterval = derivativeInterval / 1000
 
         self.numberOfPulsesPerTurn = 1440
         self.started = False
@@ -91,8 +88,7 @@ class AccelerationDatabase(object):
         self.file_torque *= self.DISC_INERTIA
 
     def _convert_pulses_to_radians(self, position):
-        return (position/self.numberOfPulsesPerTurn)*(2*math.pi)
-
+        return (position / self.numberOfPulsesPerTurn) * (2 * math.pi)
 
 
     def deleteData(self):
@@ -106,16 +102,16 @@ class AccelerationDatabase(object):
         self.file_accelerations[:] = []
         self.file_time[:] = []
 
-    def _save_to_csv(self):
-        filename = ("%s.csv" % str(datetime.now().replace(microsecond=0)))
-        with open(filename, 'w') as data_file:
-            data_file.write("Time, Positions, Velocities, Accelerations, Torques \n")
-            for i in range(len(self.time)):
-                data_file.write(str(self.file_time[i]) + ",")
-                data_file.write(str(self.file_positions[i]) + ",")
-                data_file.write(str(self.file_velocities[i]) + ",")
-                data_file.write(str(self.file_accelerations[i]) + ",")
-                data_file.write(str(self.file_torque[i]) + "\n")
-        return filename
+    def serialize_data_as_csv(self):
+        data_string = ""
+        data_string += "Time, Positions, Velocities, Accelerations, Torques \n"
 
+        for i in range(len(self.time)):
+            data_string += (str(self.file_time[i]) + ",")
+            data_string += (str(self.file_positions[i]) + ",")
+            data_string += (str(self.file_velocities[i]) + ",")
+            data_string += (str(self.file_accelerations[i]) + ",")
+            data_string += (str(self.file_torque[i]) + "\n")
+
+        return data_string
 
