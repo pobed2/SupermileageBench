@@ -22,6 +22,8 @@ class AppController(object):
 
     def _initializeApp(self):
         self.database = Database()
+        self.post_processing_database = PostProcessingDatabase(self.database)
+
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_treatment_subplots()
 
@@ -71,7 +73,7 @@ class AppController(object):
     def _init_post_treatment_subplots(self):
         subplots = []
 
-        torque_repository = TorquePostProcessingRepository(self.database)
+        torque_repository = TorquePostProcessingRepository(self.post_processing_database)
 
         #Add subplots here
         torquePlot = PostProcessingDataPlot(torque_repository, subplot_code=(111), title='Torque',
@@ -90,8 +92,8 @@ class AppController(object):
     def save_data_to_dropbox(self):
         directory_name = (str(datetime.now().replace(microsecond=0)))
 
-        post_processing_database = PostProcessingDatabase(self.database)
-        post_processing_data_string = post_processing_database.serialize_data_as_csv()
+        self.post_processing_database.refresh()
+        post_processing_data_string = self.post_processing_database.serialize_data_as_csv()
         real_time_data_string = self.database.serialize_data_as_csv()
 
         saver = DropboxSaver()

@@ -4,8 +4,14 @@ import numpy as np
 
 class PostProcessingDatabase(object):
     def __init__(self, real_time_database):
-        sorted_data_array = self._create_sorted_data_array(real_time_database)
+        self.real_time_database = real_time_database
+        self._initialize_data_arrays()
 
+    def refresh(self):
+        self._initialize_data_arrays()
+
+    def _initialize_data_arrays(self):
+        sorted_data_array = self._create_sorted_data_array(self.real_time_database)
         self.rpms = self._fetch_rpms(sorted_data_array)
         self.torques = self._fetch_torques(sorted_data_array)
         self.powers = self._calculate_powers(sorted_data_array)
@@ -42,6 +48,15 @@ class PostProcessingDatabase(object):
             data_string += (str(self.torques[i]) + "\n")
 
         return data_string
+
+    def get_rpms(self):
+        return self.rpms
+
+    def get_torques(self):
+        return self.torques
+
+    def get_powers(self):
+        return self.powers
 
 
 
