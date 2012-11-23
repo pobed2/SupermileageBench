@@ -49,10 +49,10 @@ class AppController(object):
     def _init_real_time_subplots(self):
         subplots = []
 
-        position_repository = RealTimePositionRepository(self.database)
-        velocity_repository = RealTimeVelocityRepository(self.database)
-        acceleration_repository = RealTimeAccelerationRepository(self.database)
-        torque_repository = RealTimeTorqueRepository(self.database)
+        position_repository = PositionRealTimeRepository(self.database)
+        velocity_repository = VelocityRealTimeRepository(self.database)
+        acceleration_repository = AccelerationRealTimeRepository(self.database)
+        torque_repository = TorqueRealTimeRepository(self.database)
 
         #Add subplots here
         positionPlot = RealTimeDataPlot(position_repository, subplot_code=(221), title='Position')

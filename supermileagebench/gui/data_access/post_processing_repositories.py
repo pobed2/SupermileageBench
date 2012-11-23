@@ -1,35 +1,21 @@
-from __future__ import division
+from supermileagebench.gui.data_access.repository import Repository
 
-class PostProcessingRepository(object):
-    def __init__(self, database):
-        self.database = database
-
+class PostProcessingRepository(Repository):
     def refresh_database(self):
         self.database.refresh()
 
 
 class TorquePostProcessingRepository(PostProcessingRepository):
     def __init__(self, database):
-        super(TorquePostProcessingRepository, self).__init__(database)
-
-    def get_x_data(self):
-        return self.database.get_rpms()
-
-    def get_y_data(self):
-        return self.database.get_torques()
-
-    def get_max_x_data(self):
-        return max((self.database.get_rpms()))
-
-    def get_max_y_data(self):
-        return max(self.database.get_torques())
-
-    def get_min_y_data(self):
-        return min(self.database.get_torques())
+        self.database = database
+        self.x_data_getter = self.database.get_rpms
+        self.y_data_getter = self.database.get_torques
 
 
 class PowerPostProcessingRepository(PostProcessingRepository):
     def __init__(self, database):
-        pass
+        self.database = database
+        self.x_data_getter = self.database.get_rpms
+        self.y_data_getter = self.database.get_powers
 
 

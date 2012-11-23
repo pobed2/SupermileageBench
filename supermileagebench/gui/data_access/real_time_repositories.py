@@ -1,47 +1,24 @@
-class RealTimeRepository(object):
-    '''
-    Base class for real-time repositories. They are used to access the data being added in real-time
-    Not for use on its own : use one of its child class
-    '''
+from supermileagebench.gui.data_access.repository import Repository
 
-    def get_x_data(self):
-        #timeArray = np.array(self.x_data)
-        #return self.x_data[len(self.y_data) - len(self.x_data):]
-        return self.x_data_getter()
-
-    def get_y_data(self):
-        #return np.array(self.y_data)
-        return self.y_data_getter()
-
-    def get_max_x_data(self):
-        return self.x_data_getter()[-1]
-
-    def get_min_y_data(self):
-        return min(self.y_data_getter())
-
-    def get_max_y_data(self):
-        return max(self.y_data_getter())
-
-
-class RealTimePositionRepository(RealTimeRepository):
+class PositionRealTimeRepository(Repository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_positions
 
 
-class RealTimeVelocityRepository(RealTimeRepository):
+class VelocityRealTimeRepository(Repository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_velocities
 
 
-class RealTimeAccelerationRepository(RealTimeRepository):
+class AccelerationRealTimeRepository(Repository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_accelerations
 
 
-class RealTimeTorqueRepository(RealTimeRepository):
+class TorqueRealTimeRepository(Repository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_torques
