@@ -3,7 +3,7 @@ from supermileagebench.gui.data_plotting.real_time_data_plot import RealTimeData
 from supermileagebench.gui.data_access.repositories import *
 from supermileagebench.phidget.sm_encoder import SMEncoder
 from supermileagebench.phidget.encoder_controller import EncoderController
-from supermileagebench.data.database import AccelerationDatabase
+from supermileagebench.data.database import Database
 from supermileagebench.gui.controllers.real_time_panel_controller import RealTimePanelController
 from supermileagebench.gui.windows.real_time_panel import RealTimePanel
 from supermileagebench.gui.controllers.top_frame_controller import TopFrameController
@@ -18,7 +18,7 @@ class AppController(object):
         self._initializeApp()
 
     def _initializeApp(self):
-        self.database = AccelerationDatabase(5000, 100)
+        self.database = Database()
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_treatment_subplots()
 
