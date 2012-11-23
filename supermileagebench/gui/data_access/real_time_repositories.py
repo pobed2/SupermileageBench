@@ -1,4 +1,4 @@
-class Repository(object):
+class RealTimeRepository(object):
     '''
     Base class for real-time repositories. They are used to access the data being added in real-time
     Not for use on its own : use one of its child class
@@ -23,25 +23,25 @@ class Repository(object):
         return max(self.y_data_getter())
 
 
-class PositionRepository(Repository):
+class RealTimePositionRepository(RealTimeRepository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_positions
 
 
-class VelocityRepository(Repository):
+class RealTimeVelocityRepository(RealTimeRepository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_velocities
 
 
-class AccelerationRepository(Repository):
+class RealTimeAccelerationRepository(RealTimeRepository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_accelerations
 
 
-class TorqueRepository(Repository):
+class RealTimeTorqueRepository(RealTimeRepository):
     def __init__(self, database):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_torques

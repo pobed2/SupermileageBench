@@ -1,6 +1,5 @@
 from __future__ import division
-from supermileagebench.data_math.DynoMath import derivate
-from supermileagebench.data_math.filters import savitzky_golay
+from supermileagebench.data_math.derivation import derivate
 
 import math
 import numpy as np
@@ -59,18 +58,21 @@ class Database(object):
         self.positions[self.array_index] = position_in_radians
 
     def _add_velocity_point(self):
-        velocity = derivate(self.time[:self.array_index + 1], self.positions[:self.array_index + 1],
+        self.velocities[self.array_index] = derivate(self.time[:self.array_index + 1],
+            self.positions[:self.array_index + 1],
             self.derivativeInterval)
-        self.velocities[self.array_index] = velocity
+        #self.velocities[:self.array_index + 1] = savitzky_golay(self.velocities[:self.array_index + 1], 41, 3, deriv=0)
+
 
     def _add_acceleration_point(self):
-        acceleration = derivate(self.time[:self.array_index + 1], self.velocities[:self.array_index + 1],
+        self.accelerations[self.array_index] = derivate(self.time[:self.array_index + 1],
+            self.velocities[:self.array_index + 1],
             self.derivativeInterval)
-        self.accelerations[self.array_index] = acceleration
+        #self.accelerations[:self.array_index + 1] = savitzky_golay(self.accelerations[:self.array_index + 1], 41, 3, deriv=0)
 
     def _add_torque_point(self):
-        self.torques = savitzky_golay(self.accelerations[:self.array_index + 1], 111, 1, deriv=0)
-        self.torques *= self.DISC_INERTIA
+        #self.torques = savitzky_golay(self.accelerations[:self.array_index + 1], 101, 1, deriv=0)
+        self.torques = self.accelerations[:self.array_index + 1] * self.DISC_INERTIA
 
     def _convert_pulses_to_radians(self, position):
         return (position / self.numberOfPulsesPerTurn) * (2 * math.pi)
