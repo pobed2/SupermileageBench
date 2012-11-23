@@ -26,19 +26,19 @@ class Database(object):
 
 
     def get_time(self):
-        return self.time
+        return self.time[:self.array_index]
 
     def get_positions(self):
-        return self.positions
+        return self.positions[:self.array_index]
 
     def get_velocities(self):
-        return self.velocities
+        return self.velocities[:self.array_index]
 
     def get_accelerations(self):
-        return self.accelerations
+        return self.accelerations[:self.array_index]
 
     def get_torques(self):
-        return self.torques
+        return self.torques[:self.array_index]
 
     def addPoint(self, position, timeAfterLastPoint):
         if timeAfterLastPoint < 2147483647: #To eliminate the first point
@@ -58,16 +58,18 @@ class Database(object):
         self.positions[self.array_index] = position_in_radians
 
     def _add_velocity_point(self):
-        velocity = derivate(self.time[:self.array_index], self.positions[:self.array_index], self.derivativeInterval)
+        print self.positions[:self.array_index + 1]
+        velocity = derivate(self.time[:self.array_index + 1], self.positions[:self.array_index + 1],
+            self.derivativeInterval)
         self.velocities[self.array_index] = velocity
 
     def _add_acceleration_point(self):
-        acceleration = derivate(self.time[:self.array_index], self.velocities[:self.array_index],
+        acceleration = derivate(self.time[:self.array_index + 1], self.velocities[:self.array_index + 1],
             self.derivativeInterval)
         self.accelerations[self.array_index] = acceleration
 
     def _add_torque_point(self):
-        self.torques = savitzky_golay(self.accelerations[:self.array_index], 111, 1, deriv=0)
+        self.torques = savitzky_golay(self.accelerations[:self.array_index + 1], 111, 1, deriv=0)
         self.torques *= self.DISC_INERTIA
 
     def _convert_pulses_to_radians(self, position):

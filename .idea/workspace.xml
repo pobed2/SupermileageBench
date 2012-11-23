@@ -4,6 +4,8 @@
     <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/data/database.py" afterPath="$PROJECT_DIR$/supermileagebench/data/database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,33 +28,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="database.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/supermileagebench/data/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="28" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.0">
+            <state line="60" column="51" selection-start="1967" selection-end="1967" vertical-scroll-proportion="2.238806">
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DynoMath.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="77" selection-end="77" vertical-scroll-proportion="0.12903225">
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="filters.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/filters.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="4" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -60,10 +42,19 @@
       <file leaf-file-name="app_controller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="33" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+            <state line="50" column="84" selection-start="2422" selection-end="2422" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#60#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="repositories.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,17 +90,17 @@
         <option value="$PROJECT_DIR$/supermileagebench/gui/windows/post_treatment_panel.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/post_treatment_panel_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/top_frame_controller.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/real_time_panel_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/dropbox_actions/dropbox_saver.py" />
         <option value="$PROJECT_DIR$/supermileagebench/main/main_class.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/post_processing_repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/post_processing_data_plot.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/data_plot.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/real_time_data_plot.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/data/database.py" />
       </list>
     </option>
@@ -625,7 +616,11 @@
       <created>1353628860999</created>
       <updated>1353628860999</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Finished Numpy migration in database">
+      <created>1353629474925</created>
+      <updated>1353629474925</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -658,11 +653,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49357328" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.325723" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24335904" sideWeight="0.74885845" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24335904" sideWeight="0.67275494" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39878234" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25114155" sideWeight="0.50042844" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32724506" sideWeight="0.50042844" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -708,7 +703,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Committed before numpy migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Numpy migration in database" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -737,6 +732,7 @@
     <MESSAGE value="Added the RealTimeDataPlot class" />
     <MESSAGE value="Aded tag" />
     <MESSAGE value="Committed before numpy migration" />
+    <MESSAGE value="Finished Numpy migration in database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,7 +769,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/data_plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.35096154" />
+        <state line="37" column="0" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.35096154">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/windows/post_treatment_panel.py">
@@ -798,12 +796,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/real_time_data_plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="0.38897893" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="37" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" />
+        <state line="16" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="0.38897893">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/post_treatment_panel_controller.py">
@@ -813,34 +808,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
+    <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="33" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/filters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/data/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="28" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.0">
+        <state line="7" column="33" selection-start="250" selection-end="250" vertical-scroll-proportion="0.060240965">
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py">
+    <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/filters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="77" selection-end="77" vertical-scroll-proportion="0.12903225">
+        <state line="3" column="4" selection-start="51" selection-end="51" vertical-scroll-proportion="-1.6385542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="84" selection-start="2422" selection-end="2422" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/data/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="51" selection-start="1967" selection-end="1967" vertical-scroll-proportion="2.238806">
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
