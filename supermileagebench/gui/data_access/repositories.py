@@ -1,9 +1,8 @@
-import numpy as np
-
 class Repository(object):
-    def __init__(self, database):
-        self.x_data_getter = database.get_time()
-        self.y_data_getter = ""
+    '''
+    Base class for real-time repositories. They are used to access the data being added in real-time
+    Not for use on its own : use one of its child class
+    '''
 
     def get_x_data(self):
         #timeArray = np.array(self.x_data)
@@ -44,19 +43,5 @@ class AccelerationRepository(Repository):
 
 class TorqueRepository(Repository):
     def __init__(self, database):
-        self.database = database
-        self.x_data = database.get_time()
-        self.y_data = database.get_torques()
-
-    def get_x_data(self):
-        timeArray = np.array(self.x_data)
-        self.y_data = self.database.get_torques()
-        return timeArray[len(self.y_data) - len(timeArray):]
-
-    def get_min_y_data(self):
-        self.y_data = self.database.get_torques()
-        return min(list(self.y_data))
-
-    def get_max_y_data(self):
-        self.y_data = self.database.get_torques()
-        return max(self.y_data)
+        self.x_data_getter = database.get_time
+        self.y_data_getter = database.get_torques

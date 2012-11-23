@@ -38,6 +38,7 @@ class Database(object):
         return self.accelerations[:self.array_index]
 
     def get_torques(self):
+        print self.accelerations[:self.array_index]
         return self.torques[:self.array_index]
 
     def addPoint(self, position, timeAfterLastPoint):
@@ -58,7 +59,6 @@ class Database(object):
         self.positions[self.array_index] = position_in_radians
 
     def _add_velocity_point(self):
-        print self.positions[:self.array_index + 1]
         velocity = derivate(self.time[:self.array_index + 1], self.positions[:self.array_index + 1],
             self.derivativeInterval)
         self.velocities[self.array_index] = velocity
