@@ -18,7 +18,6 @@ class TorquePostProcessingRepository(PostProcessingRepository):
         return rpms
 
     def _transform_rads_into_rpms(self, rads):
-        print rads
         return [(rad * 60 / (2 * pi)) for rad in rads]
 
     def get_y_data(self):

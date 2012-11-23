@@ -37,7 +37,6 @@ class Database(object):
         return self.accelerations[:self.array_index]
 
     def get_torques(self):
-        print self.accelerations[:self.array_index]
         return self.torques[:self.array_index]
 
     def addPoint(self, position, timeAfterLastPoint):

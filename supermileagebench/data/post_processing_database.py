@@ -15,9 +15,8 @@ class PostProcessingDatabase(object):
         velocities = real_time_database.get_velocities()
         rpms = self._convert_velocities_to_rpms(velocities)
         torques = real_time_database.get_torques()
-
         data_array = np.vstack((torques, rpms))
-        sorted_data_array = data_array.sort()
+        sorted_data_array = np.sort(data_array)
 
         return sorted_data_array
 

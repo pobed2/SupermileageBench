@@ -12,10 +12,13 @@ from datetime import datetime
 from supermileagebench.dropbox_actions.dropbox_saver import  DropboxSaver
 from supermileagebench.gui.data_access.post_processing_repositories import *
 from supermileagebench.gui.data_plotting.post_processing_data_plot import *
+from supermileagebench.data.post_processing_database import *
 
 class AppController(object):
     def __init__(self):
         self._initializeApp()
+        self.REAL_TIME_FILENAME = "RealTime.csv"
+        self.POST_PROCESSING_FILENAME = "PostProcessing.csv"
 
     def _initializeApp(self):
         self.database = Database()
@@ -85,8 +88,13 @@ class AppController(object):
         self.encoder.addChangeObserver(self.encoder_controller)
 
     def save_data_to_dropbox(self):
-        filename = ("%s.csv" % str(datetime.now().replace(microsecond=0)))
-        data_string = self.database.serialize_data_as_csv()
+        directory_name = (str(datetime.now().replace(microsecond=0)))
+
+        post_processing_database = PostProcessingDatabase(self.database)
+        post_processing_data_string = post_processing_database.serialize_data_as_csv()
+        real_time_data_string = self.database.serialize_data_as_csv()
+
         saver = DropboxSaver()
-        saver.save_data_to_dropbox(filename, data_string)
+        saver.save_data_to_dropbox(directory_name, self.REAL_TIME_FILENAME, real_time_data_string)
+        saver.save_data_to_dropbox(directory_name, self.POST_PROCESSING_FILENAME, post_processing_data_string)
 

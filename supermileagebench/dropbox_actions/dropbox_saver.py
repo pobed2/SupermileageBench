@@ -12,9 +12,9 @@ class DropboxSaver(object):
     def __init__(self):
         pass
 
-    def save_data_to_dropbox(self, file_name, data_string):
+    def save_data_to_dropbox(self, directory_name, file_name, data_string):
         self._log_in()
-        return self._upload_file(file_name, data_string)
+        return self._upload_file(directory_name, file_name, data_string)
 
     def _log_in(self):
         sess = session.DropboxSession(APP_KEY, APP_SECRET, ACCESS_TYPE)
@@ -36,17 +36,9 @@ class DropboxSaver(object):
 
         self.client = client.DropboxClient(sess)
 
-    def _upload_file(self, file_name, data_string):
-        file = tempfile.NamedTemporaryFile()
-        file.write(data_string)
-        response = self.client.put_file(FOLDER_NAME + file_name, file)
-        file.close()
-        return response
-
-
-def main():
-    saver = DropboxSaver()
-    saver.save_data_to_dropbox("plot.csv")
-
-if __name__ == '__main__':
-    main()
+    def _upload_file(self, directory_name, file_name, data_string):
+        with tempfile.NamedTemporaryFile() as file:
+            file.write(data_string)
+            file.seek(0)
+            response = self.client.put_file(FOLDER_NAME + directory_name + '/' + file_name, file)
+            return response
