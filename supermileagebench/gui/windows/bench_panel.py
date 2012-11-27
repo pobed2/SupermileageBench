@@ -5,9 +5,9 @@ from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigCanvas
 import wx
 
 class BenchPanel(object):
-    def __init__(self, sub_data_plots, parent, width=1280, height=720, dpi=100):
+    def __init__(self, sub_data_plots, parent, width=1280, height=520, dpi=100):
         self.panel = wx.Panel(parent, -1)
-        self.panel.SetSize((1280, 720))
+        self.panel.SetSize((width, height))
 
         self.sub_data_plots = sub_data_plots
         self._init_plots(width, height, dpi)
@@ -17,11 +17,14 @@ class BenchPanel(object):
         self.fig = Figure((width / dpi, height / dpi), dpi=dpi)
         self.canvas = FigCanvas(self.panel, -1, self.fig)
 
+        self.btn = wx.Button(self.panel, label="help?")
+
         for plot in self.sub_data_plots:
             plot.initialize_figure(self.fig)
 
         self.graphBox = wx.BoxSizer(wx.VERTICAL)
-        self.graphBox.Add(self.canvas, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
+        self.graphBox.Add(self.btn, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
+        self.graphBox.Add(self.canvas, 20, flag=wx.LEFT | wx.TOP | wx.GROW)
 
         self.panel.SetSizer(self.graphBox)
         self.panel.Show()

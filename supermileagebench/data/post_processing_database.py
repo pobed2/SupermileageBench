@@ -21,31 +21,39 @@ class PostProcessingDatabase(object):
         velocities = real_time_database.get_velocities()
         rpms = self._convert_velocities_to_rpms(velocities)
         torques = real_time_database.get_torques()
-        data_array = np.vstack((torques, rpms))
-        sorted_data_array = np.sort(data_array)
+
+        sorted_index_array = self._calculate_sorted_index_array(rpms)
+        sorted_rpms = rpms[sorted_index_array]
+        sorted_torques = torques[sorted_index_array]
+
+        sorted_data_array = np.vstack((sorted_rpms, sorted_torques))
 
         return sorted_data_array
+
+    def _calculate_sorted_index_array(self, rpms):
+        return np.argsort(rpms)
 
     def _convert_velocities_to_rpms(self, velocities):
         return velocities * 60 / (2 * pi)
 
     def _fetch_rpms(self, data_array):
-        return data_array[1]
-
-    def _fetch_torques(self, data_array):
         return data_array[0]
 
-    def _calculate_powers(self, big_array):
-        pass
+    def _fetch_torques(self, data_array):
+        return data_array[1]
+
+    def _calculate_powers(self, data_array):
+        return data_array[1] * data_array[0]
 
     #TODO Add Powers
     def serialize_data_as_csv(self):
         data_string = ""
-        data_string += "Rpms, Torques \n"
+        data_string += "Rpms, Torques, Powers \n"
 
         for i in range(len(self.rpms)):
             data_string += (str(self.rpms[i]) + ",")
-            data_string += (str(self.torques[i]) + "\n")
+            data_string += (str(self.torques[i]) + ",")
+            data_string += (str(self.powers[i]) + "\n")
 
         return data_string
 

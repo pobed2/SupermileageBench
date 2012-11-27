@@ -1,12 +1,13 @@
 from __future__ import division
 from supermileagebench.data_math.derivation import derivate
+from supermileagebench.data_math.filters import savitzky_golay
 
 import math
 import numpy as np
 
 class Database(object):
     def __init__(self, derivativeInterval=100):
-        self.DISC_INERTIA = 23
+        self.DISC_INERTIA = 0.258064
         self.ARRAY_SIZE = 20000
 
         self.totalTime = 0
@@ -60,14 +61,15 @@ class Database(object):
         self.velocities[self.array_index] = derivate(self.time[:self.array_index + 1],
             self.positions[:self.array_index + 1],
             self.derivativeInterval)
-        #self.velocities[:self.array_index + 1] = savitzky_golay(self.velocities[:self.array_index + 1], 41, 3, deriv=0)
+        self.velocities[:self.array_index + 1] = savitzky_golay(self.velocities[:self.array_index + 1], 41, 3, deriv=0)
 
 
     def _add_acceleration_point(self):
         self.accelerations[self.array_index] = derivate(self.time[:self.array_index + 1],
             self.velocities[:self.array_index + 1],
             self.derivativeInterval)
-        #self.accelerations[:self.array_index + 1] = savitzky_golay(self.accelerations[:self.array_index + 1], 41, 3, deriv=0)
+        self.accelerations[:self.array_index + 1] = savitzky_golay(self.accelerations[:self.array_index + 1], 41, 3,
+            deriv=0)
 
     def _add_torque_point(self):
         #self.torques = savitzky_golay(self.accelerations[:self.array_index + 1], 101, 1, deriv=0)

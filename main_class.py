@@ -1,6 +1,7 @@
 import wx
 from supermileagebench.gui.controllers.app_controller import AppController
 
+
 class MainClass(wx.App):
     def OnInit(self):
         self.app_controller = AppController()

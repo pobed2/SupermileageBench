@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/supermileagebench/gui/data_access/repository.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/supermileagebench/dropbox_actions/dropbox_token.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/supermileagebench/dropbox_token.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/supermileagebench/main/main_class.py" afterPath="$PROJECT_DIR$/main_class.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SupermileageBench.iml" afterPath="$PROJECT_DIR$/.idea/SupermileageBench.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/data/database.py" afterPath="$PROJECT_DIR$/supermileagebench/data/database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" afterPath="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/data_access/post_processing_repositories.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/data_access/post_processing_repositories.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/data_access/real_time_repositories.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/data_access/real_time_repositories.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +38,8 @@
       <file leaf-file-name="app_controller.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="52" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-0.35714287">
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
+            <state line="101" column="8" selection-start="4717" selection-end="4717" vertical-scroll-proportion="1.439394">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,27 +62,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/supermileagebench/data_math/DynoMath.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/real_time_data_plot.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/post_treatment_panel_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/post_processing_panel_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/windows/post_processing_panel.py" />
         <option value="$PROJECT_DIR$/supermileagebench/data_math/filters.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/repositories.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/data/database.py" />
         <option value="$PROJECT_DIR$/supermileagebench/dropbox_actions/dropbox_saver.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/post_processing_data_plot.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/post_processing_repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/real_time_repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_access/repository.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/gui/windows/top_frame.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/main/main_class.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/data/database.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
+    <option name="x" value="67" />
     <option name="y" value="22" />
     <option name="width" value="1213" />
     <option name="height" value="778" />
@@ -116,6 +120,14 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="SupermileageBench" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.3 (/Library/Frameworks/Python.framework/Versions/7.3/bin/python2.7) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -174,69 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="windows" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data_plotting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,42 +248,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dropbox_actions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data_math" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -346,7 +260,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -366,11 +280,11 @@
       <recent name="$PROJECT_DIR$/supermileagebench/dropbox" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/supermileagebench/gui/panels" />
       <recent name="$PROJECT_DIR$/supermileagebench/data_math" />
       <recent name="$PROJECT_DIR$/supermileagebench/gui/data_plotting" />
       <recent name="$PROJECT_DIR$/supermileagebench/gui/data_access" />
-      <recent name="$PROJECT_DIR$/supermileagebench/gui" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main_class">
@@ -426,7 +340,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <module name="SupermileageBench" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/supermileagebench/main/main_class.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_class.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -616,7 +530,11 @@
       <created>1353688541148</created>
       <updated>1353688541148</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactored the repositories">
+      <created>1353689029100</created>
+      <updated>1353689029100</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -640,24 +558,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="22" width="1213" height="778" extended-state="0" />
+    <frame x="67" y="22" width="1213" height="778" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05479452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49014568" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.325723" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24335904" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25192803" sideWeight="0.6438356" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39878234" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.50385606" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3561644" sideWeight="0.50385606" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49014568" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990575" sideWeight="0.69254184" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -699,7 +617,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done with the PostProcessingDatabase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the repositories" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -735,6 +653,7 @@
     <MESSAGE value="Finished writing PostProcessingDatabase. Not integrated" />
     <MESSAGE value="PostProcessingDatabase working with dropbox saver. Now saves in a folder" />
     <MESSAGE value="Done with the PostProcessingDatabase" />
+    <MESSAGE value="Refactored the repositories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -749,125 +668,105 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/supermileagebench/data_math/filters.py">
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/post_processing_panel_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="65" selection-start="2549" selection-end="2549" vertical-scroll-proportion="0.59770113">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/data/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="24" selection-start="1609" selection-end="1609" vertical-scroll-proportion="1.9451371">
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/dropbox_actions/dropbox_saver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="27" selection-start="1594" selection-end="1594" vertical-scroll-proportion="1.557971">
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="7" column="34" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/real_time_panel_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="8" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm20/python_stubs/1821704890/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3999" column="8" selection-start="135816" selection-end="135816" vertical-scroll-proportion="0.33277312">
-          <folding />
-        </state>
+        <state line="12" column="8" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/top_frame_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="51" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="51" selection-start="598" selection-end="598" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/post_processing_panel_controller.py">
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/windows/real_time_panel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="2" column="64" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/windows/post_processing_panel.py">
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/windows/top_frame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="31" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
+        <state line="1" column="0" selection-start="10" selection-end="10" vertical-scroll-proportion="0.02819549" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/data_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/post_processing_data_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="67" selection-start="570" selection-end="570" vertical-scroll-proportion="0.28195488" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/real_time_data_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/dropbox_actions/dropbox_saver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="38" selection-end="38" vertical-scroll-proportion="0.023809524">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/windows/bench_panel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="6" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/data_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="6" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0">
+        <state line="25" column="70" selection-start="877" selection-end="877" vertical-scroll-proportion="0.45238096">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_plotting/post_processing_data_plot.py">
+    <entry file="file://$PROJECT_DIR$/main_class.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="67" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+        <state line="0" column="1" selection-start="1" selection-end="1" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/phidget/sm_encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="56" selection-start="388" selection-end="388" vertical-scroll-proportion="0.27731094">
+          <folding>
+            <element signature="e#1#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/data/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="62" selection-start="154" selection-end="154" vertical-scroll-proportion="-1.420168">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/data/post_processing_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="26" selection-start="1763" selection-end="1763" vertical-scroll-proportion="0.0">
+        <state line="33" column="15" selection-start="1213" selection-end="1213" vertical-scroll-proportion="1.189394">
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/repository.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="90" selection-start="124" selection-end="124" vertical-scroll-proportion="0.04761905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/real_time_repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="580" selection-end="580" vertical-scroll-proportion="0.4047619">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/post_processing_repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="177" selection-end="177" vertical-scroll-proportion="0.11904762">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="52" selection-start="1399" selection-end="1399" vertical-scroll-proportion="-0.35714287">
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
+        <state line="101" column="8" selection-start="4717" selection-end="4717" vertical-scroll-proportion="1.439394">
+          <folding />
         </state>
       </provider>
     </entry>
