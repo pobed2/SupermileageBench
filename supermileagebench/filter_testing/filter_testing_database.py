@@ -34,12 +34,8 @@ class FilterTestingDatabase(object):
         self.FILTER_ORDER = filter_order
         self.FILTER_WINDOW = filter_window
 
-        self.velocities = np.empty(self.ARRAY_SIZE)
         self.unfiltered_velocities = np.empty(self.ARRAY_SIZE)
-        self.accelerations = np.empty(self.ARRAY_SIZE)
         self.unfiltered_accelerations = np.empty(self.ARRAY_SIZE)
-        self.torques = np.empty(self.ARRAY_SIZE)
-
         self.array_index = 0
 
         self.time = time
@@ -51,28 +47,28 @@ class FilterTestingDatabase(object):
         for i in range(len(self.time)):
             self.add_point(self.time[i], self.positions[i])
 
+        self._filter_arrays()
+
+    def _filter_arrays(self):
+        self.velocities = savitzky_golay(self.unfiltered_velocities[:self.array_index],
+            self.FILTER_WINDOW, self.FILTER_ORDER, deriv=0)
+        self.accelerations = savitzky_golay(self.unfiltered_accelerations[:self.array_index],
+            self.FILTER_WINDOW, self.FILTER_ORDER, deriv=0)
+        self.torques = self.accelerations[:self.array_index] * self.DISC_INERTIA
+
     def add_point(self, time, position):
         self._add_velocity_point()
         self._add_acceleration_point()
-        self._add_torque_point()
         self.array_index += 1
 
     def _add_velocity_point(self):
         self.unfiltered_velocities[self.array_index] = derivate(self.time[:self.array_index + 1],
             self.positions[:self.array_index + 1], self.DERIVATIVE_INTERVAL)
-        self.velocities[:self.array_index + 1] = savitzky_golay(self.unfiltered_velocities[:self.array_index + 1],
-            self.FILTER_WINDOW, self.FILTER_ORDER, deriv=0)
 
 
     def _add_acceleration_point(self):
         self.unfiltered_accelerations[self.array_index] = derivate(self.time[:self.array_index + 1],
-            self.velocities[:self.array_index + 1], self.DERIVATIVE_INTERVAL)
-        self.accelerations[:self.array_index + 1] = savitzky_golay(self.unfiltered_accelerations[:self.array_index + 1],
-            self.FILTER_WINDOW, self.FILTER_ORDER,
-            deriv=0)
-
-    def _add_torque_point(self):
-        self.torques = self.accelerations[:self.array_index + 1] * self.DISC_INERTIA
+            self.unfiltered_velocities[:self.array_index + 1], self.DERIVATIVE_INTERVAL)
 
     def _convert_pulses_to_radians(self, position):
         return (position / self.NUMBER_OF_PULSES_PER_TURN) * (2 * math.pi)
