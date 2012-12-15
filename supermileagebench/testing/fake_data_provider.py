@@ -17,10 +17,11 @@ class FakeDataProvider(object):
         t.start()
 
     def _change_position(self):
-        sleep(2)
         for i in range(0, len(self.time)):
             self.fake_encoder.encoderPositionChange((self.positions[i] * 1440) / (2 * pi),
                 (self.time[i] - self.time[i - 1]) * 1000)
-            sleep(0.01)
+            if i == 10:
+                print "Starting sleep"
+                sleep(5)
 
 

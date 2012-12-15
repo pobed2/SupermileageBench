@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" afterPath="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" afterPath="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py" afterPath="$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py" afterPath="$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +28,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fake_encoder.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py">
+      <file leaf-file-name="post_processing_database.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supermileagebench/data/post_processing_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="51" selection-start="521" selection-end="521" vertical-scroll-proportion="0.4072165">
+            <state line="49" column="38" selection-start="1724" selection-end="1724" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top_frame_controller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/top_frame_controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_controller.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="0" selection-start="3557" selection-end="3557" vertical-scroll-proportion="1.9072165">
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,10 +62,19 @@
       <file leaf-file-name="fake_data_provider.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="73" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+            <state line="18" column="31" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fake_encoder.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="522" selection-end="522" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,11 +97,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/supermileagebench/filter_testing/unfiltered_repositories.py" />
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/FilterTestingPanel.py" />
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_panel_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/data/database.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_controller.py" />
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_plot.py" />
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_panel.py" />
@@ -78,9 +108,11 @@
         <option value="$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_database.py" />
         <option value="$PROJECT_DIR$/test_main_class.py" />
         <option value="$PROJECT_DIR$/supermileagebench/testing/test_app_controller.py" />
-        <option value="$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py" />
         <option value="$PROJECT_DIR$/supermileagebench/gui/data_plotting/real_time_data_plot.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py" />
         <option value="$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/data/post_processing_database.py" />
+        <option value="$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py" />
       </list>
     </option>
   </component>
@@ -181,24 +213,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="phidget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SupermileageBench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supermileagebench" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -221,7 +235,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data_plotting" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -583,7 +597,11 @@
       <created>1355600425642</created>
       <updated>1355600425642</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finished rewriting the fake encoder">
+      <created>1355601705135</created>
+      <updated>1355601705135</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -613,14 +631,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05479452" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855567" sideWeight="0.48773006" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32855567" sideWeight="0.48527607" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.325723" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19447853" sideWeight="0.6714443" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39878234" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32855567" sideWeight="0.50797546" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32855567" sideWeight="0.51042944" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -666,7 +684,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the fake data provider to give real data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished rewriting the fake encoder" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -679,7 +697,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Added packages and classes for rewriting of app&#10;" />
     <MESSAGE value="Finished rewriting app&#10;" />
     <MESSAGE value="Removed the panel from the frame&#10;" />
     <MESSAGE value="Some more name changes" />
@@ -704,6 +721,7 @@
     <MESSAGE value="Accelerated the processing time of the filter analysis app&#10;" />
     <MESSAGE value="Added a fake encoder to be able to run tests without the encoder&#10;" />
     <MESSAGE value="Changed the fake data provider to give real data" />
+    <MESSAGE value="Finished rewriting the fake encoder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -718,34 +736,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/supermileagebench/filter_testing/unfiltered_repositories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="50" selection-start="248" selection-end="248" vertical-scroll-proportion="0.13392857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.25892857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_panel_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="339" selection-end="339" vertical-scroll-proportion="0.21428572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_panel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="103" selection-end="103" vertical-scroll-proportion="0.08035714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/filter_testing/filter_testing_frame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -787,15 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_main_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="183" selection-end="183" vertical-scroll-proportion="0.15463917">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/gui/data_access/repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="8" selection-start="324" selection-end="324" vertical-scroll-proportion="0.30927834">
@@ -826,9 +807,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/7.3/lib/python2.7/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="736" column="0" selection-start="21897" selection-end="21897" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_main_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="183" selection-end="183" vertical-scroll-proportion="0.15463917">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/testing/fake_data_provider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="73" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+        <state line="18" column="31" selection-start="620" selection-end="620" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -837,8 +834,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/testing/fake_encoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="51" selection-start="521" selection-end="521" vertical-scroll-proportion="0.4072165">
+        <state line="18" column="0" selection-start="522" selection-end="522" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/data/post_processing_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="38" selection-start="1724" selection-end="1724" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/top_frame_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supermileagebench/gui/controllers/app_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="0" selection-start="3557" selection-end="3557" vertical-scroll-proportion="1.9072165">
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

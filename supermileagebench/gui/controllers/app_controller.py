@@ -75,27 +75,18 @@ class AppController(object):
 
         torque_repository = TorquePostProcessingRepository(self.post_processing_database)
         power_repository = PowerPostProcessingRepository(self.post_processing_database)
-        acceleration_repository = AccelerationRealTimeRepository(self.database)
-        velocity_repository = VelocityRealTimeRepository(self.database)
 
         #Add subplots here
-        torquePlot = PostProcessingDataPlot(torque_repository, subplot_code=(224), title='Torque',
+        torquePlot = PostProcessingDataPlot(torque_repository, subplot_code=(211), title='Torque',
             x_label='RPM'
             , y_label='Torque')
 
-        powerPlot = PostProcessingDataPlot(power_repository, subplot_code=(222), title='Power',
+        powerPlot = PostProcessingDataPlot(power_repository, subplot_code=(212), title='Power',
             x_label='RPM'
             , y_label='Joules?')
 
-        accelerationPlot = RealTimeDataPlot(acceleration_repository, subplot_code=(223), title='Acceleration',
-            x_label='Time (s)'
-            , y_label='Acceleration (radians / seconds^2)')
-        velocityPlot = RealTimeDataPlot(velocity_repository, subplot_code=(221), title='Velocity')
-
         subplots.append(torquePlot)
         subplots.append(powerPlot)
-        subplots.append(accelerationPlot)
-        subplots.append(velocityPlot)
 
         return subplots
 
