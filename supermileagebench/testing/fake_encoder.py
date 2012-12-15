@@ -16,7 +16,7 @@ class FakeEncoder(object):
 
     def encoderPositionChange(self, position, time):
         self._notifyChangeObservers(position, time)
-        print("Time: %i -- Position: %i" % (time, position))
+        print("Time: %f -- Position: %f" % (time, position))
 
     def addAttachDetachObserver(self, observer):
         self.attachDetachObservers.append(observer)
