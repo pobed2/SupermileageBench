@@ -1,10 +1,11 @@
 import wx
 
 class TopFrame(wx.Frame):
-    def __init__(self, controller, parent=None, id=-1, title="", width=1280, height=720):
-        wx.Frame.__init__(self, parent, id, title, wx.DefaultPosition, (width, height))
+    def __init__(self, controller, parent=None, id=-1, title=""):
+        wx.Frame.__init__(self, parent, id, title, wx.DefaultPosition)
         self.controller = controller
         self._createMenu()
+        self.Maximize()
 
     # ------------------ Top Menu
 

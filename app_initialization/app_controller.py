@@ -35,7 +35,7 @@ class AppController(object):
         self.top_frame_controller = TopFrameController(self.real_time_controller, self.post_treatment_controller)
 
         #TODO Mettre la creation de panels dans les controlleurs?
-        self.frame = TopFrame(self.top_frame_controller)
+        self.frame = TopFrame(self.top_frame_controller, title="Supermileage: Bench")
         self.real_time_panel = RealTimePanel(self.real_time_subplots, self.frame)
 
         self.real_time_controller.set_panel(self.real_time_panel)
