@@ -1,9 +1,11 @@
+from databases.database import Database
+from databases.dropbox_database import DropboxDatabase
+from databases.post_processing_database import PostProcessingDatabase
 from gui.windows.top_frame import TopFrame
 from gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from data_access.real_time_repositories import *
 from phidget.sm_encoder import SMEncoder
 from phidget.encoder_controller import EncoderController
-from data.database import Database
 from gui.controllers.real_time_panel_controller import RealTimePanelController
 from gui.windows.real_time_panel import RealTimePanel
 from gui.controllers.top_frame_controller import TopFrameController
@@ -12,7 +14,6 @@ from datetime import datetime
 from dropbox_actions.dropbox_saver import  DropboxSaver
 from data_access.post_processing_repositories import *
 from gui.data_plotting.post_processing_data_plot import *
-from data.post_processing_database import *
 
 class AppController(object):
     def __init__(self):
@@ -23,9 +24,10 @@ class AppController(object):
     def _initializeApp(self):
         self.database = Database()
         self.post_processing_database = PostProcessingDatabase(self.database)
+        self.dropbox_database = DropboxDatabase()
 
         self.real_time_subplots = self._init_real_time_subplots()
-        self.post_treatment_subplots = self._init_post_treatment_subplots()
+        self.post_treatment_subplots = self._init_post_processing_subplots()
 
         self.encoder_controller = EncoderController(self.database)
         self.real_time_controller = RealTimePanelController(self.encoder_controller, self)
@@ -70,20 +72,21 @@ class AppController(object):
 
         return subplots
 
-    def _init_post_treatment_subplots(self):
+    def _init_post_processing_subplots(self):
         subplots = []
 
         torque_repository = TorquePostProcessingRepository(self.post_processing_database)
         power_repository = PowerPostProcessingRepository(self.post_processing_database)
 
-        #Add subplots here
-        torquePlot = PostProcessingDataPlot(torque_repository, subplot_code=(211), title='Torque',
-            x_label='RPM'
-            , y_label='Torque')
+        dropbox_torque_repository = TorquePostProcessingRepository(self.dropbox_database)
+        dropbox_power_repository = PowerPostProcessingRepository(self.dropbox_database)
 
-        powerPlot = PostProcessingDataPlot(power_repository, subplot_code=(212), title='Power',
-            x_label='RPM'
-            , y_label='Joules?')
+        #Add subplots here
+        torquePlot = PostProcessingDataPlot(torque_repository, dropbox_torque_repository, subplot_code=(211),
+            title='Torque', x_label='RPM', y_label='Torque')
+
+        powerPlot = PostProcessingDataPlot(power_repository, dropbox_power_repository, subplot_code=(212),
+            title='Power', x_label='RPM', y_label='Joules?')
 
         subplots.append(torquePlot)
         subplots.append(powerPlot)

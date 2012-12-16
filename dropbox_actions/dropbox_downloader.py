@@ -1,5 +1,4 @@
 import StringIO
-from pprint import pprint
 from dropbox_actions.dropbox_action import DropboxAction
 import numpy as np
 
@@ -21,7 +20,6 @@ class DropboxDownloader(DropboxAction):
         for folder in last_two_folders:
             post_file = self.client.get_file(folder['path'] + '/PostProcessing.csv')
             io = StringIO.StringIO(post_file.read())
-            arrays.append(np.genfromtxt(io, skiprows=1, usecols=(0, 1), delimiter=',', unpack=True))
+            arrays.append(np.genfromtxt(io, skiprows=1, usecols=(0, 1, 2), delimiter=',', unpack=True))
 
-        for file in arrays:
-            pprint(file)
+        return arrays

@@ -1,6 +1,6 @@
 from __future__ import division
-from data_math.derivation import derivate
-from data_math.filters import savitzky_golay
+from math_functions.derivation import derivate
+from math_functions.filters import savitzky_golay
 
 import math
 import numpy as np
