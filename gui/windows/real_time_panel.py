@@ -21,7 +21,7 @@ class RealTimePanel(BenchPanel):
 
     def _onRedrawTimer(self, event):
         try:
-            self.drawPlot()
+            self.draw_plot_canvas()
         except RuntimeError as e:
             print e
 

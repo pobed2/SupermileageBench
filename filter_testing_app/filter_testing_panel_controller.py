@@ -7,7 +7,7 @@ class FilterTestingPanelController(object):
 
     def create_panel(self, frame):
         self.panel = FilterTestingPanel(self.testing_controller, self.sub_data_plots, frame)
-        self.panel.drawPlot()
+        self.panel.draw_plot_canvas()
 
     def redraw_plots(self):
-        self.panel.drawPlot()
+        self.panel.draw_plot_canvas()

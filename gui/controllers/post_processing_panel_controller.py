@@ -6,4 +6,4 @@ class PostProcessingPanelController(object):
 
     def create_panel(self, frame):
         self.panel = PostProcessingPanel(self.sub_data_plots, frame)
-        self.panel.drawPlot()
+        self.panel.draw_plot_canvas()

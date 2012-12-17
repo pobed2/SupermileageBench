@@ -5,7 +5,7 @@ class FilterTestingPanel(BenchPanel):
         self.controller = controller
         super(FilterTestingPanel, self).__init__(sub_data_plots, parent, width, height, dpi)
 
-    def _init_plots(self, width, height, dpi):
+    def _init_widgets(self, width, height, dpi):
         self.fig = Figure((width / dpi, height / dpi), dpi=dpi)
         self.canvas = FigCanvas(self.panel, -1, self.fig)
 
