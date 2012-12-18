@@ -28,10 +28,8 @@ class DropboxFilesSidebar(wx.Panel, Observable):
         filename = self.file_list[event.GetSelection()]
 
         if self.list_box.IsChecked(event.GetSelection()):
-            print filename
             self.notify_observers(FileCheckedObservableEvent(filename))
         else:
-            print event.GetSelection()
             self.notify_observers(FileUncheckedObservableEvent(filename))
 
 

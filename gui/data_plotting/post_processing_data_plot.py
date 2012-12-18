@@ -9,7 +9,6 @@ class PostProcessingDataPlot(DataPlot):
 
     def prepare_plot_for_draw(self):
         self.data_repository.refresh_database()
-        #self.dropbox_repository.refresh_database()
         self._add_dropbox_lines()
 
         super(PostProcessingDataPlot, self).prepare_plot_for_draw()

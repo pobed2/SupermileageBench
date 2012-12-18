@@ -31,5 +31,6 @@ class FakeEncoder(object):
         pass
 
     def _notifyChangeObservers(self, position, time):
+        print "Notifying"
         for observer in self.changeObservers:
             observer.updatePosition(position, time)

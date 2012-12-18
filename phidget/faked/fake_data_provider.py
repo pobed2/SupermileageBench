@@ -20,8 +20,10 @@ class FakeDataProvider(object):
         for i in range(0, len(self.time)):
             self.fake_encoder.encoderPositionChange((self.positions[i] * 1440) / (2 * pi),
                 (self.time[i] - self.time[i - 1]) * 1000)
+            print "adding point"
             if i == 10:
                 print "Starting sleep"
                 sleep(5)
+                print "Stopped sleeping"
 
 

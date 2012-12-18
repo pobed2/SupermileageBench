@@ -7,14 +7,21 @@ class DropboxDatabase(object):
         self.__dict__ = self.__shared_state
 
     def initialize_database(self):
-        self.refresh()
+        self.drobbox_downloader = DropboxDownloader()
+        self.filenames = []
+        self.rpms = []
+        self.torques = []
+        self.powers = []
 
-    def refresh(self):
-        drobbox_downloader = DropboxDownloader()
-        last_two_files = drobbox_downloader.download_last_two_post_processing_files()
-        self.rpms = [last_two_files[0][0], last_two_files[1][0]]
-        self.torques = [last_two_files[0][1], last_two_files[1][1]]
-        self.powers = [last_two_files[0][2], last_two_files[1][2]]
+    def add_filename(self, filename):
+        self.filenames.append(filename)
+        data = self.drobbox_downloader.download_file(filename)
+        self.rpms.append(data[0])
+        self.torques.append(data[1])
+        self.powers.append(data[2])
+
+    def fetch_names_of_comparable_files(self):
+        self.drobbox_downloader.fetch_names_of_comparable_files()
 
     def get_rpms(self):
         return self.rpms

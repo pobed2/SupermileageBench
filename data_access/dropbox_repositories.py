@@ -4,10 +4,12 @@ from databases.dropbox_database import DropboxDatabase
 class DropboxRepository(Repository):
     def __init__(self):
         self.database = DropboxDatabase()
-        self.database.initialize_database()
 
-    def refresh_database(self):
-        self.database.refresh()
+    def fetch_names_of_comparable_files(self):
+        return self.database.fetch_names_of_comparable_files()
+
+    def add_file_to_compare_to_data(self):
+        pass
 
 
 class TorqueDropboxRepository(DropboxRepository):

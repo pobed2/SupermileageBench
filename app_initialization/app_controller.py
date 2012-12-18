@@ -1,4 +1,5 @@
 from data_access.dropbox_repositories import TorqueDropboxRepository, PowerDropboxRepository
+from databases.dropbox_database import DropboxDatabase
 from databases.real_time_database import RealTimeDatabase
 from gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from data_access.real_time_repositories import *
@@ -18,6 +19,8 @@ class AppController(object):
     def _initializeApp(self):
         self.database = RealTimeDatabase()
         self.database.initialize_database()
+        self.dropbox_database = DropboxDatabase()
+        self.dropbox_database.initialize_database()
 
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_processing_subplots()
