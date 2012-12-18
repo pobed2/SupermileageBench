@@ -3,12 +3,11 @@ from gui.controllers.real_time_panel_controller import RealTimePanelController
 from gui.windows.top_frame import TopFrame
 
 class TopFrameController(object):
-    def __init__(self, real_time_subplots, post_processing_subplots, filenames_to_compare_to, app_controller):
+    def __init__(self, real_time_subplots, post_processing_subplots, app_controller):
         self.frame = TopFrame(self)
 
-        self.real_time_controller = RealTimePanelController(real_time_subplots, filenames_to_compare_to, app_controller)
-        self.post_processing_controller = PostProcessingPanelController(post_processing_subplots,
-            filenames_to_compare_to)
+        self.real_time_controller = RealTimePanelController(real_time_subplots, app_controller)
+        self.post_processing_controller = PostProcessingPanelController(post_processing_subplots)
 
         self.real_time_controller.create_panel(self.frame)
 

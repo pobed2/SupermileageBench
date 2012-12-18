@@ -1,7 +1,8 @@
+from databases.borg_pattern import Borg
 from dropbox_actions.dropbox_downloader import DropboxDownloader
 
-class DropboxDatabase(object):
-    def __init__(self):
+class DropboxDatabase(Borg):
+    def initialize_database(self):
         drobbox_downloader = DropboxDownloader()
         last_two_files = drobbox_downloader.download_last_two_post_processing_files()
         self.rpms = [last_two_files[0][0], last_two_files[1][0]]

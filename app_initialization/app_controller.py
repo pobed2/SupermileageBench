@@ -1,7 +1,6 @@
+from data_access.dropbox_repositories import TorqueDropboxRepository, PowerDropboxRepository
 from databases.database import Database
-from databases.dropbox_database import DropboxDatabase
 from databases.post_processing_database import PostProcessingDatabase
-from dropbox_actions.dropbox_downloader import DropboxDownloader
 from gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from data_access.real_time_repositories import *
 from phidget.encoder_controller import EncoderController
@@ -20,16 +19,12 @@ class AppController(object):
     def _initializeApp(self):
         self.database = Database()
         self.post_processing_database = PostProcessingDatabase(self.database)
-        self.dropbox_database = DropboxDatabase()
-        self.dropbox_downloader = DropboxDownloader()
-        filenames_to_compare_to = self.dropbox_downloader.fetch_names_of_comparable_files()
 
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_processing_subplots()
 
         self._init_encoder_controller()
-        self.top_frame_controller = TopFrameController(self.real_time_subplots, self.post_treatment_subplots,
-            filenames_to_compare_to, self)
+        self.top_frame_controller = TopFrameController(self.real_time_subplots, self.post_treatment_subplots, self)
 
         return True
 
@@ -46,11 +41,11 @@ class AppController(object):
 
         #Add subplots here
         positionPlot = RealTimeDataPlot(position_repository, subplot_code=(221), title='Position')
-        velocityPlot = RealTimeDataPlot(velocity_repository, subplot_code=(222), title='Velocity')
+        velocityPlot = RealTimeDataPlot(velocity_repository, subplot_code=(222), title='Vitesse')
         accelerationPlot = RealTimeDataPlot(acceleration_repository, subplot_code=(223), title='Acceleration',
-            x_label='Time (s)'
-            , y_label='Acceleration (radians / seconds^2)')
-        torquePlot = RealTimeDataPlot(torque_repository, subplot_code=(224), title='Torque', x_label='Time (s)'
+            x_label='Temps (s)'
+            , y_label='Acceleration (radians / secondes^2)')
+        torquePlot = RealTimeDataPlot(torque_repository, subplot_code=(224), title='Torque', x_label='Temps (s)'
             , y_label='Torque')
 
         subplots.append(accelerationPlot)
@@ -66,15 +61,15 @@ class AppController(object):
         torque_repository = TorquePostProcessingRepository(self.post_processing_database)
         power_repository = PowerPostProcessingRepository(self.post_processing_database)
 
-        dropbox_torque_repository = TorquePostProcessingRepository(self.dropbox_database)
-        dropbox_power_repository = PowerPostProcessingRepository(self.dropbox_database)
+        dropbox_torque_repository = TorqueDropboxRepository()
+        dropbox_power_repository = PowerDropboxRepository()
 
         #Add subplots here
         torquePlot = PostProcessingDataPlot(torque_repository, dropbox_torque_repository, subplot_code=(211),
             title='Torque', x_label='RPM', y_label='Torque')
 
         powerPlot = PostProcessingDataPlot(power_repository, dropbox_power_repository, subplot_code=(212),
-            title='Power', x_label='RPM', y_label='Joules?')
+            title='Puissance', x_label='RPM', y_label='Joules?')
 
         subplots.append(torquePlot)
         subplots.append(powerPlot)

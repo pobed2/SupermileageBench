@@ -24,6 +24,9 @@ class DropboxDownloader(DropboxAction):
 
         return arrays
 
+    def download_file(self, name):
+        pass
+
     def fetch_names_of_comparable_files(self):
         self._log_in()
         supermileage_metadata = self.client.metadata(self.FOLDER_NAME)

@@ -2,13 +2,12 @@ from gui.mvc_helpers.observer import Observer
 from gui.windows.real_time_panel import RealTimePanel
 
 class RealTimePanelController(Observer):
-    def __init__(self, real_time_subplots, filenames_to_compare_to, app_controller):
+    def __init__(self, real_time_subplots, app_controller):
         self.real_time_subplots = real_time_subplots
-        self.filenames_to_compare_to = filenames_to_compare_to
         self.app_controller = app_controller
 
     def create_panel(self, panel_parent):
-        self.panel = RealTimePanel(panel_parent, self.real_time_subplots, self.filenames_to_compare_to)
+        self.panel = RealTimePanel(panel_parent, self.real_time_subplots)
         self.panel.add_panel_observers(self)
 
     def start_plotting(self):

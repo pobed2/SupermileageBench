@@ -5,6 +5,7 @@ class PostProcessingDataPlot(DataPlot):
                  bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
         super(PostProcessingDataPlot, self).__init__(data_repository, subplot_code, bg_color, title, x_label, y_label,
             linewidth, color)
+
         self.dropbox_repository = dropbox_repository
 
     def initialize_figure(self, figure):
