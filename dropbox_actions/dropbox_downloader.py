@@ -23,3 +23,19 @@ class DropboxDownloader(DropboxAction):
             arrays.append(np.genfromtxt(io, skiprows=1, usecols=(0, 1, 2), delimiter=',', unpack=True))
 
         return arrays
+
+    def fetch_names_of_comparable_files(self):
+        self._log_in()
+        supermileage_metadata = self.client.metadata(self.FOLDER_NAME)
+
+        file_names = []
+
+        for file in supermileage_metadata['contents']:
+            if file['is_dir']:
+                file_path = file['path']
+                file_name = file_path.split('/')[-1]
+                file_names.append(str(file_name))
+
+        file_names.reverse()
+
+        return file_names

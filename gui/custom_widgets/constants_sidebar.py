@@ -1,8 +1,10 @@
 import wx
+from gui.mvc_helpers.observable import Observable
 
-class ConstantsSidebar(wx.Panel):
+class ConstantsSidebar(wx.Panel, Observable):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent, style=wx.SIMPLE_BORDER)
+        Observable.__init__(self)
 
         hbox = wx.BoxSizer(wx.HORIZONTAL)
 

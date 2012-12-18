@@ -1,15 +1,11 @@
 from databases.database import Database
 from databases.dropbox_database import DropboxDatabase
 from databases.post_processing_database import PostProcessingDatabase
-from gui.windows.top_frame import TopFrame
+from dropbox_actions.dropbox_downloader import DropboxDownloader
 from gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from data_access.real_time_repositories import *
-from phidget.sm_encoder import SMEncoder
 from phidget.encoder_controller import EncoderController
-from gui.controllers.real_time_panel_controller import RealTimePanelController
-from gui.windows.real_time_panel import RealTimePanel
 from gui.controllers.top_frame_controller import TopFrameController
-from gui.controllers.post_processing_panel_controller import PostProcessingPanelController
 from datetime import datetime
 from dropbox_actions.dropbox_saver import  DropboxSaver
 from data_access.post_processing_repositories import *
@@ -25,28 +21,20 @@ class AppController(object):
         self.database = Database()
         self.post_processing_database = PostProcessingDatabase(self.database)
         self.dropbox_database = DropboxDatabase()
+        self.dropbox_downloader = DropboxDownloader()
+        filenames_to_compare_to = self.dropbox_downloader.fetch_names_of_comparable_files()
 
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_processing_subplots()
 
-        self.encoder_controller = EncoderController(self.database)
-        self.real_time_controller = RealTimePanelController(self.encoder_controller, self)
-        self.post_treatment_controller = PostProcessingPanelController(self.post_treatment_subplots)
-        self.top_frame_controller = TopFrameController(self.real_time_controller, self.post_treatment_controller)
-
-        #TODO Mettre la creation de panels dans les controlleurs?
-        self.frame = TopFrame(self.top_frame_controller, title="Supermileage: Bench")
-        self.real_time_panel = RealTimePanel(self.real_time_subplots, self.frame)
-
-        self.real_time_controller.set_panel(self.real_time_panel)
-        self.top_frame_controller.set_frame(self.frame)
-
-        self._init_encoder()
-
-        self.frame.Show(True)
-        self.frame.Centre()
+        self._init_encoder_controller()
+        self.top_frame_controller = TopFrameController(self.real_time_subplots, self.post_treatment_subplots,
+            filenames_to_compare_to, self.encoder_controller, self)
 
         return True
+
+    def _init_encoder_controller(self):
+        self.encoder_controller = EncoderController(self.database)
 
     def _init_real_time_subplots(self):
         subplots = []
@@ -92,11 +80,6 @@ class AppController(object):
         subplots.append(powerPlot)
 
         return subplots
-
-    def _init_encoder(self):
-        self.encoder = SMEncoder()
-        self.encoder.addAttachDetachObserver(self.encoder_controller)
-        self.encoder.addChangeObserver(self.encoder_controller)
 
     def save_data_to_dropbox(self):
         directory_name = (str(datetime.now().replace(microsecond=0)))

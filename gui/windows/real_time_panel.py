@@ -3,15 +3,14 @@ import wx
 from gui.windows.bench_panel import BenchPanel
 
 class RealTimePanel(BenchPanel):
-    def __init__(self, sub_data_plots, parent):
-        super(RealTimePanel, self).__init__(sub_data_plots, parent)
-        self.parent = parent
-        self._init_timer()
+    def __init__(self, parent, sub_data_plots, filenames_to_compare_to):
+        super(RealTimePanel, self).__init__(parent, sub_data_plots, filenames_to_compare_to)
+        self._init_timer(parent)
 
-    def _init_timer(self):
+    def _init_timer(self, parent):
         self.redrawPeriod = 100
-        self.redrawTimer = wx.Timer(self.parent)
-        self.parent.Bind(wx.EVT_TIMER, self._onRedrawTimer, self.redrawTimer)
+        self.redrawTimer = wx.Timer(parent)
+        parent.Bind(wx.EVT_TIMER, self._onRedrawTimer, self.redrawTimer)
 
     def startTimer(self):
         self.redrawTimer.Start(self.redrawPeriod)

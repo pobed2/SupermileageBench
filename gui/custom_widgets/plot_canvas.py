@@ -1,10 +1,12 @@
 import wx
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigCanvas
+from gui.mvc_helpers.observable import Observable
 
-class PlotCanvas(wx.Panel):
+class PlotCanvas(wx.Panel, Observable):
     def __init__(self, parent, subplots):
         wx.Panel.__init__(self, parent, -1, style=wx.SIMPLE_BORDER)
+        Observable.__init__(self)
 
         self.fig = Figure()
         self.canvas = FigCanvas(self, -1, self.fig)

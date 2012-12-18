@@ -1,8 +1,10 @@
 import wx
+from gui.mvc_helpers.observable import Observable
 
-class DropboxFilesSidebar(wx.Panel):
+class DropboxFilesSidebar(wx.Panel, Observable):
     def __init__(self, parent, file_list=[]):
         wx.Panel.__init__(self, parent, 0, style=wx.SIMPLE_BORDER)
+        Observable.__init__(self)
 
         self.hide_button = wx.Button(self, label="Hide")
         self.list_box = wx.CheckListBox(choices=file_list, parent=self)
