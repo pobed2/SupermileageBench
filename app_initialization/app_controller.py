@@ -29,7 +29,7 @@ class AppController(object):
 
         self._init_encoder_controller()
         self.top_frame_controller = TopFrameController(self.real_time_subplots, self.post_treatment_subplots,
-            filenames_to_compare_to, self.encoder_controller, self)
+            filenames_to_compare_to, self)
 
         return True
 
@@ -80,6 +80,15 @@ class AppController(object):
         subplots.append(powerPlot)
 
         return subplots
+
+    def start_data_acquisition(self):
+        self.encoder_controller.start_data_acquisition()
+
+    def stop_data_acquisition(self, save):
+        self.encoder_controller.stop_data_acquisition()
+        if save:
+            self.save_data_to_dropbox()
+        self.top_frame_controller.create_post_processing_panel()
 
     def save_data_to_dropbox(self):
         directory_name = (str(datetime.now().replace(microsecond=0)))

@@ -29,11 +29,11 @@ class FilterTestingPanel(BenchPanel):
         for plot in self.sub_data_plots:
             plot.initialize_figure(self.fig)
 
-        self.graphBox = wx.BoxSizer(wx.VERTICAL)
-        self.graphBox.Add(self.slider_panel, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
-        self.graphBox.Add(self.canvas, 10, flag=wx.LEFT | wx.TOP | wx.GROW)
+        self.parent_sizer = wx.BoxSizer(wx.VERTICAL)
+        self.parent_sizer.Add(self.slider_panel, 1, flag=wx.LEFT | wx.TOP | wx.GROW)
+        self.parent_sizer.Add(self.canvas, 10, flag=wx.LEFT | wx.TOP | wx.GROW)
 
-        self.panel.SetSizer(self.graphBox)
+        self.panel.SetSizer(self.parent_sizer)
         self.panel.Show()
 
     def OnCalculateNewFilter(self, event):
