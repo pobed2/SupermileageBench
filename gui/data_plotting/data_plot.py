@@ -16,7 +16,16 @@ class DataPlot(object):
         self.color = color
 
     def initialize_figure(self, figure):
-        self.subplot = figure.add_subplot(self.subplot_code)
+        self.figure = figure
+        self._add_subplot()
+
+    def refresh_subplots(self):
+        self.subplot.clear()
+        self._add_subplot()
+
+
+    def _add_subplot(self):
+        self.subplot = self.figure.add_subplot(self.subplot_code)
         self.subplot.set_axis_bgcolor(self.bg_color)
         self.subplot.set_title(self.title, size=12)
         self.subplot.set_xlabel(self.x_label, size=10)

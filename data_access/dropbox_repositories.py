@@ -11,6 +11,9 @@ class DropboxRepository(Repository):
     def add_file_to_compare_to_data(self, filename):
         return self.database.add_file_to_compare_to_data(filename)
 
+    def remove_file_to_compare_to_data(self, filename):
+        self.database.remove_file_to_compare_to_data(filename)
+
 
 class TorqueDropboxRepository(DropboxRepository):
     def __init__(self):

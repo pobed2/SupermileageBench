@@ -14,13 +14,21 @@ class PostProcessingPanelController(object):
         self.panel.add_panel_observers(self)
         self.panel.draw_plot_canvas()
 
+
+    #TODO CRAPPY CODE
     def update(self, event):
         filename = event.filename
 
         if  isinstance(event, FileCheckedObservableEvent):
-            self.dropbox_repository.add_file_to_compare_to_data(filename)
-            self.panel.refresh_canvas()
+            self._add_data_line_to_canvas(filename)
         elif isinstance(event, FileUncheckedObservableEvent):
-            print "Intercepted file unchecked event"
+            self._remove_line_from_canvas(filename)
 
+    def _add_data_line_to_canvas(self, filename):
+        self.dropbox_repository.add_file_to_compare_to_data(filename)
+        self.panel.refresh_canvas()
+
+    def _remove_line_from_canvas(self, filename):
+        self.dropbox_repository.remove_file_to_compare_to_data(filename)
+        self.panel.refresh_canvas()
 

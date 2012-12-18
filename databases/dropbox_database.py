@@ -20,6 +20,13 @@ class DropboxDatabase(object):
         self.torques.append(data[1])
         self.powers.append(data[2])
 
+    def remove_file_to_compare_to_data(self, filename):
+        file_index = self.filenames.index(filename)
+        self.rpms.pop(file_index)
+        self.torques.pop(file_index)
+        self.powers.pop(file_index)
+        self.filenames.pop(file_index)
+
     def fetch_names_of_comparable_files(self):
         return self.drobbox_downloader.fetch_names_of_comparable_files()
 

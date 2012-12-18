@@ -8,6 +8,7 @@ class PostProcessingDataPlot(DataPlot):
         self.dropbox_repository = dropbox_repository
 
     def prepare_plot_for_draw(self):
+        self.refresh_subplots()
         self.data_repository.refresh_database()
         self._add_dropbox_lines()
 
@@ -16,6 +17,7 @@ class PostProcessingDataPlot(DataPlot):
     def _add_dropbox_lines(self):
         self.dropbox_lines = []
         number_of_lines = len(self.dropbox_repository.get_x_data())
+        print number_of_lines
         for _ in range(number_of_lines):
             self.dropbox_lines.append(
                 self.subplot.plot(
