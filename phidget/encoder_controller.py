@@ -19,9 +19,7 @@ class EncoderController(object):
         self.started = False
 
     def updatePosition(self, position, time):
-        print "Adding point1"
         if self.started:
-            print "Adding point2"
             self.database.addPoint(position, time)
 
     def _init_encoder(self):

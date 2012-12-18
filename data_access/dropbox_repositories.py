@@ -8,8 +8,8 @@ class DropboxRepository(Repository):
     def fetch_names_of_comparable_files(self):
         return self.database.fetch_names_of_comparable_files()
 
-    def add_file_to_compare_to_data(self):
-        pass
+    def add_file_to_compare_to_data(self, filename):
+        return self.database.add_file_to_compare_to_data(filename)
 
 
 class TorqueDropboxRepository(DropboxRepository):

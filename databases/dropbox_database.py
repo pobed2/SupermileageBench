@@ -13,7 +13,7 @@ class DropboxDatabase(object):
         self.torques = []
         self.powers = []
 
-    def add_filename(self, filename):
+    def add_file_to_compare_to_data(self, filename):
         self.filenames.append(filename)
         data = self.drobbox_downloader.download_file(filename)
         self.rpms.append(data[0])
@@ -21,7 +21,7 @@ class DropboxDatabase(object):
         self.powers.append(data[2])
 
     def fetch_names_of_comparable_files(self):
-        self.drobbox_downloader.fetch_names_of_comparable_files()
+        return self.drobbox_downloader.fetch_names_of_comparable_files()
 
     def get_rpms(self):
         return self.rpms

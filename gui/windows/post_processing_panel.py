@@ -27,3 +27,6 @@ class PostProcessingPanel(BenchPanel):
         self.Show()
 
         return [self.listBox1, self.constants_sidebar, self.plot_canvas]
+
+    def refresh_canvas(self):
+        self.plot_canvas.draw()

@@ -18,7 +18,8 @@ class PostProcessingPanelController(object):
         filename = event.filename
 
         if  isinstance(event, FileCheckedObservableEvent):
-            self.add_data_to_compare(filename)
+            self.dropbox_repository.add_file_to_compare_to_data(filename)
+            self.panel.refresh_canvas()
         elif isinstance(event, FileUncheckedObservableEvent):
             print "Intercepted file unchecked event"
 
