@@ -1,12 +1,16 @@
 from __future__ import division
 from math import pi
 import numpy as np
+from databases.real_time_database import RealTimeDatabase
 
 class PostProcessingDatabase(object):
-    def __init__(self, real_time_database):
-        self.real_time_database = real_time_database
+    __shared_state = {}
+
+    def __init__(self):
+        self.__dict__ = self.__shared_state
 
     def refresh(self):
+        self.real_time_database = RealTimeDatabase()
         self._initialize_data_arrays()
 
     def _initialize_data_arrays(self):

@@ -1,6 +1,5 @@
 from data_access.dropbox_repositories import TorqueDropboxRepository, PowerDropboxRepository
-from databases.database import Database
-from databases.post_processing_database import PostProcessingDatabase
+from databases.real_time_database import RealTimeDatabase
 from gui.data_plotting.real_time_data_plot import RealTimeDataPlot
 from data_access.real_time_repositories import *
 from phidget.encoder_controller import EncoderController
@@ -17,8 +16,8 @@ class AppController(object):
         self.POST_PROCESSING_FILENAME = "PostProcessing.csv"
 
     def _initializeApp(self):
-        self.database = Database()
-        self.post_processing_database = PostProcessingDatabase(self.database)
+        self.database = RealTimeDatabase()
+        self.database.initialize_database()
 
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_processing_subplots()
@@ -34,10 +33,10 @@ class AppController(object):
     def _init_real_time_subplots(self):
         subplots = []
 
-        position_repository = PositionRealTimeRepository(self.database)
-        velocity_repository = VelocityRealTimeRepository(self.database)
-        acceleration_repository = AccelerationRealTimeRepository(self.database)
-        torque_repository = TorqueRealTimeRepository(self.database)
+        position_repository = PositionRealTimeRepository()
+        velocity_repository = VelocityRealTimeRepository()
+        acceleration_repository = AccelerationRealTimeRepository()
+        torque_repository = TorqueRealTimeRepository()
 
         #Add subplots here
         positionPlot = RealTimeDataPlot(position_repository, subplot_code=(221), title='Position')
@@ -58,8 +57,8 @@ class AppController(object):
     def _init_post_processing_subplots(self):
         subplots = []
 
-        torque_repository = TorquePostProcessingRepository(self.post_processing_database)
-        power_repository = PowerPostProcessingRepository(self.post_processing_database)
+        torque_repository = TorquePostProcessingRepository()
+        power_repository = PowerPostProcessingRepository()
 
         dropbox_torque_repository = TorqueDropboxRepository()
         dropbox_power_repository = PowerDropboxRepository()

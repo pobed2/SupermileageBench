@@ -5,8 +5,13 @@ from math_functions.filters import savitzky_golay
 import math
 import numpy as np
 
-class Database(object):
-    def __init__(self, derivativeInterval=100):
+class RealTimeDatabase(object):
+    __shared_state = {}
+
+    def __init__(self):
+        self.__dict__ = self.__shared_state
+
+    def initialize_database(self):
         self.DISC_INERTIA = 0.258064
         self.ARRAY_SIZE = 20000
 
@@ -19,7 +24,7 @@ class Database(object):
         self.accelerations = np.empty(self.ARRAY_SIZE)
         self.torques = np.empty(self.ARRAY_SIZE)
 
-        self.derivativeInterval = derivativeInterval / 1000
+        self.derivativeInterval = 0.1
 
         self.numberOfPulsesPerTurn = 1440
         self.started = False
