@@ -17,12 +17,11 @@ class DataPlot(object):
 
     def initialize_figure(self, figure):
         self.figure = figure
-        self._add_subplot()
+        return self._add_subplot()
 
     def refresh_subplots(self):
         self.subplot.clear()
         self._add_subplot()
-
 
     def _add_subplot(self):
         self.subplot = self.figure.add_subplot(self.subplot_code)
@@ -30,11 +29,14 @@ class DataPlot(object):
         self.subplot.set_title(self.title, size=12)
         self.subplot.set_xlabel(self.x_label, size=10)
         self.subplot.set_ylabel(self.y_label, size=10)
+        self.subplot.grid(True, linestyle='-', color='0.75')
         self.data_plot = self.subplot.plot(
             [],
             linewidth=self.linewidth,
             color=self.color,
         )[0]
+
+        return self.subplot
 
     def prepare_plot_for_draw(self):
         self._set_data()
