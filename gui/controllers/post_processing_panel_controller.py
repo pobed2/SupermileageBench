@@ -1,8 +1,9 @@
 from data_access.dropbox_repositories import DropboxRepository
 from gui.mvc_helpers.observable_events import FileCheckedObservableEvent, FileUncheckedObservableEvent
+from gui.mvc_helpers.observer import Observer
 from gui.windows.post_processing_panel import PostProcessingPanel
 
-class PostProcessingPanelController(object):
+class PostProcessingPanelController(Observer):
     def __init__(self, sub_data_plots):
         self.sub_data_plots = sub_data_plots
         self.dropbox_repository = DropboxRepository()
@@ -17,12 +18,15 @@ class PostProcessingPanelController(object):
 
     #TODO CRAPPY CODE
     def update(self, event):
-        filename = event.filename
-
-        if  isinstance(event, FileCheckedObservableEvent):
+        if event == "reset":
+            print "reset"
+        elif  isinstance(event, FileCheckedObservableEvent):
+            filename = event.filename
             self._add_data_line_to_canvas(filename)
         elif isinstance(event, FileUncheckedObservableEvent):
+            filename = event.filename
             self._remove_line_from_canvas(filename)
+
 
     def _add_data_line_to_canvas(self, filename):
         self.dropbox_repository.add_file_to_compare_to_data(filename)

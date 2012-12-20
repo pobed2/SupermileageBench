@@ -1,4 +1,5 @@
 import wx
+from gui.custom_widgets.reset_topbar import ResetTopbar
 
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.constants_sidebar import ConstantsSidebar
@@ -14,6 +15,7 @@ class PostProcessingPanel(BenchPanel):
         self.listBox1 = DropboxFilesSidebar(self, filenames_to_compare_to)
         self.constants_sidebar = ConstantsSidebar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
+        self.reset_topbar = ResetTopbar(self)
 
         self.vertical_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.vertical_sizer.Add(self.listBox1, 1, wx.GROW)
@@ -21,12 +23,13 @@ class PostProcessingPanel(BenchPanel):
         self.vertical_sizer.Add(self.constants_sidebar, 1, wx.GROW)
 
         self.panel_sizer = wx.BoxSizer(wx.VERTICAL)
+        self.panel_sizer.Add(self.reset_topbar, 1, wx.GROW)
         self.panel_sizer.Add(self.vertical_sizer, 20, wx.GROW)
 
         self.SetSizer(self.panel_sizer)
         self.Show()
 
-        return [self.listBox1, self.constants_sidebar, self.plot_canvas]
+        return [self.listBox1, self.constants_sidebar, self.plot_canvas, self.reset_topbar]
 
     def refresh_canvas(self):
         self.plot_canvas.draw()
