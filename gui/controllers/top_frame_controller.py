@@ -7,7 +7,7 @@ class TopFrameController(object):
         self.frame = TopFrame(self)
 
         self.real_time_controller = RealTimePanelController(real_time_subplots, app_controller)
-        self.post_processing_controller = PostProcessingPanelController(post_processing_subplots)
+        self.post_processing_controller = PostProcessingPanelController(post_processing_subplots, app_controller)
 
         self.real_time_controller.create_panel(self.frame)
 
@@ -27,5 +27,8 @@ class TopFrameController(object):
 
     def on_stop_and_delete_button_click(self, event):
         self.real_time_panel_controller.stop_plotting(save=False)
+
+    def close_frame(self):
+        self.frame.Close()
 
 

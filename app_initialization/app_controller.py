@@ -16,6 +16,10 @@ class AppController(object):
         self.REAL_TIME_FILENAME = "RealTime.csv"
         self.POST_PROCESSING_FILENAME = "PostProcessing.csv"
 
+    def reset_app(self):
+        self.top_frame_controller.close_frame()
+        self._initializeApp()
+
     def _initializeApp(self):
         self.database = RealTimeDatabase()
         self.database.initialize_database()

@@ -4,9 +4,10 @@ from gui.mvc_helpers.observer import Observer
 from gui.windows.post_processing_panel import PostProcessingPanel
 
 class PostProcessingPanelController(Observer):
-    def __init__(self, sub_data_plots):
+    def __init__(self, sub_data_plots, app_controller):
         self.sub_data_plots = sub_data_plots
         self.dropbox_repository = DropboxRepository()
+        self.app_controller = app_controller
 
     def create_panel(self, frame):
         names_of_comparable_files = self.dropbox_repository.fetch_names_of_comparable_files()
@@ -19,7 +20,7 @@ class PostProcessingPanelController(Observer):
     #TODO CRAPPY CODE
     def update(self, event):
         if event == "reset":
-            print "reset"
+            self.app_controller.reset_app()
         elif  isinstance(event, FileCheckedObservableEvent):
             filename = event.filename
             self._add_data_line_to_canvas(filename)

@@ -96,3 +96,6 @@ class RealTimeDatabase(object):
 
         return data_string
 
+    def reset(self):
+        self.initialize_database()
+
