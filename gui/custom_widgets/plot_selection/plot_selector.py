@@ -8,7 +8,7 @@ class PlotSelector(wx.Panel, Observable):
         wx.Panel.__init__(self, parent, 0, style=wx.SIMPLE_BORDER)
         Observable.__init__(self)
 
-        cc = wx.combo.ComboCtrl(self)
+        cc = wx.combo.ComboCtrl(self, -1)
         tcp = CheckListComboPopup(["Position", "Vitesse", "Acceleration", "Torque"])
         cc.SetPopupControl(tcp)
 
