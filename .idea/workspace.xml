@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/data_plotting/plot_types/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_initialization/app_controller.py" afterPath="$PROJECT_DIR$/app_initialization/app_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" afterPath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" afterPath="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +35,7 @@
       <file leaf-file-name="app_controller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="94" selection-start="2462" selection-end="2513" vertical-scroll-proportion="0.0">
+            <state line="82" column="64" selection-start="3745" selection-end="3796" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#92#0" expanded="true" />
               </folding>
@@ -46,13 +43,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="real_time_plots.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="real_time_plots.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="39" selection-start="890" selection-end="890" vertical-scroll-proportion="0.5947136">
+            <state line="7" column="47" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#17#176#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_processing_plots.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="64" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.6597222">
+              <folding>
+                <element signature="e#0#92#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_processing_data_plot.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/data_plotting/post_processing_data_plot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="6" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,7 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gui/custom_widgets/reset_topbar.py" />
         <option value="$PROJECT_DIR$/gui/windows/post_processing_panel.py" />
         <option value="$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py" />
         <option value="$PROJECT_DIR$/databases/real_time_database.py" />
@@ -107,8 +123,9 @@
         <option value="$PROJECT_DIR$/gui/windows/real_time_panel.py" />
         <option value="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" />
         <option value="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" />
-        <option value="$PROJECT_DIR$/app_initialization/app_controller.py" />
         <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" />
+        <option value="$PROJECT_DIR$/app_initialization/app_controller.py" />
+        <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py" />
       </list>
     </option>
   </component>
@@ -646,7 +663,11 @@
       <created>1356123816257</created>
       <updated>1356123816257</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Created the realtime plots specific to each type of data">
+      <created>1356126094280</created>
+      <updated>1356126094280</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -729,7 +750,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created and added the widget to select plots on the fly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created the realtime plots specific to each type of data" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -742,7 +763,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Refactored the repositories" />
     <MESSAGE value="Fixed the sorting problem for the post processing plots" />
     <MESSAGE value="Commiting the app to test the filters&#10;" />
     <MESSAGE value="Accelerated the processing time of the filter analysis app&#10;" />
@@ -767,6 +787,7 @@
     <MESSAGE value="Added a reset button&#10;" />
     <MESSAGE value="Reset working" />
     <MESSAGE value="Created and added the widget to select plots on the fly" />
+    <MESSAGE value="Created the realtime plots specific to each type of data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -781,13 +802,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gui/custom_widgets/plot_selection/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/7.3/lib/python2.7/site-packages/wx/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.247191">
@@ -854,13 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/data_plotting/post_processing_data_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/custom_widgets/plot_selection/checklist_combo_popup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="82" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
@@ -891,20 +898,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="47" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#17#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/post_processing_data_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="6" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="94" selection-start="2462" selection-end="2513" vertical-scroll-proportion="0.0">
+        <state line="82" column="64" selection-start="3745" selection-end="3796" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py">
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="39" selection-start="890" selection-end="890" vertical-scroll-proportion="0.5947136">
+        <state line="19" column="64" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.6597222">
           <folding>
-            <element signature="e#17#176#0" expanded="true" />
+            <element signature="e#0#92#0" expanded="true" />
           </folding>
         </state>
       </provider>

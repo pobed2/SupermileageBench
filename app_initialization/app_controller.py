@@ -1,13 +1,11 @@
-from data_access.dropbox_repositories import TorqueDropboxRepository, PowerDropboxRepository
 from databases.dropbox_database import DropboxDatabase
 from databases.real_time_database import RealTimeDatabase
+from gui.data_plotting.plot_types.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
 from gui.data_plotting.plot_types.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
 from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime
 from dropbox_actions.dropbox_saver import  DropboxSaver
-from data_access.post_processing_repositories import *
-from gui.data_plotting.post_processing_data_plot import *
 
 class AppController(object):
     def __init__(self):
@@ -68,18 +66,21 @@ class AppController(object):
     def _init_post_processing_subplots(self):
         subplots = []
 
-        torque_repository = TorquePostProcessingRepository()
-        power_repository = PowerPostProcessingRepository()
+        #        torque_repository = TorquePostProcessingRepository()
+        #        power_repository = PowerPostProcessingRepository()
+        #
+        #        dropbox_torque_repository = TorqueDropboxRepository()
+        #        dropbox_power_repository = PowerDropboxRepository()
+        #
+        #        #Add subplots here
+        #        torquePlot = PostProcessingDataPlot(torque_repository, dropbox_torque_repository, subplot_code=(211),
+        #            title='Torque', x_label='RPM', y_label='Torque')
+        #
+        #        powerPlot = PostProcessingDataPlot(power_repository, dropbox_power_repository, subplot_code=(212),
+        #            title='Puissance', x_label='RPM', y_label='Joules?')
 
-        dropbox_torque_repository = TorqueDropboxRepository()
-        dropbox_power_repository = PowerDropboxRepository()
-
-        #Add subplots here
-        torquePlot = PostProcessingDataPlot(torque_repository, dropbox_torque_repository, subplot_code=(211),
-            title='Torque', x_label='RPM', y_label='Torque')
-
-        powerPlot = PostProcessingDataPlot(power_repository, dropbox_power_repository, subplot_code=(212),
-            title='Puissance', x_label='RPM', y_label='Joules?')
+        torquePlot = TorquePostProcessingPlot()
+        powerPlot = PowerPostProcessingPlot()
 
         subplots.append(torquePlot)
         subplots.append(powerPlot)
