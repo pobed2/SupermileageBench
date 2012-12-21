@@ -1,4 +1,5 @@
 import wx
+from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
 
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.constants_sidebar import ConstantsSidebar
@@ -15,13 +16,18 @@ class RealTimePanel(BenchPanel):
         self.start_stop_buttons = StartStopTopbar(self)
         self.constants_sidebar = ConstantsSidebar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
+        self.plot_selector = PlotSelector(self)
+
+        self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.topbar_sizer.Add(self.start_stop_buttons, 2, wx.GROW)
+        self.topbar_sizer.Add(self.plot_selector, 1, wx.GROW)
 
         self.vertical_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.vertical_sizer.Add(self.plot_canvas, 5, wx.GROW)
         self.vertical_sizer.Add(self.constants_sidebar, 1, wx.GROW)
 
         self.parent_sizer = wx.BoxSizer(wx.VERTICAL)
-        self.parent_sizer.Add(self.start_stop_buttons, 1, wx.GROW)
+        self.parent_sizer.Add(self.topbar_sizer, 1, wx.GROW)
         self.parent_sizer.Add(self.vertical_sizer, 20, wx.GROW)
 
         self.SetSizer(self.parent_sizer)

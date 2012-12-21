@@ -1,3 +1,5 @@
+from math import ceil, floor
+
 class DataPlot(object):
     '''
     Base class for every type of plots
@@ -17,6 +19,7 @@ class DataPlot(object):
 
     def initialize_figure(self, figure):
         self.figure = figure
+
         return self._add_subplot()
 
     def refresh_subplots(self):
@@ -55,7 +58,7 @@ class DataPlot(object):
         data_max = self.data_repository.get_max_y_data()
         data_min = self.data_repository.get_min_y_data()
 
-        y_min = round(data_min, 0) - (0.1 * abs(round(data_min, 0)))
-        y_max = round(data_max, 0) + (0.1 * round(data_max, 0))
+        y_min = floor(data_min) - (0.1 * abs(ceil(data_min)))
+        y_max = ceil(data_max) + (0.1 * abs(ceil(data_max)))
 
         return y_min, y_max
