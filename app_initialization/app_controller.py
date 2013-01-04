@@ -1,4 +1,5 @@
 from databases.dropbox_database import DropboxDatabase
+from databases.post_processing_database import PostProcessingDatabase
 from databases.real_time_database import RealTimeDatabase
 from gui.data_plotting.plot_types.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
 from gui.data_plotting.plot_types.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
@@ -20,6 +21,7 @@ class AppController(object):
     def _initializeApp(self):
         self.database = RealTimeDatabase()
         self.database.initialize_database()
+        self.post_processing_database = PostProcessingDatabase()
         self.dropbox_database = DropboxDatabase()
         self.dropbox_database.initialize_database()
 
@@ -37,20 +39,6 @@ class AppController(object):
     def _init_real_time_subplots(self):
         subplots = []
 
-        #        position_repository = PositionRealTimeRepository()
-        #        velocity_repository = VelocityRealTimeRepository()
-        #        acceleration_repository = AccelerationRealTimeRepository()
-        #        torque_repository = TorqueRealTimeRepository()
-        #
-        #        #Add subplots here
-        #        positionPlot = RealTimeDataPlot(position_repository, subplot_code=(221), title='Position')
-        #        velocityPlot = RealTimeDataPlot(velocity_repository, subplot_code=(222), title='Vitesse')
-        #        accelerationPlot = RealTimeDataPlot(acceleration_repository, subplot_code=(223), title='Acceleration',
-        #            x_label='Temps (s)'
-        #            , y_label='Acceleration (radians / secondes^2)')
-        #        torquePlot = RealTimeDataPlot(torque_repository, subplot_code=(224), title='Torque', x_label='Temps (s)'
-        #            , y_label='Torque')
-
         positionPlot = PositionRealTimePlot()
         velocityPlot = VelocityRealTimePlot()
         accelerationPlot = AccelerationRealTimePlot()
@@ -65,19 +53,6 @@ class AppController(object):
 
     def _init_post_processing_subplots(self):
         subplots = []
-
-        #        torque_repository = TorquePostProcessingRepository()
-        #        power_repository = PowerPostProcessingRepository()
-        #
-        #        dropbox_torque_repository = TorqueDropboxRepository()
-        #        dropbox_power_repository = PowerDropboxRepository()
-        #
-        #        #Add subplots here
-        #        torquePlot = PostProcessingDataPlot(torque_repository, dropbox_torque_repository, subplot_code=(211),
-        #            title='Torque', x_label='RPM', y_label='Torque')
-        #
-        #        powerPlot = PostProcessingDataPlot(power_repository, dropbox_power_repository, subplot_code=(212),
-        #            title='Puissance', x_label='RPM', y_label='Joules?')
 
         torquePlot = TorquePostProcessingPlot()
         powerPlot = PowerPostProcessingPlot()

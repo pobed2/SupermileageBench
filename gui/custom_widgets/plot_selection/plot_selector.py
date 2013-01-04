@@ -10,9 +10,14 @@ class PlotSelector(wx.Panel, Observable):
 
         cc = wx.combo.ComboCtrl(self, -1)
         tcp = CheckListComboPopup(["Position", "Vitesse", "Acceleration", "Torque"])
+        tcp.add_observer(self)
+
         cc.SetPopupControl(tcp)
 
         self.sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.sizer.Add(cc, 1, flag=wx.CENTER)
 
         self.SetSizer(self.sizer)
+
+    def update(self, event):
+        self.notify_observers(event)

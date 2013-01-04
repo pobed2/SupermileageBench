@@ -15,10 +15,8 @@ class PlotCanvas(wx.Panel, Observable):
         self.canvas = FigCanvas(self, -1, self.fig)
         self.canvas.mpl_connect('button_release_event', self.zoom_toolbar)
         self.canvas.mpl_connect('key_press_event', self.on_key)
-        self.sub_data_plots = subplots
 
-        for plot in self.sub_data_plots:
-            plot.initialize_figure(self.fig)
+        self.initialize_subplots(subplots)
 
         #self.toolbar = PlottingToolbar(self, self.canvas).Hide()
         self.toolbar = NavigationToolbar2Wx(self.canvas)
@@ -30,11 +28,24 @@ class PlotCanvas(wx.Panel, Observable):
 
         self.SetSizer(self.sizer)
 
+    def initialize_subplots(self, subplots):
+        self.sub_data_plots = subplots
+
+        for plot in self.sub_data_plots:
+            plot.initialize_figure(self.fig)
+
     def draw(self):
         for plot in self.sub_data_plots:
             plot.prepare_plot_for_draw()
         self.canvas.draw()
 
+    def update_subplots(self, subplots):
+        self.fig.clf()
+        self.initialize_subplots(subplots)
+        self.canvas.draw()
+
+
+    #toolbar crap
     def on_key(self, event):
         if event.key == "p":
             print "this is p"

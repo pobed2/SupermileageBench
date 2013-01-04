@@ -33,7 +33,10 @@ class RealTimePanel(BenchPanel):
         self.SetSizer(self.parent_sizer)
         self.Show()
 
-        return [self.start_stop_buttons, self.constants_sidebar, self.plot_canvas]
+        return [self.start_stop_buttons, self.constants_sidebar, self.plot_canvas, self.plot_selector]
+
+    def update_subplots(self, subplots):
+        self.plot_canvas.update_subplots(subplots)
 
     def _init_timer(self, parent):
         self.redrawPeriod = 100
