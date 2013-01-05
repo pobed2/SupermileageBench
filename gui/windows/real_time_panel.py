@@ -16,7 +16,7 @@ class RealTimePanel(BenchPanel):
         self.start_stop_buttons = StartStopTopbar(self)
         self.constants_sidebar = ConstantsSidebar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
-        self.plot_selector = PlotSelector(self)
+        self.plot_selector = PlotSelector(self, ["Position", "Vitesse", "Acceleration", "Torque"])
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.start_stop_buttons, 2, wx.GROW)

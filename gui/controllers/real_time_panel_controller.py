@@ -1,4 +1,4 @@
-from gui.factories.subplots_factory import SubplotFactory
+from gui.factories.subplots_factory import RealTimeSubplotFactory
 from gui.mvc_helpers.observable_events import PlotTypesChangedObservableEvent
 from gui.mvc_helpers.observer import Observer
 from gui.windows.real_time_panel import RealTimePanel
@@ -7,7 +7,7 @@ class RealTimePanelController(Observer):
     def __init__(self, real_time_subplots, app_controller):
         self.real_time_subplots = real_time_subplots
         self.app_controller = app_controller
-        self.subplot_factory = SubplotFactory()
+        self.subplot_factory = RealTimeSubplotFactory()
 
     def create_panel(self, panel_parent):
         self.panel = RealTimePanel(panel_parent, self.real_time_subplots)

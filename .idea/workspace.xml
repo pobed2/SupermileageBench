@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/factories/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gui/factories/subplots_factory.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gui/data_plotting/plot_types/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" afterPath="$PROJECT_DIR$/gui/data_plotting/real_time_plots.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gui/data_plotting/post_processing_data_plot.py" afterPath="$PROJECT_DIR$/gui/data_plotting/post_processing_plots.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_initialization/app_controller.py" afterPath="$PROJECT_DIR$/app_initialization/app_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py" afterPath="$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py" afterPath="$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/custom_widgets/plot_canvas.py" afterPath="$PROJECT_DIR$/gui/custom_widgets/plot_canvas.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/checklist_combo_popup.py" afterPath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/checklist_combo_popup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" afterPath="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" afterPath="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" afterPath="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/mvc_helpers/observable_events.py" afterPath="$PROJECT_DIR$/gui/mvc_helpers/observable_events.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/data_plotting/data_plot.py" afterPath="$PROJECT_DIR$/gui/data_plotting/data_plot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/factories/subplots_factory.py" afterPath="$PROJECT_DIR$/gui/factories/subplots_factory.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/windows/post_processing_panel.py" afterPath="$PROJECT_DIR$/gui/windows/post_processing_panel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/windows/real_time_panel.py" afterPath="$PROJECT_DIR$/gui/windows/real_time_panel.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
@@ -44,7 +46,7 @@
       <file leaf-file-name="app_controller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
+            <state line="19" column="0" selection-start="929" selection-end="929" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -55,38 +57,40 @@
       <file leaf-file-name="real_time_panel_controller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="36" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+            <state line="12" column="31" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#57#0" expanded="true" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="subplots_factory.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/factories/subplots_factory.py">
+      <file leaf-file-name="real_time_panel.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/windows/real_time_panel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="60" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
+            <state line="37" column="0" selection-start="1577" selection-end="1668" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="real_time_plots.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py">
+      <file leaf-file-name="post_processing_panel_controller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="32" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="real_time_data_plot.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="65" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.5510204">
+            <state line="35" column="49" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
+                <element signature="e#0#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_processing_panel.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/windows/post_processing_panel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="69" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.3877551">
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,22 +114,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/gui/controllers/top_frame_controller.py" />
-        <option value="$PROJECT_DIR$/gui/custom_widgets/custom_navigation_toolbar.py" />
-        <option value="$PROJECT_DIR$/gui/data_plotting/data_plot.py" />
-        <option value="$PROJECT_DIR$/gui/custom_widgets/plot_selection.py" />
         <option value="$PROJECT_DIR$/gui/custom_widgets/dropbox_files_sidebar.py" />
-        <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py" />
         <option value="$PROJECT_DIR$/gui/mvc_helpers/observable_events.py" />
         <option value="$PROJECT_DIR$/gui/custom_widgets/plot_selection/checklist_combo_popup.py" />
-        <option value="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" />
         <option value="$PROJECT_DIR$/app_initialization/app_controller.py" />
         <option value="$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py" />
         <option value="$PROJECT_DIR$/gui/custom_widgets/plot_canvas.py" />
-        <option value="$PROJECT_DIR$/gui/windows/real_time_panel.py" />
-        <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" />
-        <option value="$PROJECT_DIR$/gui/factories/subplots_factory.py" />
+        <option value="$PROJECT_DIR$/gui/data_plotting/data_plot.py" />
         <option value="$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py" />
+        <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py" />
+        <option value="$PROJECT_DIR$/gui/data_plotting/post_processing_data_plot.py" />
+        <option value="$PROJECT_DIR$/gui/data_plotting/plot_types/post_processing_plots.py" />
+        <option value="$PROJECT_DIR$/gui/windows/real_time_panel.py" />
+        <option value="$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py" />
+        <option value="$PROJECT_DIR$/gui/factories/subplots_factory.py" />
+        <option value="$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py" />
+        <option value="$PROJECT_DIR$/gui/windows/post_processing_panel.py" />
       </list>
     </option>
   </component>
@@ -208,7 +212,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="windows" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SupermileageBench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SupermileageBench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="factories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SupermileageBench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SupermileageBench" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_plotting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,11 +299,11 @@
       <recent name="$PROJECT_DIR$/supermileagebench/dropbox" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gui/data_plotting" />
       <recent name="$PROJECT_DIR$/gui/custom_widgets/plot_selection" />
       <recent name="$PROJECT_DIR$/filter_testing_app" />
       <recent name="$PROJECT_DIR$/app_initialization/faked" />
       <recent name="$PROJECT_DIR$/app_initialization" />
-      <recent name="$PROJECT_DIR$/phidget/faked" />
     </key>
   </component>
   <component name="RunManager" selected="Python.fake_supermileage_bench_app">
@@ -656,7 +696,11 @@
       <created>1356127692764</created>
       <updated>1356127692765</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Can change plot types in real time only">
+      <created>1357324642421</created>
+      <updated>1357324642421</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -683,21 +727,21 @@
     <frame x="67" y="22" width="1853" height="1058" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17420067" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18676628" sideWeight="0.42667404" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18676628" sideWeight="0.42501384" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.325723" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15605977" sideWeight="0.81323373" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3957382" sideWeight="0.48157668" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18676628" sideWeight="0.5694521" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18676628" sideWeight="0.57111233" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990575" sideWeight="0.69254184" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -739,7 +783,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created the postprocessing&#10;plots specific to each type of data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can change plot types in real time only" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -752,7 +796,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Commiting the app to test the filters&#10;" />
     <MESSAGE value="Accelerated the processing time of the filter analysis app&#10;" />
     <MESSAGE value="Added a fake encoder to be able to run tests without the encoder&#10;" />
     <MESSAGE value="Changed the fake data provider to give real data" />
@@ -777,6 +820,7 @@
     <MESSAGE value="Created and added the widget to select plots on the fly" />
     <MESSAGE value="Created the realtime plots specific to each type of data" />
     <MESSAGE value="Created the postprocessing&#10;plots specific to each type of data" />
+    <MESSAGE value="Can change plot types in real time only" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,23 +835,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gui/mvc_helpers/observable_events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="244" selection-end="244" vertical-scroll-proportion="0.26966292" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.13033707" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/mvc_helpers/observable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/windows/bench_panel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="24" selection-start="403" selection-end="403" vertical-scroll-proportion="0.40449437" />
@@ -846,57 +873,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/windows/real_time_panel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.6260388">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="10" selection-start="190" selection-end="190" vertical-scroll-proportion="0.040816326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="929" selection-end="929" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py">
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/data_plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="36" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+        <state line="34" column="60" selection-start="1145" selection-end="1145" vertical-scroll-proportion="0.6938776">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/real_time_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="77" selection-start="1310" selection-end="1362" vertical-scroll-proportion="0.59183675">
           <folding>
-            <element signature="e#0#57#0" expanded="true" />
+            <element signature="e#17#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/custom_widgets/plot_selection/plot_selector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="644" selection-end="644" vertical-scroll-proportion="0.3469388">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/data_plotting/post_processing_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="8" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.6122449">
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gui/factories/subplots_factory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="60" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/data_plotting/plot_types/real_time_plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="32" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/data_plotting/real_time_data_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="65" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.5510204">
+        <state line="32" column="38" selection-start="1293" selection-end="1293" vertical-scroll-proportion="0.6530612">
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="e#0#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="31" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/windows/real_time_panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1577" selection-end="1668" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="49" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/windows/post_processing_panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="69" selection-start="1011" selection-end="1011" vertical-scroll-proportion="0.3877551">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

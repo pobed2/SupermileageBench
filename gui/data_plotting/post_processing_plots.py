@@ -1,6 +1,12 @@
+from data_access.dropbox_repositories import TorqueDropboxRepository, PowerDropboxRepository
+from data_access.post_processing_repositories import PowerPostProcessingRepository, TorquePostProcessingRepository
 from gui.data_plotting.data_plot import DataPlot
 
 class PostProcessingDataPlot(DataPlot):
+    '''
+    Base class for post processing (offline) plots
+    '''
+
     def __init__(self, data_repository, dropbox_repository, subplot_code='111',
                  bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
         super(PostProcessingDataPlot, self).__init__(data_repository, subplot_code, bg_color, title, x_label, y_label,
@@ -40,3 +46,21 @@ class PostProcessingDataPlot(DataPlot):
 
         for i in range(len(self.dropbox_lines)):
             self.dropbox_lines[i].set_data(x_datas[i], y_datas[i])
+
+
+class TorquePostProcessingPlot(PostProcessingDataPlot):
+    def __init__(self, order=0, number_of_plots=2):
+        self.data_repository = TorquePostProcessingRepository()
+        self.dropbox_repository = TorqueDropboxRepository()
+        super(TorquePostProcessingPlot, self).__init__(self.data_repository, self.dropbox_repository,
+            subplot_code=self._calculate_subplot_code(order, number_of_plots),
+            title='Torque', x_label='RPM', y_label='Torque')
+
+
+class PowerPostProcessingPlot(PostProcessingDataPlot):
+    def __init__(self, order=1, number_of_plots=2):
+        self.data_repository = PowerPostProcessingRepository()
+        self.dropbox_repository = PowerDropboxRepository()
+        super(PowerPostProcessingPlot, self).__init__(self.data_repository, self.dropbox_repository,
+            subplot_code=self._calculate_subplot_code(order, number_of_plots),
+            title='Puissance', x_label='RPM', y_label='Joules?')

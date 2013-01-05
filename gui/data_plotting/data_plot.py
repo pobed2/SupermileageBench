@@ -1,4 +1,4 @@
-from math import ceil, floor
+from math import ceil, floor, sqrt
 
 class DataPlot(object):
     '''
@@ -62,3 +62,19 @@ class DataPlot(object):
         y_max = ceil(data_max) + (0.1 * abs(ceil(data_max)))
 
         return y_min, y_max
+
+    def _calculate_subplot_code(self, order, number_of_plots):
+        nb_rows = self._calculate_number_of_subplot_rows(number_of_plots)
+        nb_colums = self._calculate_number_of_subplot_colums(nb_rows, number_of_plots)
+        placement = str(order + 1)
+        return  str(nb_rows) + str(nb_colums) + placement
+
+    def _calculate_number_of_subplot_rows(self, number_of_plots):
+        return int(ceil(sqrt(number_of_plots)))
+
+    def _calculate_number_of_subplot_colums(self, nb_rows, nb_plots):
+        nb_colums = 1
+        while nb_colums * nb_rows < nb_plots:
+            nb_colums += 1
+
+        return nb_colums

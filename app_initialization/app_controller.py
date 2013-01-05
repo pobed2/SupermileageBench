@@ -1,8 +1,8 @@
 from databases.dropbox_database import DropboxDatabase
 from databases.post_processing_database import PostProcessingDatabase
 from databases.real_time_database import RealTimeDatabase
-from gui.data_plotting.plot_types.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
-from gui.data_plotting.plot_types.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
+from gui.data_plotting.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
+from gui.data_plotting.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
 from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime
