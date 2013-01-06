@@ -7,15 +7,15 @@ from gui.custom_widgets.dropbox_files_sidebar import DropboxFilesSidebar
 from gui.custom_widgets.plot_canvas import PlotCanvas
 
 class PostProcessingPanel(BenchPanel):
-    def __init__(self, parent, sub_data_plots, filenames_to_compare_to):
+    def __init__(self, parent, sub_data_plots, filenames_to_compare_to, subplots_names):
         super(PostProcessingPanel, self).__init__(parent)
-        self.widgets = self._init_widgets(sub_data_plots, filenames_to_compare_to)
+        self.widgets = self._init_widgets(sub_data_plots, filenames_to_compare_to, subplots_names)
 
-    def _init_widgets(self, sub_data_plots, filenames_to_compare_to):
+    def _init_widgets(self, sub_data_plots, filenames_to_compare_to, subplots_names):
         self.listBox1 = DropboxFilesSidebar(self, filenames_to_compare_to)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
         self.reset_topbar = ResetTopbar(self)
-        self.plot_selector = PlotSelector(self, [u"Torque", u"Puissance"])
+        self.plot_selector = PlotSelector(self, [u"Torque", u"Puissance"], subplots_names)
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.reset_topbar, 2, wx.GROW)

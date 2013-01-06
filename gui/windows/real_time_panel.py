@@ -8,15 +8,15 @@ from gui.custom_widgets.plot_canvas import PlotCanvas
 from gui.custom_widgets.start_stop_topbar import StartStopTopbar
 
 class RealTimePanel(BenchPanel):
-    def __init__(self, parent, sub_data_plots):
+    def __init__(self, parent, sub_data_plots, subplots_names):
         super(RealTimePanel, self).__init__(parent)
-        self.widgets = self._init_widgets(sub_data_plots)
+        self.widgets = self._init_widgets(sub_data_plots, subplots_names)
         self._init_timer(parent)
 
-    def _init_widgets(self, sub_data_plots):
+    def _init_widgets(self, sub_data_plots, subplots_names):
         self.start_stop_buttons = StartStopTopbar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
-        self.plot_selector = PlotSelector(self, [u"Position", u"Vitesse", u"Accélération", u"Torque"])
+        self.plot_selector = PlotSelector(self, [u"Position", u"Vitesse", u"Accélération", u"Torque"], subplots_names)
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.start_stop_buttons, 2, wx.GROW)

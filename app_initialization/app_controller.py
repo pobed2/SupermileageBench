@@ -4,7 +4,7 @@ from configuration.properties_parser import PropertiesParser
 from databases.dropbox_database import DropboxDatabase
 from databases.post_processing_database import PostProcessingDatabase
 from databases.real_time_database import RealTimeDatabase
-from gui.factories.subplots_factory import RealTimeSubplotFactory, PostProcessingSubplotFactory
+from gui.factories.subplots_factories import RealTimeSubplotFactory, PostProcessingSubplotFactory
 from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime

@@ -4,12 +4,12 @@ from gui.custom_widgets.plot_selection.checklist_combo_popup import CheckListCom
 from gui.mvc_helpers.observable import Observable
 
 class PlotSelector(wx.Panel, Observable):
-    def __init__(self, parent, choices):
+    def __init__(self, parent, available_choices, chosen_plots):
         wx.Panel.__init__(self, parent, 0, style=wx.SIMPLE_BORDER)
         Observable.__init__(self)
 
         cc = wx.combo.ComboCtrl(self, -1)
-        tcp = CheckListComboPopup(choices)
+        tcp = CheckListComboPopup(available_choices, chosen_plots)
         tcp.add_observer(self)
 
         cc.SetPopupControl(tcp)

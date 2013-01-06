@@ -1,5 +1,6 @@
+from configuration.properties_parser import PropertiesParser
 from data_access.dropbox_repositories import DropboxRepository
-from gui.factories.subplots_factory import PostProcessingSubplotFactory
+from gui.factories.subplots_factories import PostProcessingSubplotFactory
 from gui.mvc_helpers.observable_events import FileCheckedObservableEvent, FileUncheckedObservableEvent, PlotTypesChangedObservableEvent
 from gui.mvc_helpers.observer import Observer
 from gui.windows.post_processing_panel import PostProcessingPanel
@@ -10,11 +11,13 @@ class PostProcessingPanelController(Observer):
         self.dropbox_repository = DropboxRepository()
         self.app_controller = app_controller
         self.subplot_factory = PostProcessingSubplotFactory()
+        self.property_parser = PropertiesParser()
 
     def create_panel(self, frame):
         names_of_comparable_files = self.dropbox_repository.fetch_names_of_comparable_files()
 
-        self.panel = PostProcessingPanel(frame, self.subplots, names_of_comparable_files)
+        self.panel = PostProcessingPanel(frame, self.subplots, names_of_comparable_files,
+            self.property_parser.get_property("Post-Processing Plots"))
         self.panel.add_panel_observers(self)
         self.panel.draw_plot_canvas()
 
