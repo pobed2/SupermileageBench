@@ -6,13 +6,13 @@ from gui.custom_widgets.custom_check_list_box import CustomCheckListBox
 
 class PropertiesDialog(wx.Dialog):
     def __init__(self, controller):
-        super(PropertiesDialog, self).__init__(parent=None, title="Properties")
+        super(PropertiesDialog, self).__init__(parent=None, title=u"Propriétés")
         self.controller = controller
         self.properties_parser = PropertiesParser()
-        self.inertia_ctrl, self.friction_ctrl, self.real_time_checkboxes, self.post_processing_checkboxes = self.InitUI()
+        self.inertia_ctrl, self.friction_ctrl, self.real_time_checkboxes, self.post_processing_checkboxes = self._init_ui()
         self.Center()
 
-    def InitUI(self):
+    def _init_ui(self):
         dialog_panel = wx.Panel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)
 

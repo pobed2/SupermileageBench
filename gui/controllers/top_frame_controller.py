@@ -1,6 +1,7 @@
 from configuration.properties_parser import PropertiesParser
 from gui.controllers.post_processing_panel_controller import PostProcessingPanelController
 from gui.controllers.real_time_panel_controller import RealTimePanelController
+from gui.windows.injection_table_dialog import InjectionTableDialog
 from gui.windows.properties_dialog import PropertiesDialog
 from gui.windows.top_frame import TopFrame
 
@@ -33,17 +34,11 @@ class TopFrameController(object):
         self.post_processing_controller.create_panel(self.frame)
         self.frame.Layout()
 
-    def on_start_button_click(self, event):
-        self.real_time_panel_controller.start_plotting()
-
-    def on_stop_and_save_button_click(self, event):
-        self.real_time_panel_controller.stop_plotting(save=True)
-        self.post_processing_controller.create_panel(self.frame)
-
-    def on_stop_and_delete_button_click(self, event):
-        self.real_time_panel_controller.stop_plotting(save=False)
-
     def close_frame(self):
         self.frame.Close()
+
+    def on_injection_table_click(self, event):
+        injection_table_dialog = InjectionTableDialog(self)
+        injection_table_dialog.ShowModal()
 
 

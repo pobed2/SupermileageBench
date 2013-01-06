@@ -1,5 +1,6 @@
 import wx
 from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
+from gui.custom_widgets.plotting_toolbar import PlottingToolbar
 from gui.custom_widgets.reset_topbar import ResetTopbar
 
 from gui.windows.bench_panel import BenchPanel

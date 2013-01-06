@@ -1,3 +1,5 @@
+#coding: utf-8
+
 import wx
 
 class TopFrame(wx.Frame):
@@ -10,12 +12,15 @@ class TopFrame(wx.Frame):
     # ------------------ Top Menu
 
     def _createMenu(self):
-        self.menuBar = wx.MenuBar()
-        self.menuFile = wx.Menu()
+        self.menu_bar = wx.MenuBar()
+        self.menu_file = wx.Menu()
 
-        menu_properties = self.menuFile.Append(-1, "Properties", "Properties")
+        menu_properties = self.menu_file.Append(-1, u"Propriétés\tCtrl+P", u"Propriétés")
         self.Bind(wx.EVT_MENU, self.controller.on_properties_click, menu_properties)
 
-        self.menuBar.Append(self.menuFile, "&File")
-        self.SetMenuBar(self.menuBar)
+        menu_injection_table = self.menu_file.Append(-1, u"Table d'injection\tCtrl+T", u"Table d'injection")
+        self.Bind(wx.EVT_MENU, self.controller.on_injection_table_click, menu_injection_table)
+
+        self.menu_bar.Append(self.menu_file, "&File")
+        self.SetMenuBar(self.menu_bar)
 
