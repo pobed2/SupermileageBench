@@ -13,16 +13,8 @@ class TopFrame(wx.Frame):
         self.menuBar = wx.MenuBar()
         self.menuFile = wx.Menu()
 
-        menuStart = self.menuFile.Append(-1, "&Start Data Acquisition", "Start")
-        self.Bind(wx.EVT_MENU, self.controller.on_start_button_click, menuStart)
-
-        menuStopAndSave = self.menuFile.Append(-1, "&Stop and Save to Dropbox",
-            "Stop accelerations aquisition and save")
-        self.Bind(wx.EVT_MENU, self.controller.on_stop_and_save_button_click, menuStopAndSave)
-
-        menuStopAndDelete = self.menuFile.Append(-1, "&Stop and Delete Data",
-            "Stop accelerations aquisition and delete")
-        self.Bind(wx.EVT_MENU, self.controller.on_stop_and_delete_button_click, menuStopAndDelete)
+        menu_properties = self.menuFile.Append(-1, "Properties", "Properties")
+        self.Bind(wx.EVT_MENU, self.controller.on_properties_click, menu_properties)
 
         self.menuBar.Append(self.menuFile, "&File")
         self.SetMenuBar(self.menuBar)

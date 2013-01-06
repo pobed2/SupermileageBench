@@ -1,3 +1,5 @@
+#coding: utf-8
+
 from gui.data_plotting.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
 from gui.data_plotting.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
 
@@ -17,19 +19,19 @@ class SubplotFactory(object):
 
 class RealTimeSubplotFactory(SubplotFactory):
     def create_subplot(self, name, order, number_of_plots):
-        if name == "Position":
+        if name == u"Position":
             return PositionRealTimePlot(order, number_of_plots)
-        elif name == "Vitesse":
+        elif name == u"Vitesse":
             return VelocityRealTimePlot(order, number_of_plots)
-        elif name == "Acceleration":
+        elif name == u"Accélération":
             return AccelerationRealTimePlot(order, number_of_plots)
-        elif name == "Torque":
+        elif name == u"Torque":
             return TorqueRealTimePlot(order, number_of_plots)
 
 
 class PostProcessingSubplotFactory(SubplotFactory):
     def create_subplot(self, name, order, number_of_plots):
-        if name == "Torque":
+        if name == u"Torque":
             return TorquePostProcessingPlot(order, number_of_plots)
-        elif name == "Puissance":
+        elif name == u"Puissance":
             return PowerPostProcessingPlot(order, number_of_plots)

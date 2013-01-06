@@ -1,8 +1,10 @@
+#coding: utf-8
+
+from configuration.properties_parser import PropertiesParser
 from databases.dropbox_database import DropboxDatabase
 from databases.post_processing_database import PostProcessingDatabase
 from databases.real_time_database import RealTimeDatabase
-from gui.data_plotting.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
-from gui.data_plotting.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
+from gui.factories.subplots_factory import RealTimeSubplotFactory, PostProcessingSubplotFactory
 from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime
@@ -24,6 +26,7 @@ class AppController(object):
         self.post_processing_database = PostProcessingDatabase()
         self.dropbox_database = DropboxDatabase()
         self.dropbox_database.initialize_database()
+        self.properties_parser = PropertiesParser()
 
         self.real_time_subplots = self._init_real_time_subplots()
         self.post_treatment_subplots = self._init_post_processing_subplots()
@@ -37,30 +40,22 @@ class AppController(object):
         self.encoder_controller = EncoderController(self.database)
 
     def _init_real_time_subplots(self):
-        subplots = []
+        plots_to_display = self.properties_parser.get_property("Real-Time Plots")
 
-        positionPlot = PositionRealTimePlot()
-        velocityPlot = VelocityRealTimePlot()
-        accelerationPlot = AccelerationRealTimePlot()
-        torquePlot = TorqueRealTimePlot()
+        if plots_to_display is "":
+            plots_to_display = [u"Position", u"Vitesse", u"Accélération", u"Torque"]
 
-        subplots.append(accelerationPlot)
-        subplots.append(torquePlot)
-        subplots.append(positionPlot)
-        subplots.append(velocityPlot)
-
-        return subplots
+        factory = RealTimeSubplotFactory()
+        return factory.create_subplots(plots_to_display)
 
     def _init_post_processing_subplots(self):
-        subplots = []
+        plots_to_display = self.properties_parser.get_property("Post-Processing Plots")
 
-        torquePlot = TorquePostProcessingPlot()
-        powerPlot = PowerPostProcessingPlot()
+        if plots_to_display is "":
+            plots_to_display = [u"Torque", u"Puissance"]
 
-        subplots.append(torquePlot)
-        subplots.append(powerPlot)
-
-        return subplots
+        factory = PostProcessingSubplotFactory()
+        return factory.create_subplots(plots_to_display)
 
     def start_data_acquisition(self):
         self.encoder_controller.start_data_acquisition()

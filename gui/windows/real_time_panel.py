@@ -1,8 +1,9 @@
+#coding: utf-8
+
 import wx
 from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
 
 from gui.windows.bench_panel import BenchPanel
-from gui.custom_widgets.constants_sidebar import ConstantsSidebar
 from gui.custom_widgets.plot_canvas import PlotCanvas
 from gui.custom_widgets.start_stop_topbar import StartStopTopbar
 
@@ -14,9 +15,8 @@ class RealTimePanel(BenchPanel):
 
     def _init_widgets(self, sub_data_plots):
         self.start_stop_buttons = StartStopTopbar(self)
-        self.constants_sidebar = ConstantsSidebar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
-        self.plot_selector = PlotSelector(self, ["Position", "Vitesse", "Acceleration", "Torque"])
+        self.plot_selector = PlotSelector(self, [u"Position", u"Vitesse", u"Accélération", u"Torque"])
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.start_stop_buttons, 2, wx.GROW)
@@ -24,7 +24,6 @@ class RealTimePanel(BenchPanel):
 
         self.vertical_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.vertical_sizer.Add(self.plot_canvas, 5, wx.GROW)
-        self.vertical_sizer.Add(self.constants_sidebar, 1, wx.GROW)
 
         self.parent_sizer = wx.BoxSizer(wx.VERTICAL)
         self.parent_sizer.Add(self.topbar_sizer, 1, wx.GROW)
@@ -33,7 +32,7 @@ class RealTimePanel(BenchPanel):
         self.SetSizer(self.parent_sizer)
         self.Show()
 
-        return [self.start_stop_buttons, self.constants_sidebar, self.plot_canvas, self.plot_selector]
+        return [self.start_stop_buttons, self.plot_canvas, self.plot_selector]
 
     def update_subplots(self, subplots):
         self.plot_canvas.update_subplots(subplots)
