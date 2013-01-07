@@ -18,3 +18,6 @@ class Repository(object):
 
     def get_max_y_data(self):
         return max(self.y_data_getter())
+
+    def refresh_database(self):
+        pass

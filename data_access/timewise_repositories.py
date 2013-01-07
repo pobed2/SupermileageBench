@@ -7,9 +7,6 @@ class PositionRadiansTimewiseRepository(Repository):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_positions
 
-    def refresh_database(self):
-        pass
-
 
 class PositionMetersTimewiseRepository(Repository):
     def __init__(self):
