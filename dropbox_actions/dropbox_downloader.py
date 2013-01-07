@@ -24,12 +24,18 @@ class DropboxDownloader(DropboxAction):
 
         return arrays
 
-    def download_file(self, filename):
-        self._log_in()
-        file = self.client.get_file(self.FOLDER_NAME + filename + '/PostProcessing.csv')
-        io = StringIO.StringIO(file.read())
+    def download_timewise_data(self, folder):
+        return self.download_data(folder, "RealTime.csv", (0, 1, 2, 3, 4))
 
-        return np.genfromtxt(io, skiprows=1, usecols=(0, 1, 2), delimiter=',', unpack=True)
+    def download_rpmwise_data(self, folder):
+        return self.download_data(folder, "PostProcessing.csv", (0, 1, 2))
+
+    def download_data(self, folder, file, columns):
+        self._log_in()
+        file = self.client.get_file(self.FOLDER_NAME + folder + '/' + file)
+        io = StringIO.StringIO(file.read())
+        return np.genfromtxt(io, usecols=columns, delimiter=',', unpack=True, names=True)
+
 
     def fetch_names_of_comparable_files(self):
         self._log_in()

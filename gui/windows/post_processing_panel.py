@@ -1,11 +1,11 @@
 import wx
 from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
-from gui.custom_widgets.plotting_toolbar import PlottingToolbar
 from gui.custom_widgets.reset_topbar import ResetTopbar
 
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.dropbox_files_sidebar import DropboxFilesSidebar
 from gui.custom_widgets.plot_canvas import PlotCanvas
+from configuration.app_settings import post_processing_plot_types
 
 class PostProcessingPanel(BenchPanel):
     def __init__(self, parent, sub_data_plots, filenames_to_compare_to, subplots_names):
@@ -16,7 +16,7 @@ class PostProcessingPanel(BenchPanel):
         self.listBox1 = DropboxFilesSidebar(self, filenames_to_compare_to)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
         self.reset_topbar = ResetTopbar(self)
-        self.plot_selector = PlotSelector(self, [u"Torque", u"Puissance"], subplots_names)
+        self.plot_selector = PlotSelector(self, post_processing_plot_types, subplots_names)
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.reset_topbar, 2, wx.GROW)

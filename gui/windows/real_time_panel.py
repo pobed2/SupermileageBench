@@ -6,6 +6,7 @@ from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.plot_canvas import PlotCanvas
 from gui.custom_widgets.start_stop_topbar import StartStopTopbar
+from configuration.app_settings import real_time_plot_types
 
 class RealTimePanel(BenchPanel):
     def __init__(self, parent, sub_data_plots, subplots_names):
@@ -16,7 +17,7 @@ class RealTimePanel(BenchPanel):
     def _init_widgets(self, sub_data_plots, subplots_names):
         self.start_stop_buttons = StartStopTopbar(self)
         self.plot_canvas = PlotCanvas(self, sub_data_plots)
-        self.plot_selector = PlotSelector(self, [u"Position", u"Vitesse", u"Accélération", u"Torque"], subplots_names)
+        self.plot_selector = PlotSelector(self, real_time_plot_types, subplots_names)
 
         self.topbar_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.topbar_sizer.Add(self.start_stop_buttons, 2, wx.GROW)

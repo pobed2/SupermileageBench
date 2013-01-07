@@ -22,5 +22,6 @@ class PropertiesParser(object):
     def get_property(self, name):
         try:
             return self.properties[name]
+        #TODO
         except KeyError:
-            return ""
+            return "0.258064"

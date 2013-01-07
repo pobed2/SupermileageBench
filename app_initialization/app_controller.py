@@ -9,6 +9,7 @@ from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime
 from dropbox_actions.dropbox_saver import  DropboxSaver
+from configuration.app_settings import real_time_plot_types, post_processing_plot_types
 
 class AppController(object):
     def __init__(self):
@@ -42,8 +43,8 @@ class AppController(object):
     def _init_real_time_subplots(self):
         plots_to_display = self.properties_parser.get_property("Real-Time Plots")
 
-        if plots_to_display is "":
-            plots_to_display = [u"Position", u"Vitesse", u"Accélération", u"Torque"]
+        if isinstance(plots_to_display, str):
+            plots_to_display = real_time_plot_types
 
         factory = RealTimeSubplotFactory()
         return factory.create_subplots(plots_to_display)
@@ -52,7 +53,7 @@ class AppController(object):
         plots_to_display = self.properties_parser.get_property("Post-Processing Plots")
 
         if plots_to_display is "":
-            plots_to_display = [u"Torque", u"Puissance"]
+            plots_to_display = post_processing_plot_types
 
         factory = PostProcessingSubplotFactory()
         return factory.create_subplots(plots_to_display)

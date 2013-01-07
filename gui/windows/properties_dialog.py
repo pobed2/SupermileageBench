@@ -3,6 +3,7 @@
 import wx
 from configuration.properties_parser import PropertiesParser
 from gui.custom_widgets.custom_check_list_box import CustomCheckListBox
+from configuration.app_settings import real_time_plot_types, post_processing_plot_types
 
 class PropertiesDialog(wx.Dialog):
     def __init__(self, controller):
@@ -11,6 +12,7 @@ class PropertiesDialog(wx.Dialog):
         self.properties_parser = PropertiesParser()
         self.inertia_ctrl, self.friction_ctrl, self.real_time_checkboxes, self.post_processing_checkboxes = self._init_ui()
         self.Center()
+        self.SetSize((600, 225))
 
     def _init_ui(self):
         dialog_panel = wx.Panel(self)
@@ -35,14 +37,14 @@ class PropertiesDialog(wx.Dialog):
         #Real-time plots properties
         real_time_plots_box = wx.StaticBox(dialog_panel, label=u'Temps-réel')
         real_time_box_sizer = wx.StaticBoxSizer(real_time_plots_box, orient=wx.VERTICAL)
-        real_time_checkboxes = CustomCheckListBox(self, [u"Position", u"Vitesse", u"Accélération", u"Torque"],
+        real_time_checkboxes = CustomCheckListBox(self, real_time_plot_types,
             self.properties_parser.get_property("Real-Time Plots"))
         real_time_box_sizer.Add(real_time_checkboxes)
 
         #Post-processing plots properties
         post_processing_plots_box = wx.StaticBox(dialog_panel, label=u'Post-traitement')
         post_processing_box_sizer = wx.StaticBoxSizer(post_processing_plots_box, orient=wx.VERTICAL)
-        post_processing_checkboxes = CustomCheckListBox(self, [u"Torque", u"Puissance"],
+        post_processing_checkboxes = CustomCheckListBox(self, post_processing_plot_types,
             self.properties_parser.get_property("Post-Processing Plots"))
         post_processing_box_sizer.Add(post_processing_checkboxes)
 
@@ -53,10 +55,8 @@ class PropertiesDialog(wx.Dialog):
         dialog_panel.SetSizer(properties_sizer)
 
         hbox2 = wx.BoxSizer(wx.HORIZONTAL)
-        okButton = wx.Button(self, label='Ok')
-        closeButton = wx.Button(self, label='Close')
+        okButton = wx.Button(self, label='OK')
         hbox2.Add(okButton)
-        hbox2.Add(closeButton, flag=wx.LEFT, border=5)
 
         vbox.Add(dialog_panel, proportion=1,
             flag=wx.ALL | wx.EXPAND, border=5)
@@ -66,7 +66,6 @@ class PropertiesDialog(wx.Dialog):
         self.SetSizer(vbox)
 
         okButton.Bind(wx.EVT_BUTTON, self.OnClose)
-        closeButton.Bind(wx.EVT_BUTTON, self.OnClose)
 
         return inertia_text_ctrl, friction_text_ctrl, real_time_checkboxes, post_processing_checkboxes
 

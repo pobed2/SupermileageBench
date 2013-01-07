@@ -20,11 +20,11 @@ class PostProcessingDatabase(object):
     #TODO Not efficient...
     def _create_sorted_rpms_and_torques(self):
         #Pour prendre seulement les points ou la vitesse augmente.
-        max_index = self._find_end_of_data_acquisition_index(self.real_time_database)
+        self.max_index = self._find_end_of_data_acquisition_index(self.real_time_database)
 
-        velocities = self.real_time_database.get_velocities()[:max_index]
-        rpms = self._convert_velocities_to_rpms(velocities)[:max_index]
-        torques = self.real_time_database.get_torques()[:max_index]
+        velocities = self.real_time_database.get_velocities()[:self.max_index]
+        rpms = self._convert_velocities_to_rpms(velocities)[:self.max_index]
+        torques = self.real_time_database.get_torques()[:self.max_index]
 
         sorted_index_array = self._calculate_sorted_index_array(rpms)
         sorted_rpms = rpms[sorted_index_array]
@@ -42,7 +42,7 @@ class PostProcessingDatabase(object):
         return velocities * 60 / (2 * pi)
 
     def _calculate_powers(self):
-        return self.rpms * self.torques
+        return self.real_time_database.get_velocities()[:self.max_index] * self.torques
 
     def serialize_data_as_csv(self):
         data_string = ""

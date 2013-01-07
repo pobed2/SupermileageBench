@@ -3,7 +3,6 @@ from math import ceil, floor, sqrt
 class DataPlot(object):
     '''
     Base class for every type of plots
-    Not to be used on its own
     '''
 
     def __init__(self, data_repository, subplot_code='111',
@@ -78,3 +77,71 @@ class DataPlot(object):
             nb_colums += 1
 
         return nb_colums
+
+
+class RealTimePlot(DataPlot):
+    '''
+    Base class for plots that are displayed in real-time
+    '''
+
+    def __init__(self, data_repository, subplot_code='111', x_data_range_to_display=25, x_data_before_end=5,
+                 bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
+        super(RealTimePlot, self).__init__(data_repository, subplot_code, bg_color, title, x_label, y_label,
+            linewidth, color)
+        self.x_data_range_to_display = x_data_range_to_display
+        self.x_data_before_end = x_data_before_end
+
+    def _calculate_x_axis_bounds(self):
+        x_data_max = self.data_repository.get_max_x_data()
+
+        gap = max(x_data_max, self.x_data_range_to_display)
+        x_max = gap + self.x_data_before_end
+        x_min = gap - self.x_data_range_to_display
+
+        return x_min, x_max
+
+
+class ComparablePlot(DataPlot):
+    '''
+    Base class for comparable plots
+    '''
+
+    def __init__(self, data_repository, dropbox_repository, subplot_code='111',
+                 bg_color='black', title='', x_label='', y_label='', linewidth=1, color=(1, 1, 1)):
+        super(ComparablePlot, self).__init__(data_repository, subplot_code, bg_color, title, x_label, y_label,
+            linewidth, color)
+        self.dropbox_repository = dropbox_repository
+
+    def prepare_plot_for_draw(self):
+        self.refresh_subplots()
+        self.data_repository.refresh_database()
+        self._add_dropbox_lines()
+
+        super(ComparablePlot, self).prepare_plot_for_draw()
+
+    def _add_dropbox_lines(self):
+        self.dropbox_lines = []
+        number_of_lines = len(self.dropbox_repository.get_x_data())
+        print number_of_lines
+        for _ in range(number_of_lines):
+            self.dropbox_lines.append(
+                self.subplot.plot(
+                    [],
+                    linewidth=self.linewidth,
+                    color=(1, 0, 0),
+                )[0]
+            )
+
+    def _calculate_x_axis_bounds(self):
+        x_min = 0
+        x_max = self.data_repository.get_max_x_data()
+        return x_min, x_max
+
+    def _set_data(self):
+        super(ComparablePlot, self)._set_data()
+
+        x_datas = self.dropbox_repository.get_x_data()
+        y_datas = self.dropbox_repository.get_y_data()
+
+        for i in range(len(self.dropbox_lines)):
+            self.dropbox_lines[i].set_data(x_datas[i], y_datas[i])

@@ -1,4 +1,4 @@
-from gui.data_plotting.data_plot import *
+from gui.data_plotting.plot_base_classes import *
 
 class FilterTestingPlot(DataPlot):
     def __init__(self, data_repository, second_data_repository, subplot_code='111',

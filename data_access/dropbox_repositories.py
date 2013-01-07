@@ -15,17 +15,24 @@ class DropboxRepository(Repository):
         self.database.remove_file_to_compare_to_data(filename)
 
 
+class PositionRadiansDropboxRepository(DropboxRepository):
+    def __init__(self):
+        super(PositionRadiansDropboxRepository, self).__init__()
+        self.x_data_getter = self.database.get_positions_rad_time
+        self.y_data_getter = self.database.get_torques_rpms
+
+
 class TorqueDropboxRepository(DropboxRepository):
     def __init__(self):
         super(TorqueDropboxRepository, self).__init__()
         self.x_data_getter = self.database.get_rpms
-        self.y_data_getter = self.database.get_torques
+        self.y_data_getter = self.database.get_torques_rpms
 
 
 class PowerDropboxRepository(DropboxRepository):
     def __init__(self):
         super(PowerDropboxRepository, self).__init__()
         self.x_data_getter = self.database.get_rpms
-        self.y_data_getter = self.database.get_powers
+        self.y_data_getter = self.database.get_powers_rpms
 
 

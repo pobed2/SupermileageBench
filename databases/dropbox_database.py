@@ -3,38 +3,69 @@ from dropbox_actions.dropbox_downloader import DropboxDownloader
 class DropboxDatabase(object):
     __shared_state = {}
 
+    #TODO Caching (dictionnary?)
     def __init__(self):
         self.__dict__ = self.__shared_state
 
     def initialize_database(self):
         self.drobbox_downloader = DropboxDownloader()
         self.filenames = []
+
+        self.times = []
+        self.positions_rad_time = []
+        self.speeds_rad_time = []
+        self.accelerations_rad_time = []
+        self.torques_time = []
+
         self.rpms = []
-        self.torques = []
-        self.powers = []
+        self.torques_rpm = []
+        self.powers_rpm = []
 
     def add_file_to_compare_to_data(self, filename):
         self.filenames.append(filename)
-        data = self.drobbox_downloader.download_file(filename)
-        self.rpms.append(data[0])
-        self.torques.append(data[1])
-        self.powers.append(data[2])
+
+        timewise_data = self.drobbox_downloader.download_timewise_data(filename)
+        self.times.append(timewise_data["Time"])
+        self.positions_rad_time.append(timewise_data["Positions"])
+        self.speeds_rad_time.append(timewise_data["Velocities"])
+        self.accelerations_rad_time.append(timewise_data["Accelerations"])
+        self.torques_time.append(timewise_data["Torques"])
+
+        rpmwise_data = self.drobbox_downloader.download_rpmwise_data(filename)
+        self.rpms.append(rpmwise_data["Rpms"])
+        self.torques_rpm.append(rpmwise_data["Torques"])
+        self.powers_rpm.append(rpmwise_data["Powers"])
 
     def remove_file_to_compare_to_data(self, filename):
         file_index = self.filenames.index(filename)
         self.rpms.pop(file_index)
-        self.torques.pop(file_index)
-        self.powers.pop(file_index)
+        self.torques_rpm.pop(file_index)
+        self.powers_rpm.pop(file_index)
         self.filenames.pop(file_index)
 
     def fetch_names_of_comparable_files(self):
         return self.drobbox_downloader.fetch_names_of_comparable_files()
 
+    def get_times(self):
+        return self.times
+
+    def get_positions_rad_time(self):
+        return self.positions_rad_time
+
+    def get_speeds_rad_time(self):
+        return self.speeds_rad_time
+
+    def get_accelerations_rad_time(self):
+        return self.accelerations_rad_time
+
+    def get_torques_time(self):
+        return self.torques_time
+
     def get_rpms(self):
         return self.rpms
 
-    def get_torques(self):
-        return self.torques
+    def get_torques_rpms(self):
+        return self.torques_rpm
 
-    def get_powers(self):
-        return self.powers
+    def get_powers_rpms(self):
+        return self.powers_rpm

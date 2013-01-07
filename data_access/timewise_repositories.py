@@ -7,12 +7,15 @@ class PositionRadiansTimewiseRepository(Repository):
         self.x_data_getter = database.get_time
         self.y_data_getter = database.get_positions
 
+    def refresh_database(self):
+        pass
+
 
 class PositionMetersTimewiseRepository(Repository):
     def __init__(self):
         database = RealTimeDatabase()
         self.x_data_getter = database.get_time
-        self.y_data_getter = database.get_positions
+        self.y_data_getter = database.get_positions_in_meters
 
 
 class SpeedRadiansTimewiseRepository(Repository):
@@ -26,7 +29,7 @@ class SpeedMetersTimewiseRepository(Repository):
     def __init__(self):
         database = RealTimeDatabase()
         self.x_data_getter = database.get_time
-        self.y_data_getter = database.get_velocities
+        self.y_data_getter = database.get_speed_in_kmh
 
 
 class AccelerationTimewiseRepository(Repository):
