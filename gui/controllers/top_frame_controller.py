@@ -1,4 +1,5 @@
 from configuration.properties_parser import PropertiesParser
+from databases.injection_table import InjectionTable
 from gui.controllers.post_processing_panel_controller import PostProcessingPanelController
 from gui.controllers.real_time_panel_controller import RealTimePanelController
 from gui.windows.injection_table_dialog import InjectionTableDialog
@@ -38,7 +39,7 @@ class TopFrameController(object):
         self.frame.Close()
 
     def on_injection_table_click(self, event):
-        injection_table_dialog = InjectionTableDialog(self)
+        injection_table_dialog = InjectionTableDialog(self, InjectionTable())
         injection_table_dialog.ShowModal()
 
 

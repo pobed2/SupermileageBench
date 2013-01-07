@@ -1,4 +1,5 @@
 from __future__ import division
+from configuration.properties_parser import PropertiesParser
 from math_functions.derivation import derivate
 from math_functions.filters import savitzky_golay
 
@@ -12,7 +13,11 @@ class RealTimeDatabase(object):
         self.__dict__ = self.__shared_state
 
     def initialize_database(self):
-        self.DISC_INERTIA = 0.258064
+        self.properties_parser = PropertiesParser()
+
+        self.DISC_INERTIA = float(self.properties_parser.get_property("Inertia"))
+        #self.FRICTION_COEFF = float(self.properties_parser.get_property("Friction"))
+
         self.ARRAY_SIZE = 20000
 
         self.totalTime = 0

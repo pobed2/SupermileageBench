@@ -3,13 +3,17 @@
 import wx
 
 class InjectionTableDialog(wx.Dialog):
-    def __init__(self, controller):
+    def __init__(self, controller, injection_table):
         super(InjectionTableDialog, self).__init__(parent=None, title="Table d'injection")
+        self.injection_table = injection_table
         self._init_ui()
+        self.SetSize((550, 250))
         self.Center()
 
     def _init_ui(self):
-        grid_sizer = wx.GridSizer(7, 11, 5, 5)
+        dialog_sizer = wx.BoxSizer(wx.HORIZONTAL)
+
+        grid_sizer = wx.GridSizer(7, 11, 10, 10)
 
         #line 1
         grid_sizer.Add(wx.StaticText(self, label=""))
@@ -24,83 +28,16 @@ class InjectionTableDialog(wx.Dialog):
         grid_sizer.Add(wx.StaticText(self, label="90%"))
         grid_sizer.Add(wx.StaticText(self, label="100%"))
 
-        #line 2
-        grid_sizer.Add(wx.StaticText(self, label="50%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
+        #line 2-7
+        load = 50
+        for load in range(50, 110, 10):
+            load_str = str(load) + "%"
+            grid_sizer.Add(wx.StaticText(self, label=load_str))
+            for i in range(10, 110, 10):
+                txt_ctrl = wx.TextCtrl(self, size=(40, 20))
+                txt_ctrl.AppendText(self.injection_table.get_value(i, load))
+                grid_sizer.Add(txt_ctrl)
 
-        #line 3
-        grid_sizer.Add(wx.StaticText(self, label="60%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
+        dialog_sizer.Add(grid_sizer, flag=wx.LEFT | wx.TOP | wx.GROW)
 
-
-        #line 4
-        grid_sizer.Add(wx.StaticText(self, label="70%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-
-        #line 5
-        grid_sizer.Add(wx.StaticText(self, label="80%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-
-        #line 6
-        grid_sizer.Add(wx.StaticText(self, label="90%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-
-        #line 7
-        grid_sizer.Add(wx.StaticText(self, label="100%"))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-        grid_sizer.Add(wx.TextCtrl(self, size=(30, 20)))
-
-        self.SetSizer(grid_sizer)
+        self.SetSizer(dialog_sizer)

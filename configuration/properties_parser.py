@@ -4,7 +4,6 @@ class PropertiesParser(object):
     def __init__(self):
         self.FILENAME = "properties.cfg"
         self.properties = self._read_properties_file()
-        print self.properties
 
     def _read_properties_file(self):
         try:

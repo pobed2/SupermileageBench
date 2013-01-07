@@ -1,5 +1,5 @@
 from data_access.post_processing_repositories import *
-from data_access.real_time_repositories import *
+from data_access.timewise_repositories import *
 from gui.data_plotting.post_processing_data_plot import *
 from filter_testing.filter_testing_database import *
 from filter_testing.filter_testing_frame import *
@@ -38,8 +38,8 @@ class FilterTestingController(object):
     def _init_post_treatment_subplots(self):
         subplots = []
 
-        velocity_repository = VelocityRealTimeRepository(self.database)
-        acceleration_repository = AccelerationRealTimeRepository(self.database)
+        velocity_repository = SpeedRadiansTimewiseRepository(self.database)
+        acceleration_repository = AccelerationTimewiseRepository(self.database)
 
         unfiltered_velocity_repository = UnfilteredVelocityRepository(self.database)
         unfiltered_acceleration_repository = UnfilteredAccelerationRepository(self.database)

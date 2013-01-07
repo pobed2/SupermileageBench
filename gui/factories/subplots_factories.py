@@ -1,7 +1,7 @@
 #coding: utf-8
 
 from gui.data_plotting.post_processing_plots import TorquePostProcessingPlot, PowerPostProcessingPlot
-from gui.data_plotting.real_time_plots import PositionRealTimePlot, VelocityRealTimePlot, AccelerationRealTimePlot, TorqueRealTimePlot
+from gui.data_plotting.timewise_plots import PositionRadiansTimewisePlot, SpeedRadiansTimewisePlot, AccelerationTimewisePlot, TorqueTimewisePlot
 
 class SubplotFactory(object):
     '''
@@ -20,13 +20,13 @@ class SubplotFactory(object):
 class RealTimeSubplotFactory(SubplotFactory):
     def create_subplot(self, name, order, number_of_plots):
         if name == u"Position":
-            return PositionRealTimePlot(order, number_of_plots)
+            return PositionRadiansTimewisePlot(order, number_of_plots)
         elif name == u"Vitesse":
-            return VelocityRealTimePlot(order, number_of_plots)
+            return SpeedRadiansTimewisePlot(order, number_of_plots)
         elif name == u"Accélération":
-            return AccelerationRealTimePlot(order, number_of_plots)
+            return AccelerationTimewisePlot(order, number_of_plots)
         elif name == u"Torque":
-            return TorqueRealTimePlot(order, number_of_plots)
+            return TorqueTimewisePlot(order, number_of_plots)
 
 
 class PostProcessingSubplotFactory(SubplotFactory):
