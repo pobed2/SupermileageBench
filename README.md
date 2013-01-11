@@ -12,4 +12,15 @@ Pour être en mesure de faire rouler l'application, il faut d'abord installer ce
   - Scipy 0.11.0
   - MatPlotLib 1.2.0
   - wxPython 2.8
-  - Dropbox Python
+  - Dropbox Python API
+
+Utilisation
+===============
+Après avoir installé les outils, il est possible d'utiliser l'application.
+  - Connecter le capteur Phidgets à l'ordinateur
+  - Démarrer l'application avec la ligne en terminal :
+      <code>python supermileage_bench_app.py<code>
+
+Développement
+===============
+Pour le développement, on peut utiliser le <code>fake_supermileage_bench_app.py</code> pour éviter d'avoir à connecter le capteur puisque celui-ci se charge d'envoyer des fausses données dans l'application.
