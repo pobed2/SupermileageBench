@@ -3,13 +3,14 @@ from dropbox_actions.dropbox_downloader import DropboxDownloader
 class DropboxDatabase(object):
     __shared_state = {}
 
-    #TODO Caching (dictionnary?)
     def __init__(self):
         self.__dict__ = self.__shared_state
 
     def initialize_database(self):
         self.drobbox_downloader = DropboxDownloader()
         self.filenames = []
+
+        self.dictionary = self._init_dictionary()
 
         self.times = []
         self.positions_rad_time = []
@@ -23,10 +24,24 @@ class DropboxDatabase(object):
         self.torques_rpm = []
         self.powers_rpm = []
 
-    def add_file_to_compare_to_data(self, filename):
-        self.filenames.append(filename)
+    def _init_dictionary(self):
+        try:
+            return self.dictionary
+        except AttributeError:
+            return {}
 
-        timewise_data = self.drobbox_downloader.download_timewise_data(filename)
+    def add_file_to_compare_to_data(self, filename):
+        try:
+            self.filenames.append(filename)
+            timewise_data = self.dictionary[filename]["timewise"]
+            rpmwise_data = self.dictionary[filename]["rpmwise"]
+
+        except KeyError:
+            timewise_data = self.drobbox_downloader.download_timewise_data(filename)
+            rpmwise_data = self.drobbox_downloader.download_rpmwise_data(filename)
+
+            self.dictionary[filename] = {"timewise": timewise_data, "rpmwise": rpmwise_data}
+
         self.times.append(timewise_data["Time"])
         self.positions_rad_time.append(timewise_data["Positions"])
         self.positions_meters_time.append(timewise_data["Positions_M"])
@@ -35,10 +50,10 @@ class DropboxDatabase(object):
         self.accelerations_rad_time.append(timewise_data["Accelerations"])
         self.torques_time.append(timewise_data["Torques"])
 
-        rpmwise_data = self.drobbox_downloader.download_rpmwise_data(filename)
         self.rpms.append(rpmwise_data["Rpms"])
         self.torques_rpm.append(rpmwise_data["Torques"])
         self.powers_rpm.append(rpmwise_data["Powers"])
+
 
     def remove_file_to_compare_to_data(self, filename):
         file_index = self.filenames.index(filename)
