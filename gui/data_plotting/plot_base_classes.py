@@ -123,8 +123,6 @@ class ComparablePlot(DataPlot):
         self.dropbox_lines = []
         data = self.dropbox_repository.get_x_data()
         number_of_lines = len(data)
-        print number_of_lines
-        print data
         for _ in range(number_of_lines):
             self.dropbox_lines.append(
                 self.subplot.plot(

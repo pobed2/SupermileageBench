@@ -42,6 +42,15 @@ class DropboxDatabase(object):
 
     def remove_file_to_compare_to_data(self, filename):
         file_index = self.filenames.index(filename)
+
+        self.times.pop(file_index)
+        self.positions_rad_time.pop(file_index)
+        self.positions_meters_time.pop(file_index)
+        self.speeds_rad_time.pop(file_index)
+        self.speeds_meters_time.pop(file_index)
+        self.accelerations_rad_time.pop(file_index)
+        self.torques_time.pop(file_index)
+
         self.rpms.pop(file_index)
         self.torques_rpm.pop(file_index)
         self.powers_rpm.pop(file_index)

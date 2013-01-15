@@ -12,7 +12,7 @@ class TorqueRpmWiseComparablePlot(ComparablePlot):
 
         super(TorqueRpmWiseComparablePlot, self).__init__(self.data_repository, self.dropbox_repository,
             subplot_code=self._calculate_subplot_code(order, number_of_plots),
-            title='Torque', x_label='RPM', y_label='Torque')
+            title=u'Torque', x_label=u'RPM', y_label=u'Torque (Nm)')
 
 
 class PowerRpmWiseComparablePlot(ComparablePlot):
@@ -22,4 +22,4 @@ class PowerRpmWiseComparablePlot(ComparablePlot):
 
         super(PowerRpmWiseComparablePlot, self).__init__(self.data_repository, self.dropbox_repository,
             subplot_code=self._calculate_subplot_code(order, number_of_plots),
-            title='Puissance', x_label='RPM', y_label='Watts')
+            title=u'Puissance', x_label=u'RPM', y_label=u'Puissance (W)')
