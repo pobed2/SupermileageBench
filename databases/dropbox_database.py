@@ -13,7 +13,9 @@ class DropboxDatabase(object):
 
         self.times = []
         self.positions_rad_time = []
+        self.positions_meters_time = []
         self.speeds_rad_time = []
+        self.speeds_meters_time = []
         self.accelerations_rad_time = []
         self.torques_time = []
 
@@ -27,7 +29,9 @@ class DropboxDatabase(object):
         timewise_data = self.drobbox_downloader.download_timewise_data(filename)
         self.times.append(timewise_data["Time"])
         self.positions_rad_time.append(timewise_data["Positions"])
+        self.positions_meters_time.append(timewise_data["Positions_M"])
         self.speeds_rad_time.append(timewise_data["Velocities"])
+        self.speeds_meters_time.append(timewise_data["Speeds_KMH"])
         self.accelerations_rad_time.append(timewise_data["Accelerations"])
         self.torques_time.append(timewise_data["Torques"])
 
@@ -52,8 +56,14 @@ class DropboxDatabase(object):
     def get_positions_rad_time(self):
         return self.positions_rad_time
 
+    def get_positions_meters_time(self):
+        return self.positions_meters_time
+
     def get_speeds_rad_time(self):
         return self.speeds_rad_time
+
+    def get_speeds_meters_time(self):
+        return self.speeds_meters_time
 
     def get_accelerations_rad_time(self):
         return self.accelerations_rad_time
