@@ -1,5 +1,6 @@
 import wx
 from gui.mvc_helpers.observable import Observable
+from gui.mvc_helpers.observable_events import StartButtonClickedObservableEvent, StopButtonClickedObservableEvent
 
 class StartStopTopbar(wx.Panel, Observable):
     def __init__(self, parent):
@@ -20,8 +21,11 @@ class StartStopTopbar(wx.Panel, Observable):
 
     def on_start(self, event):
         for observer in self.observers:
-            observer.update("start")
+        #            observer.update("start")
+            observer.update(StartButtonClickedObservableEvent())
 
     def on_stop(self, event):
         for observer in self.observers:
-            observer.update("stop")
+            observer.update(StopButtonClickedObservableEvent())
+
+#            observer.update("stop")
