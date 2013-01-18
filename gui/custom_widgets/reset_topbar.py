@@ -1,5 +1,6 @@
 import wx
 from gui.mvc_helpers.observable import Observable
+from gui.mvc_helpers.observable_events import ResetAppClickedObservableEvent
 
 class ResetTopbar(wx.Panel, Observable):
     def __init__(self, parent):
@@ -17,4 +18,4 @@ class ResetTopbar(wx.Panel, Observable):
 
     def on_reset(self, event):
         for observer in self.observers:
-            observer.update("reset")
+            observer.update(ResetAppClickedObservableEvent())

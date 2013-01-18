@@ -2,10 +2,21 @@ class FileCheckedObservableEvent(object):
     def __init__(self, filename):
         self.filename = filename
 
+    def execute_callback(self, observer):
+        return observer.add_file_to_compare(self.filename)
+
 
 class FileUncheckedObservableEvent(object):
     def __init__(self, filename):
         self.filename = filename
+
+    def execute_callback(self, observer):
+        return observer.remove_file_to_compare(self.filename)
+
+
+class ResetAppClickedObservableEvent(object):
+    def execute_callback(self, observer):
+        return observer.reset_app()
 
 
 class PlotTypesChangedObservableEvent(object):

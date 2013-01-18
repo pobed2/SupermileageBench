@@ -1,10 +1,10 @@
 from configuration.app_settings import real_time_plots_property
 from configuration.properties_parser import PropertiesParser
 from gui.factories.subplots_factories import RealTimeSubplotFactory
-from gui.mvc_helpers.cant_handle_event_error import CantHandleEventError
+from gui.mvc_helpers.observer import Observer
 from gui.windows.real_time_panel import RealTimePanel
 
-class RealTimePanelController(object):
+class RealTimePanelController(Observer):
     def __init__(self, real_time_subplots, app_controller):
         self.real_time_subplots = real_time_subplots
         self.app_controller = app_controller
@@ -28,13 +28,6 @@ class RealTimePanelController(object):
     def create_subplots(self, list_of_subplots):
         self.real_time_subplots = self.subplot_factory.create_subplots(list_of_subplots)
         self.panel.update_subplots(self.real_time_subplots)
-
-    #Observer pattern
-    def update(self, event):
-        try:
-            event.execute_callback(self)
-        except AttributeError as e:
-            raise CantHandleEventError(e)
 
 
 
