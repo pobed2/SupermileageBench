@@ -13,6 +13,11 @@ from dropbox_actions.dropbox_saver import  DropboxSaver
 from configuration.app_settings import real_time_plot_types, post_processing_plot_types
 
 class AppController(object):
+    '''
+    Used to initialize the application on startup.
+    Also used as the top controller.
+    '''
+
     def __init__(self):
         self._initializeApp()
         self.REAL_TIME_FILENAME = "RealTime.csv"
@@ -31,33 +36,27 @@ class AppController(object):
         self.dropbox_database.initialize_database()
         self.properties_parser = PropertiesParser()
 
-        self.real_time_subplots = self._init_real_time_subplots()
-        self.post_treatment_subplots = self._init_post_processing_subplots()
+        real_time_subplots = self._init_real_time_subplots()
+        post_treatment_subplots = self._init_post_processing_subplots()
 
         self._init_encoder_controller()
-        self.top_frame_controller = TopFrameController(self.real_time_subplots, self.post_treatment_subplots, self)
-
-        return True
+        self.top_frame_controller = TopFrameController(real_time_subplots, post_treatment_subplots, self)
 
     def _init_encoder_controller(self):
         self.encoder_controller = EncoderController(self.database)
 
     def _init_real_time_subplots(self):
-        plots_to_display = self.properties_parser.get_property("Real-Time Plots")
-
-        if isinstance(plots_to_display, str):
-            plots_to_display = real_time_plot_types
-
-        factory = RealTimeSubplotFactory()
-        return factory.create_subplots(plots_to_display)
+        return self._init_subplots("Real-Time Plots", RealTimeSubplotFactory(), real_time_plot_types)
 
     def _init_post_processing_subplots(self):
-        plots_to_display = self.properties_parser.get_property("Post-Processing Plots")
+        return self._init_subplots("Post-Processing Plots", PostProcessingSubplotFactory(), post_processing_plot_types)
 
-        if plots_to_display is "":
-            plots_to_display = post_processing_plot_types
+    def _init_subplots(self, property, factory, default):
+        plots_to_display = self.properties_parser.get_property(property)
 
-        factory = PostProcessingSubplotFactory()
+        if isinstance(plots_to_display, str):
+            plots_to_display = default
+
         return factory.create_subplots(plots_to_display)
 
     def start_data_acquisition(self):
