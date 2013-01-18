@@ -1,5 +1,4 @@
 from __future__ import division
-from configuration.properties_parser import PropertiesParser
 from math_functions.derivation import derivate
 from math_functions.filters import savitzky_golay
 
@@ -13,6 +12,9 @@ class RealTimeDatabase(object):
         self.__dict__ = self.__shared_state
 
     def initialize_database(self):
+        #FIXME circular dependency forcing me to import in a method...
+        from configuration.properties_parser import PropertiesParser
+
         self.properties_parser = PropertiesParser()
 
         self.wheel_size_in_inches = 2

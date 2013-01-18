@@ -33,7 +33,7 @@ class InjectionTable(object):
             pickle.dump(self.injection_table, file)
 
     #FIXME Ugly...
-    def write_as_csv_string(self):
+    def serialize_data_as_csv(self):
         data_string = ""
         loads = self._get_loads()
         rpms = self._get_rpms()

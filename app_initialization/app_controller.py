@@ -10,7 +10,6 @@ from phidget.encoder_controller import EncoderController
 from gui.controllers.top_frame_controller import TopFrameController
 from datetime import datetime
 from dropbox_actions.dropbox_saver import  DropboxSaver
-from configuration.app_settings import real_time_plot_types, post_processing_plot_types
 
 class AppController(object):
     '''
@@ -46,17 +45,13 @@ class AppController(object):
         self.encoder_controller = EncoderController(self.database)
 
     def _init_real_time_subplots(self):
-        return self._init_subplots("Real-Time Plots", RealTimeSubplotFactory(), real_time_plot_types)
+        return self._init_subplots("Real-Time Plots", RealTimeSubplotFactory())
 
     def _init_post_processing_subplots(self):
-        return self._init_subplots("Post-Processing Plots", PostProcessingSubplotFactory(), post_processing_plot_types)
+        return self._init_subplots("Post-Processing Plots", PostProcessingSubplotFactory())
 
-    def _init_subplots(self, property, factory, default):
+    def _init_subplots(self, property, factory):
         plots_to_display = self.properties_parser.get_property(property)
-
-        if isinstance(plots_to_display, str):
-            plots_to_display = default
-
         return factory.create_subplots(plots_to_display)
 
     def start_data_acquisition(self):
@@ -64,20 +59,20 @@ class AppController(object):
 
     def stop_data_acquisition(self, save):
         self.encoder_controller.stop_data_acquisition()
-        if save:
-            self.save_data_to_dropbox()
+        self._save_data_to_dropbox(save)
         self.top_frame_controller.create_post_processing_panel()
 
-    def save_data_to_dropbox(self):
-        directory_name = (str(datetime.now().replace(microsecond=0)))
+    def _save_data_to_dropbox(self, save):
+        if save:
+            directory_name = (str(datetime.now().replace(microsecond=0)))
 
-        self.post_processing_database.refresh()
-        post_processing_data_string = self.post_processing_database.serialize_data_as_csv()
-        real_time_data_string = self.database.serialize_data_as_csv()
-        injection_table_string = InjectionTable().write_as_csv_string()
+            self.post_processing_database.refresh()
+            post_processing_data_string = self.post_processing_database.serialize_data_as_csv()
+            real_time_data_string = self.database.serialize_data_as_csv()
+            injection_table_string = InjectionTable().serialize_data_as_csv()
 
-        saver = DropboxSaver()
-        saver.save_data_to_dropbox(directory_name, self.REAL_TIME_FILENAME, real_time_data_string)
-        saver.save_data_to_dropbox(directory_name, self.POST_PROCESSING_FILENAME, post_processing_data_string)
-        saver.save_data_to_dropbox(directory_name, self.INJECTION_TABLE_FILENAME, injection_table_string)
+            saver = DropboxSaver()
+            saver.save_data_to_dropbox(directory_name, self.REAL_TIME_FILENAME, real_time_data_string)
+            saver.save_data_to_dropbox(directory_name, self.POST_PROCESSING_FILENAME, post_processing_data_string)
+            saver.save_data_to_dropbox(directory_name, self.INJECTION_TABLE_FILENAME, injection_table_string)
 

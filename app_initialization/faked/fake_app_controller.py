@@ -5,6 +5,6 @@ class FakeAppController(AppController):
     def _init_encoder_controller(self):
         self.encoder_controller = FakeEncoderController(self.database)
 
-    def save_data_to_dropbox(self):
+    def _save_data_to_dropbox(self):
         pass
 

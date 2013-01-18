@@ -1,4 +1,6 @@
 import pickle
+from configuration.app_settings import default_properties
+from configuration.property_does_not_exist_error import PropertyDoesNotExistError
 
 class PropertiesParser(object):
     def __init__(self):
@@ -22,6 +24,11 @@ class PropertiesParser(object):
     def get_property(self, name):
         try:
             return self.properties[name]
-        #TODO
         except KeyError:
-            return "0.258064"
+            return self._get_default_property(name)
+
+    def _get_default_property(self, name):
+        try:
+            return default_properties[name]
+        except KeyError:
+            raise PropertyDoesNotExistError(name)
