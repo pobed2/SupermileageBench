@@ -119,12 +119,14 @@ class RealTimeDatabase(object):
 
     def serialize_data_as_csv(self):
         data_string = ""
-        data_string += "Time, Positions, Velocities, Accelerations, Torques \n"
+        data_string += "Time, Positions, Positions_M, Velocities, Speeds_KMH, Accelerations, Torques \n"
 
         for i in range(len(self.time[:self.array_index])):
             data_string += (str(self.time[i]) + ",")
             data_string += (str(self.positions_in_rad[i]) + ",")
+            data_string += (str(self.positions_in_meters[i]) + ",")
             data_string += (str(self.velocities_in_rad[i]) + ",")
+            data_string += (str(self.speed_in_kmh[i]) + ",")
             data_string += (str(self.accelerations_in_rad[i]) + ",")
             data_string += (str(self.torques[i]) + "\n")
 

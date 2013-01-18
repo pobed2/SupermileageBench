@@ -42,4 +42,8 @@ class TopFrameController(object):
         injection_table_dialog = InjectionTableDialog(self, InjectionTable())
         injection_table_dialog.ShowModal()
 
+    def save_new_injection_table(self, dict):
+        injection_table = InjectionTable(dict)
+        injection_table.save_as_current()
+
 

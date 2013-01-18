@@ -26,7 +26,7 @@ class PositionMetersDropboxRepository(DropboxRepository):
     def __init__(self):
         super(PositionMetersDropboxRepository, self).__init__()
         self.x_data_getter = self.database.get_times
-        self.y_data_getter = self.database.get_positions_rad_time #TODO update this to meters
+        self.y_data_getter = self.database.get_positions_meters_time
 
 
 class SpeedRadiansDropboxRepository(DropboxRepository):
@@ -40,7 +40,7 @@ class SpeedMetersDropboxRepository(DropboxRepository):
     def __init__(self):
         super(SpeedMetersDropboxRepository, self).__init__()
         self.x_data_getter = self.database.get_times
-        self.y_data_getter = self.database.get_speeds_rad_time #TODO update this to meters
+        self.y_data_getter = self.database.get_speeds_meters_time
 
 
 class TorqueDropboxRepository(DropboxRepository):

@@ -121,8 +121,8 @@ class ComparablePlot(DataPlot):
 
     def _add_dropbox_lines(self):
         self.dropbox_lines = []
-        number_of_lines = len(self.dropbox_repository.get_x_data())
-        print number_of_lines
+        data = self.dropbox_repository.get_x_data()
+        number_of_lines = len(data)
         for _ in range(number_of_lines):
             self.dropbox_lines.append(
                 self.subplot.plot(
