@@ -2,6 +2,7 @@
 
 from configuration.properties_parser import PropertiesParser
 from databases.dropbox_database import DropboxDatabase
+from databases.injection_table import InjectionTable
 from databases.post_processing_database import PostProcessingDatabase
 from databases.real_time_database import RealTimeDatabase
 from gui.factories.subplots_factories import RealTimeSubplotFactory, PostProcessingSubplotFactory
@@ -16,6 +17,7 @@ class AppController(object):
         self._initializeApp()
         self.REAL_TIME_FILENAME = "RealTime.csv"
         self.POST_PROCESSING_FILENAME = "PostProcessing.csv"
+        self.INJECTION_TABLE_FILENAME = "InjectionTable.csv"
 
     def reset_app(self):
         self.top_frame_controller.close_frame()
@@ -73,8 +75,10 @@ class AppController(object):
         self.post_processing_database.refresh()
         post_processing_data_string = self.post_processing_database.serialize_data_as_csv()
         real_time_data_string = self.database.serialize_data_as_csv()
+        injection_table_string = InjectionTable().write_as_csv_string()
 
         saver = DropboxSaver()
         saver.save_data_to_dropbox(directory_name, self.REAL_TIME_FILENAME, real_time_data_string)
         saver.save_data_to_dropbox(directory_name, self.POST_PROCESSING_FILENAME, post_processing_data_string)
+        saver.save_data_to_dropbox(directory_name, self.INJECTION_TABLE_FILENAME, injection_table_string)
 
