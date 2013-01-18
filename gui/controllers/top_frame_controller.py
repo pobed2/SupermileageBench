@@ -1,3 +1,4 @@
+from configuration.app_settings import inertia_property, friction_property, real_time_plots_property, post_processing_plots_property
 from configuration.properties_parser import PropertiesParser
 from databases.injection_table import InjectionTable
 from gui.controllers.post_processing_panel_controller import PostProcessingPanelController
@@ -18,27 +19,29 @@ class TopFrameController(object):
         self.frame.Show(True)
         self.frame.Centre()
 
+    def close_frame(self):
+        self.frame.Close()
+
+    def create_post_processing_panel(self):
+        self.post_processing_controller.create_panel(self.frame)
+        self.frame.Layout()
+
+    #Handlers for PropertiesDialog
     def on_properties_click(self, event):
         properties_dialog = PropertiesDialog(self)
         properties_dialog.ShowModal()
 
     def save_properties(self, inertia, friction, real_time_plots, post_processing_plots):
         parser = PropertiesParser()
-        parser.save_property("Inertia", inertia)
-        parser.save_property("Friction", friction)
-        parser.save_property("Real-Time Plots", real_time_plots)
-        parser.save_property("Post-Processing Plots", post_processing_plots)
+        parser.save_property(inertia_property, inertia)
+        parser.save_property(friction_property, friction)
+        parser.save_property(real_time_plots_property, real_time_plots)
+        parser.save_property(post_processing_plots_property, post_processing_plots)
 
         parser.save_to_file()
 
-    def create_post_processing_panel(self):
-        self.post_processing_controller.create_panel(self.frame)
-        self.frame.Layout()
-
-    def close_frame(self):
-        self.frame.Close()
-
-    def on_injection_table_click(self, event):
+    #Handlers for InjectionTable
+    def on_injection_table_menu_click(self, event):
         injection_table_dialog = InjectionTableDialog(self, InjectionTable())
         injection_table_dialog.ShowModal()
 

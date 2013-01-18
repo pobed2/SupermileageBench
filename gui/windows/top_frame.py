@@ -19,7 +19,7 @@ class TopFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.controller.on_properties_click, menu_properties)
 
         menu_injection_table = self.menu_file.Append(-1, u"Table d'injection\tCtrl+T", u"Table d'injection")
-        self.Bind(wx.EVT_MENU, self.controller.on_injection_table_click, menu_injection_table)
+        self.Bind(wx.EVT_MENU, self.controller.on_injection_table_menu_click, menu_injection_table)
 
         self.menu_bar.Append(self.menu_file, "&File")
         self.SetMenuBar(self.menu_bar)

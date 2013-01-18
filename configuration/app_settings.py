@@ -35,8 +35,14 @@ post_processing_plots_class_dict = {_torque_rad_rpm: TorqueRpmWiseComparablePlot
                                     _speed_rad_time_comparable: SpeedRadiansTimewiseComparablePlot,
                                     _speed_meters_time_comparable: SpeedMetersTimewiseComparablePlot}
 
-_default_inertia = "0.258064"
-_default_friction = "0.0"
+inertia_property = u"Inertia"
+friction_property = u"Friction"
+real_time_plots_property = u"Real-Time Plots"
+post_processing_plots_property = u"Post-Processing Plots"
 
-default_properties = {"Inertia": _default_inertia, "Friction": _default_friction,
-                      "Real-Time Plots": real_time_plot_types, "Post-Processing Plots": post_processing_plot_types}
+_default_inertia = u"0.258064"
+_default_friction = u"0.0"
+
+default_properties = {inertia_property: _default_inertia, friction_property: _default_friction,
+                      real_time_plots_property: real_time_plot_types,
+                      post_processing_plots_property: post_processing_plot_types}

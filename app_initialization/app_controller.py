@@ -1,4 +1,5 @@
 #coding: utf-8
+from configuration.app_settings import real_time_plots_property, post_processing_plots_property
 
 from configuration.properties_parser import PropertiesParser
 from databases.dropbox_database import DropboxDatabase
@@ -45,10 +46,10 @@ class AppController(object):
         self.encoder_controller = EncoderController(self.database)
 
     def _init_real_time_subplots(self):
-        return self._init_subplots("Real-Time Plots", RealTimeSubplotFactory())
+        return self._init_subplots(real_time_plots_property, RealTimeSubplotFactory())
 
     def _init_post_processing_subplots(self):
-        return self._init_subplots("Post-Processing Plots", PostProcessingSubplotFactory())
+        return self._init_subplots(post_processing_plots_property, PostProcessingSubplotFactory())
 
     def _init_subplots(self, property, factory):
         plots_to_display = self.properties_parser.get_property(property)

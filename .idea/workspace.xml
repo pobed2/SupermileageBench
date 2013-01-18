@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="Refactored the app_controller">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configuration/property_does_not_exist_error.py" />
+    <list default="true" id="bc61c244-a2c1-470e-8041-0dc07bbfed2d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_initialization/app_controller.py" afterPath="$PROJECT_DIR$/app_initialization/app_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py" afterPath="$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration/app_settings.py" afterPath="$PROJECT_DIR$/configuration/app_settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configuration/properties_parser.py" afterPath="$PROJECT_DIR$/configuration/properties_parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/injection_table.py" afterPath="$PROJECT_DIR$/databases/injection_table.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/real_time_database.py" afterPath="$PROJECT_DIR$/databases/real_time_database.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/controllers/top_frame_controller.py" afterPath="$PROJECT_DIR$/gui/controllers/top_frame_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui/windows/top_frame.py" afterPath="$PROJECT_DIR$/gui/windows/top_frame.py" />
     </list>
     <ignored path="SupermileageBench.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,22 +35,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="properties_parser.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/configuration/properties_parser.py">
+      <file leaf-file-name="top_frame_controller.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/controllers/top_frame_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="31" selection-start="186" selection-end="186" vertical-scroll-proportion="0.08163265">
+            <state line="41" column="0" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.8367347">
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#132#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="property_does_not_exist_error.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/configuration/property_does_not_exist_error.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="26" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -60,19 +49,32 @@
       <file leaf-file-name="app_controller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+            <state line="62" column="34" selection-start="2592" selection-end="2592" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#16#76#0" expanded="true" />
+                <element signature="e#15#110#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="real_time_panel_controller.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py">
+      <file leaf-file-name="fake_app_controller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="7" column="40" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration/app_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="21" selection-start="2750" selection-end="2750" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#15#115#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,15 +104,15 @@
         <option value="$PROJECT_DIR$/gui/data_plotting/plot_base_classes.py" />
         <option value="$PROJECT_DIR$/gui/data_plotting/rpm_wise_plots.py" />
         <option value="$PROJECT_DIR$/databases/dropbox_database.py" />
-        <option value="$PROJECT_DIR$/gui/controllers/top_frame_controller.py" />
         <option value="$PROJECT_DIR$/gui/windows/injection_table_dialog.py" />
         <option value="$PROJECT_DIR$/databases/injection_table.py" />
-        <option value="$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py" />
         <option value="$PROJECT_DIR$/configuration/PropertyDoesNotExistError.py" />
         <option value="$PROJECT_DIR$/configuration/properties_parser.py" />
-        <option value="$PROJECT_DIR$/configuration/app_settings.py" />
         <option value="$PROJECT_DIR$/databases/real_time_database.py" />
         <option value="$PROJECT_DIR$/app_initialization/app_controller.py" />
+        <option value="$PROJECT_DIR$/gui/controllers/top_frame_controller.py" />
+        <option value="$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py" />
+        <option value="$PROJECT_DIR$/configuration/app_settings.py" />
       </list>
     </option>
   </component>
@@ -695,7 +697,11 @@
       <created>1358530910886</created>
       <updated>1358530910887</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Refactored the properties parser">
+      <created>1358534533960</created>
+      <updated>1358534533960</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -722,21 +728,21 @@
     <frame x="67" y="22" width="1853" height="1058" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17420067" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18676628" sideWeight="0.4034311" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18676628" sideWeight="0.4001107" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1599336" sideWeight="0.15154749" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.192031" sideWeight="0.81323373" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39487725" sideWeight="0.47260654" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18080549" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18676628" sideWeight="0.59269506" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18676628" sideWeight="0.5960155" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32990575" sideWeight="0.69254184" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -778,7 +784,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the app_controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the properties parser" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -791,7 +797,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Got the post processing panel working again" />
     <MESSAGE value="Created the Borg Pattern and applied it to the dropbox database" />
     <MESSAGE value="Solved the Borg problem by removing the super class and putting the init in each sub class" />
     <MESSAGE value="Mid way commit to checkbox working" />
@@ -816,6 +821,7 @@
     <MESSAGE value="Fixed the problem when removing a dropbox file. The line was staying on the plots" />
     <MESSAGE value="Cached the dropbox thing" />
     <MESSAGE value="Refactored the app_controller" />
+    <MESSAGE value="Refactored the properties parser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,30 +836,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gui/windows/injection_table_dialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1677" selection-end="1677" vertical-scroll-proportion="0.3877551" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm20/python_stubs/-1119952708/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3255" column="8" selection-start="110865" selection-end="110865" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/controllers/post_processing_panel_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="60" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.4489796" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/controllers/top_frame_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="43" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.44505495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/databases/post_processing_database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="8" selection-start="201" selection-end="201" vertical-scroll-proportion="0.082417585">
@@ -873,11 +855,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="273" selection-end="322" vertical-scroll-proportion="0.14285715" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supermileagebench/properties.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="1" selection-start="136" selection-end="144" vertical-scroll-proportion="0.24489796">
@@ -894,29 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/property_does_not_exist_error.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="26" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#16#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration/app_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="55" selection-start="70" selection-end="70" vertical-scroll-proportion="0.020775624">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/databases/real_time_database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="70" selection-start="393" selection-end="393" vertical-scroll-proportion="0.2857143">
@@ -926,18 +880,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/property_does_not_exist_error.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="26" selection-start="117" selection-end="117" vertical-scroll-proportion="0.08163265">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gui/controllers/real_time_panel_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0">
+        <state line="9" column="27" selection-start="475" selection-end="489" vertical-scroll-proportion="0.10578279">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/windows/properties_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="8" selection-start="291" selection-end="291" vertical-scroll-proportion="-0.46938777">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration/properties_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="31" selection-start="186" selection-end="186" vertical-scroll-proportion="0.08163265">
+        <state line="5" column="8" selection-start="195" selection-end="195" vertical-scroll-proportion="0.10204082">
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/windows/top_frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="8" selection-start="61" selection-end="61" vertical-scroll-proportion="0.10204082">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/windows/injection_table_dialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="24" selection-start="2482" selection-end="2482" vertical-scroll-proportion="0.81632656">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_initialization/app_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="34" selection-start="2592" selection-end="2592" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#15#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_initialization/faked/fake_app_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="40" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/app_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="21" selection-start="2750" selection-end="2750" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#15#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/controllers/top_frame_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.8367347">
+          <folding>
+            <element signature="e#0#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
