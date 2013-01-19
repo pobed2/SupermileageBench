@@ -19,22 +19,16 @@ class PostProcessingPanelController(Observer):
         self.panel = PostProcessingPanel(frame, self.subplots, names_of_comparable_files,
             self.property_parser.get_property(post_processing_plots_property))
         self.panel.add_panel_observers(self)
-        self.panel.draw_plot_canvas()
+        self.panel.refresh_canvas()
 
     def reset_app(self):
         self.app_controller.reset_app()
 
     def add_file_to_compare(self, filename):
-        self._add_data_line_to_canvas(filename)
-
-    def _add_data_line_to_canvas(self, filename):
         self.dropbox_repository.add_file_to_compare_to_data(filename)
         self.panel.refresh_canvas()
 
     def remove_file_to_compare(self, filename):
-        self._remove_line_from_canvas(filename)
-
-    def _remove_line_from_canvas(self, filename):
         self.dropbox_repository.remove_file_to_compare_to_data(filename)
         self.panel.refresh_canvas()
 

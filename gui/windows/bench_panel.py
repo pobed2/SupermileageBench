@@ -13,5 +13,9 @@ class BenchPanel(wx.Panel):
         for widget in self.widgets:
             widget.add_observer(observer)
 
-    def draw_plot_canvas(self):
+    def update_subplots(self, subplots):
+        self.plot_canvas.update_subplots(subplots)
+        self.refresh_canvas()
+
+    def refresh_canvas(self):
         self.plot_canvas.draw()
