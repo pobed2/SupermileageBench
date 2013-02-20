@@ -1,4 +1,4 @@
-from configuration.app_settings import real_time_plots_property
+from configuration.app_properties import real_time_plots_property
 from configuration.properties_parser import PropertiesParser
 from gui.factories.subplots_factories import RealTimeSubplotFactory
 from gui.mvc_helpers.observer import Observer
@@ -17,6 +17,10 @@ class RealTimePanelController(Observer):
             self.property_parser.get_property(real_time_plots_property))
         self._init_timer(panel_parent)
         self.panel.add_panel_observers(self)
+
+    def update_subplots(self, list_of_subplots):
+        self.real_time_subplots = self.subplot_factory.create_subplots(list_of_subplots)
+        self.panel.update_subplots(self.real_time_subplots)
 
     def _init_timer(self, parent):
         self.redraw_period = 100
@@ -44,9 +48,6 @@ class RealTimePanelController(Observer):
     def _stop_timer(self):
         self.redraw_timer.Stop()
 
-    def create_subplots(self, list_of_subplots):
-        self.real_time_subplots = self.subplot_factory.create_subplots(list_of_subplots)
-        self.panel.update_subplots(self.real_time_subplots)
 
 
 

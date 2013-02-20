@@ -1,11 +1,11 @@
 import wx
-from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
+from gui.custom_widgets.plot_selector import PlotSelector
 from gui.custom_widgets.reset_topbar import ResetTopbar
 
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.dropbox_files_sidebar import DropboxFilesSidebar
 from gui.custom_widgets.plot_canvas import PlotCanvas
-from configuration.app_settings import post_processing_plot_types
+from configuration.app_properties import post_processing_plot_types
 
 class PostProcessingPanel(BenchPanel):
     def __init__(self, parent, sub_data_plots, filenames_to_compare_to, subplots_names):

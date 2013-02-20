@@ -1,5 +1,5 @@
 #coding: utf-8
-from configuration.app_settings import real_time_plots_property, post_processing_plots_property
+from configuration.app_properties import real_time_plots_property, post_processing_plots_property
 
 from configuration.properties_parser import PropertiesParser
 from databases.dropbox_database import DropboxDatabase

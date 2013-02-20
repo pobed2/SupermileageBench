@@ -18,12 +18,7 @@ class DataPlot(object):
 
     def initialize_figure(self, figure):
         self.figure = figure
-
         return self._add_subplot()
-
-    def refresh_subplots(self):
-        self.subplot.clear()
-        self._add_subplot()
 
     def _add_subplot(self):
         self.subplot = self.figure.add_subplot(self.subplot_code)
@@ -39,6 +34,10 @@ class DataPlot(object):
         )[0]
 
         return self.subplot
+
+    def refresh_subplots(self):
+        self.subplot.clear()
+        self._add_subplot()
 
     def prepare_plot_for_draw(self):
         self._set_data()
@@ -103,7 +102,7 @@ class RealTimePlot(DataPlot):
 
 class ComparablePlot(DataPlot):
     '''
-    Base class for comparable plots
+    Base class for comparable (plots with multiple lines) plots
     '''
 
     def __init__(self, data_repository, dropbox_repository, subplot_code='111',

@@ -1,5 +1,5 @@
 import pickle
-from configuration.app_settings import default_properties
+from configuration.app_properties import default_properties
 from configuration.property_does_not_exist_error import PropertyDoesNotExistError
 
 class PropertiesParser(object):

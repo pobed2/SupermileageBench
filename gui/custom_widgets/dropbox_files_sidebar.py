@@ -1,6 +1,7 @@
 import wx
 from gui.mvc_helpers.observable import Observable
 from gui.mvc_helpers.observable_events import FileCheckedObservableEvent, FileUncheckedObservableEvent
+from gui.mvc_helpers.observer import Observer
 
 class DropboxFilesSidebar(wx.Panel, Observable):
     def __init__(self, parent, file_list=[]):

@@ -2,8 +2,8 @@
 
 import wx
 from configuration.properties_parser import PropertiesParser
-from gui.custom_widgets.custom_check_list_box import CustomCheckListBox
-from configuration.app_settings import real_time_plot_types, post_processing_plot_types
+from gui.custom_widgets.base_widgets.custom_check_list_box import CustomCheckListBox
+from configuration.app_properties import real_time_plot_types, post_processing_plot_types, inertia_property, friction_property, real_time_plots_property, post_processing_plots_property
 
 class PropertiesDialog(wx.Dialog):
     def __init__(self, controller):
@@ -24,12 +24,12 @@ class PropertiesDialog(wx.Dialog):
         constant_box = wx.StaticBox(dialog_panel, label=u'Constantes')
         constant_box_sizer = wx.StaticBoxSizer(constant_box, orient=wx.VERTICAL)
         fgs = wx.FlexGridSizer(4, 1, 9, 25)
-        inertia = wx.StaticText(self, label="Inertie")
-        friction = wx.StaticText(self, label="Constante de friction")
+        inertia = wx.StaticText(self, label=u"Inertie")
+        friction = wx.StaticText(self, label=u"Constante de friction")
         inertia_text_ctrl = wx.TextCtrl(self)
-        inertia_text_ctrl.AppendText(self.properties_parser.get_property("Inertia"))
+        inertia_text_ctrl.AppendText(self.properties_parser.get_property(inertia_property))
         friction_text_ctrl = wx.TextCtrl(self)
-        friction_text_ctrl.AppendText(self.properties_parser.get_property("Friction"))
+        friction_text_ctrl.AppendText(self.properties_parser.get_property(friction_property))
         fgs.AddMany([(inertia), (inertia_text_ctrl, 1, wx.EXPAND), (friction),
                      (friction_text_ctrl, 1, wx.EXPAND)])
         constant_box_sizer.Add(fgs)
@@ -38,14 +38,14 @@ class PropertiesDialog(wx.Dialog):
         real_time_plots_box = wx.StaticBox(dialog_panel, label=u'Temps-réel')
         real_time_box_sizer = wx.StaticBoxSizer(real_time_plots_box, orient=wx.VERTICAL)
         real_time_checkboxes = CustomCheckListBox(self, real_time_plot_types,
-            self.properties_parser.get_property("Real-Time Plots"))
+            self.properties_parser.get_property(real_time_plots_property))
         real_time_box_sizer.Add(real_time_checkboxes)
 
         #Post-processing plots properties
         post_processing_plots_box = wx.StaticBox(dialog_panel, label=u'Post-traitement')
         post_processing_box_sizer = wx.StaticBoxSizer(post_processing_plots_box, orient=wx.VERTICAL)
         post_processing_checkboxes = CustomCheckListBox(self, post_processing_plot_types,
-            self.properties_parser.get_property("Post-Processing Plots"))
+            self.properties_parser.get_property(post_processing_plots_property))
         post_processing_box_sizer.Add(post_processing_checkboxes)
 
         properties_sizer.Add(constant_box_sizer)

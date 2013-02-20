@@ -1,12 +1,12 @@
 #coding: utf-8
 
 import wx
-from gui.custom_widgets.plot_selection.plot_selector import PlotSelector
+from gui.custom_widgets.plot_selector import PlotSelector
 
 from gui.windows.bench_panel import BenchPanel
 from gui.custom_widgets.plot_canvas import PlotCanvas
 from gui.custom_widgets.start_stop_topbar import StartStopTopbar
-from configuration.app_settings import real_time_plot_types
+from configuration.app_properties import real_time_plot_types
 
 class RealTimePanel(BenchPanel):
     def __init__(self, parent, sub_data_plots, subplots_names):

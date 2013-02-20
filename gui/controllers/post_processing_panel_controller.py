@@ -1,4 +1,4 @@
-from configuration.app_settings import post_processing_plots_property
+from configuration.app_properties import post_processing_plots_property
 from configuration.properties_parser import PropertiesParser
 from data_access.dropbox_repositories import DropboxRepository
 from gui.factories.subplots_factories import PostProcessingSubplotFactory
@@ -21,6 +21,10 @@ class PostProcessingPanelController(Observer):
         self.panel.add_panel_observers(self)
         self.panel.refresh_canvas()
 
+    def update_subplots(self, list_of_subplots):
+        self.subplots = self.subplot_factory.create_subplots(list_of_subplots)
+        self.panel.update_subplots(self.subplots)
+
     def reset_app(self):
         self.app_controller.reset_app()
 
@@ -32,9 +36,7 @@ class PostProcessingPanelController(Observer):
         self.dropbox_repository.remove_file_to_compare_to_data(filename)
         self.panel.refresh_canvas()
 
-    def create_subplots(self, list_of_subplots):
-        self.subplots = self.subplot_factory.create_subplots(list_of_subplots)
-        self.panel.update_subplots(self.subplots)
+
 
 
 

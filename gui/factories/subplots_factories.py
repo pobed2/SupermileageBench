@@ -1,6 +1,6 @@
 #coding: utf-8
 
-from configuration.app_settings import real_time_plots_class_dict, post_processing_plots_class_dict
+from configuration.app_properties import real_time_plots_class_dict, post_processing_plots_class_dict
 
 class SubplotFactory(object):
     '''

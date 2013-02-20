@@ -20,12 +20,7 @@ class StartStopTopbar(wx.Panel, Observable):
         self.stop_button.Bind(wx.EVT_BUTTON, self.on_stop)
 
     def on_start(self, event):
-        for observer in self.observers:
-        #            observer.update("start")
-            observer.update(StartButtonClickedObservableEvent())
+        self.notify_observers(StartButtonClickedObservableEvent())
 
     def on_stop(self, event):
-        for observer in self.observers:
-            observer.update(StopButtonClickedObservableEvent())
-
-#            observer.update("stop")
+        self.notify_observers(StopButtonClickedObservableEvent())

@@ -1,4 +1,4 @@
-from configuration.app_settings import inertia_property, friction_property, real_time_plots_property, post_processing_plots_property
+from configuration.app_properties import inertia_property, friction_property, real_time_plots_property, post_processing_plots_property
 from configuration.properties_parser import PropertiesParser
 from databases.injection_table import InjectionTable
 from gui.controllers.post_processing_panel_controller import PostProcessingPanelController
