@@ -25,7 +25,7 @@ Utilisation
 
 Développement
 ===============
-You can use code>fake_supermileage_bench_app.py</code> for developement. Feeds fake data to the application, making it possible to use it without connecting the sensor.
+You can use <code>fake_supermileage_bench_app.py</code> for developement. Feeds fake data to the application, making it possible to use it without connecting the sensor.
 
 
 FRENCH VERSION
