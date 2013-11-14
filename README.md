@@ -17,13 +17,13 @@ To run it, you will need these:
   - wxPython 2.8
   - Dropbox Python API
 
-Utilisation
+How to use
 ===============
   - Connect Phidget sensor
   - Start application :
       <code>python supermileage_bench_app.py<code>
 
-Développement
+Dev.
 ===============
 You can use <code>fake_supermileage_bench_app.py</code> for developement. Feeds fake data to the application, making it possible to use it without connecting the sensor.
 
