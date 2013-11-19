@@ -54,3 +54,7 @@ Après avoir installé les outils, il est possible d'utiliser l'application.
 Développement
 ===============
 Pour le développement, on peut utiliser le <code>fake_supermileage_bench_app.py</code> pour éviter d'avoir à connecter le capteur puisque celui-ci se charge d'envoyer des fausses données dans l'application.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pobed2/supermileagebench/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
